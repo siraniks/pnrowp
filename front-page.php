@@ -34,13 +34,6 @@ get_header('main'); ?>
                     <!-- ?php echo do_shortcode('[smartslider3 slider=2]'); ? -->
                 </div>
             </div>
-            <!-- alert bar
-            <div class="alert alert-warning alert-dismissible fade in" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <i class="fa fa-exclamation-triangle fa-fw"></i>&nbsp;<strong>Still in Development. </strong> If you found some bugs, just let us know.
-            </div> -->
         </div>  
         
         <div class="container">
