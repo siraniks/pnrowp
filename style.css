@@ -54,36 +54,18 @@ This theme is mainly for PENRO / DENR but the knowledge on making this theme is 
 }
 
 html {
-/*
-    background-image: url(images/bg-horizon-trans.png);
-    background-repeat: no-repeat;
-    background-position: top left;
-    background-size: contain;
-    height: 100%;
-    width: auto;
-*/
 }
 
 body {
-/*
-    background-image: url(images/bg-horizon-trans.png);
-    background-repeat: no-repeat;
-    background-position: top left;
-    background-size: contain;
-    height: 100%;
-    width: auto;
-*/
     background-color: transparent;
 }
 
 blockquote {
     color: #373a3c;
-/*    background: #fff url(images/quote-mark-bg.jpg) top left no-repeat;*/
     background-color: #fff;
     background-image: url(images/quote-mark-bg.jpg), url(images/quote-mark-bg-2.jpg);
     background-position: top left, bottom right;
     background-repeat: no-repeat;
-    /*border-left: 5px solid #c1c1c1; */
     padding-left: 30px;
     line-height: 35px;
     font-family: Roboto Light, Verdana;
@@ -114,7 +96,6 @@ blockquote {
 }
 
 .card-block img {
-/*    width: 100%;*/
 }
 
 .card-img-wrapper {
@@ -148,33 +129,17 @@ blockquote {
     margin: auto;
 }
 
-/* Slide Deck overrides */
-
-.slidedeck-frame a.deck-navigation.horizontal {
-    z-index: 15 !important;
-}
-
-/*
-.slidedeck-overlays, .image {
-    display: none;
-}
-*/
-
 /* Sub-header */
 
 .newsp-header {
-    /*border-top: 2px ridge RGBA(0,0,0,0.125); */
-/*    border-bottom: 2px solid RGBA(0,0,0,0.125); */
     padding: 3px 0;
 }
 
 a.subhead-link {
-/*    color: black !important;*/
     text-decoration: none;
 }
 
 a.subhead-link:hover {
-/*    color: black !important;*/
 }
 
 /* floating menu button for mobile */
@@ -189,7 +154,6 @@ a.back-to-top {
     display: none;
     width: 60px;
     height: 60px;
-/*    transform: rotate(-90deg);*/
     font-size: 45px;
     text-decoration: none;
     position: fixed;
@@ -256,7 +220,6 @@ ul.pagenation li a:hover:not(.actve) {
 }
 
 .breadcrumb {
-/*    color: white !important;*/
 }
 
 .breadbg {
@@ -306,8 +269,6 @@ ul.pagenation li a:hover:not(.actve) {
 }
 
 .ownBtn {
-/*    color: white;*/
-/*    background-color: #0275d8;*/
     text-align: center;
     border-radius: 5px;
     padding: 5px 0;
@@ -315,7 +276,6 @@ ul.pagenation li a:hover:not(.actve) {
 }
 
 .ownBtn:hover {
-/*    background-color: aqua;*/
 }
 
 .ownBtn2 {
@@ -336,7 +296,6 @@ ul.pagenation li a:hover:not(.actve) {
     text-align: center;
     border-radius: 5px;
     padding: 5px;
-/*    margin: 0 5px !important;*/
 }
 
 /* announcement options */
@@ -348,12 +307,6 @@ ul.pagenation li a:hover:not(.actve) {
     overflow: hidden;
     display: block;
 }
-
-/*
-h3.annoucenement {
-    color: #0275d8;
-}
-*/
 
 /* transparency */
 img.transparency-seal75 {
@@ -417,7 +370,6 @@ img.transparency-seal25 {
 .news-item-wrapper {
     display: block;
     width: auto;
-/*    height: 230px;*/
     border-radius: 5px;
     border: 1px solid rgba(0,0,0, 0.125);
     padding: 20px 20px 5px 20px;
@@ -504,24 +456,10 @@ img.transparency-seal25 {
 }
 
 .logo a {
-/*    color: #36393b;*/
     text-decoration: none;
 }
 
 .logo a:hover {
-/*    color: #0275d8;*/
-}
-
-.logo a.sombra {
-/*
-    color: #36393b;
-    text-decoration: none;
-    cursor: default;
-*/
-}
-
-.logo a.sombra:focus {
-/*    outline: none;*/
 }
 
 .pnr {
@@ -594,7 +532,6 @@ img.transparency-seal25 {
 }
 
 .announcement img:hover {
-/*    border-color: #0275d8; */
     border-style: solid;
     border-width: 5px;
 }
@@ -633,11 +570,7 @@ img.transparency-seal25 {
 }
 
 .sidenav a {
-/*    padding: 8px 8px 8px 32px;*/
-/*    padding: 8px 8px 8px 32px;*/
     text-decoration: none;
-/*    font-size: 25px;*/
-/*    color: #818181;*/
     display: block;
     transition: 0.3s;
 }
@@ -690,7 +623,6 @@ img.transparency-seal25 {
     position: absolute;
     top: 120px;
     left: 15px;
-/*    color: white;*/
     color: #767676;
     font-weight: bold;
     z-index: 3;
@@ -703,7 +635,6 @@ img.transparency-seal25 {
     position: absolute;
     top: 198px;
     left: 15px;
-/*    color: white;*/
     color: #767676;
     font-weight: thin;
     z-index: 3;
@@ -740,17 +671,12 @@ li.mob-item-header {
 }
 
 li.mob-item-header a {
-/*    opacity: 0.5;*/
-/*    filter: alpha(0.5);*/
 }
 
 li.mob-item-header a:hover {
-/*    opacity: 1;*/
-/*    filter: alpha(1);*/
 }
 
 li.mob-item-header a::before {
-/*    content: '[+] ';*/
 }
 
 a.mob-link {
@@ -806,7 +732,6 @@ ul.unstyled li.footnav-first-level a {
 }
 
 ul.unstyled li.footnav-first-level a::before {
-/*    content: "[+] ";*/
 }
 
 ul.unstyled ul.footnav-second-level li {
@@ -1000,7 +925,6 @@ ul.unstyled ul.footnav-second-level li a:hover {
     border-radius: 5px;
     line-height: 15px;
     min-width: 260px;
-/*    white-space: nowrap;*/
 }
 
 .subnav-dropdown-content {
@@ -1094,8 +1018,6 @@ ul.unstyled2 {
 }
 
 .footer-sub {
-/*    background: #545454;*/
-/*    background-color: #767676;*/
     color: #b4b4b4;
     size: 8px;
 }
@@ -1277,15 +1199,9 @@ ul.unstyled2 {
     display: inline;
 }
 
-/** SlideDeck Overrides **/
-.lens-reporter.sd2-dark dd, .lens-reporter.sd2-dark dl {
-    background-color: #36393b !important;
-}
-
 /** M E N U - D R O P D O W N **/
 
 #primary_nav_wrap {
-/*    margin-top: 15px;*/
 }
 
 #primary_nav_wrap ul {
@@ -1300,7 +1216,6 @@ ul.unstyled2 {
     display: block;
     color: white;
     text-decoration: none;
-/*    font-weight: 700;*/
     font-size: 14px;
     line-height: 32px;
     padding: 0 15px;
@@ -1319,7 +1234,6 @@ ul.unstyled2 {
 
 #primary_nav_wrap ul li:hover {
     background-color: #373a3c;
-/*    text-decoration: underline;*/
 }
 
 #primary_nav_wrap ul ul {
@@ -1372,9 +1286,6 @@ ul.unstyled2 {
     overflow: hidden;
     padding: 20px;
     border: 1px solid rgba(0,0,0,0.15);
-/*    margin-top: 50px;*/
-/*    border-radius: 10px;*/
-/*    box-shadow: 2px 2px 14px rgba(0,0,0,0.25);*/
     position: relative;
     width: 600px;
 }
@@ -1506,13 +1417,6 @@ ul.mobi-menu li a {
 .dropdown, .mobi-sub-menu {
     display: none;
 }
-
-/* widget images */
-
-/*
-.w1, .w2, .w3, .w4, .w5, .w6 {
-    display: block;
-}*/
 
 /* ADMIN */
 
