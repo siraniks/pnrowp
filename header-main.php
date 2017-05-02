@@ -76,7 +76,7 @@
             </div>
         </div>
         
-        <nav id="mainnavbar" class="navbar navbar-fixed-top navbar-dark bg-primary hidden-sm-up">
+        <nav id="mainnavbar" class="navbar navbar-fixed-top navbg navbar-dark hidden-sm-up">
             <!-- Logo / brand -->
             <a class="align-middle navbar-brand" href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/apple-touch-icon.png" width="30" height="30" class="d-inline-block align-top" alt=""> PENRO <?php bloginfo('description'); ?></a>
         </nav>
@@ -94,8 +94,6 @@
                         <i class="cnr fa fa-phone fa-fw" aria-hidden="true"></i>&nbsp;<?php echo get_theme_mod('contact_telnum', 'Company call number'); ?>
                     </div>
                 </div>
-                
-                
                 
                 <!-- menu -->  
                 <div class="mobile-nav">
@@ -138,8 +136,6 @@
             </div><!-- sidenav content --> 
         </div><!-- sidenav -->
         
-
-        
         <!-- sub-header -->
         <div class="container">
             <div class="newsp-header">
@@ -162,7 +158,7 @@
         <!-- eo sub-header -->
 
         <!-- desktop -->
-        <nav id="primary_nav_wrap" class="navbar navbar-full bg-primary hidden-md-down">
+        <nav id="primary_nav_wrap" class="navbar navbar-full navbar-dark navbg hidden-md-down">
             <div class="container">
                 <ul>
                     <?php
