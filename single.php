@@ -32,10 +32,6 @@ get_header('main'); ?>
     
         <div class="container">
             <div class="row">
-                <div class="col-md-9">
-                </div>
-            </div>
-            <div class="row">
                 <!-- news section -->
                 
                 <div class="col-md-9">
@@ -54,14 +50,14 @@ get_header('main'); ?>
                             </ul>
                         </div>
                         <div style="clear: both" class="breadbg breadcrumb" typeof="BreadcrumbList" vocab="https://schema.org/">
-                            You are here: <?php if(function_exists('bcn_display'))
+                            <a href="<?php echo home_url(); ?>">Home</a> > <?php if(function_exists('bcn_display'))
                             {
                                 bcn_display();
                             }?>
                         </div>
                         
                         <div class="float-xs-right">
-                        <?php edit_post_link('<button id="editBtn" class="btn btn-primary" style="font-size: 12px;"><i class="fa fa-1x fa-fw fa-pencil-square-o" aria-hidden="true"></i> Edit This Post</button>'); ?> 
+                        <?php edit_post_link('<button id="editBtn" class="btn btn-primary" style="font-size: 12px;"><i class="fa fa-1x fa-fw fa-pencil-square-o" aria-hidden="true"></i> EDIT</button>'); ?> 
                         </div>
 <!--                    
                         <div class="tags float-xs-left">
