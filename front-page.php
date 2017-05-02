@@ -12,9 +12,6 @@ get_header('main'); ?>
 <main>
         <div class="container">
             <!-- Search bar (mobile-tablet only) -->
-            <!-- <div class="empty-top-margin hidden-lg-up"></div> -->
-            
-            <!-- announcement -->
             
             <div class="hidden-sm-up card card-block invisible">.</div>
             <div class="card card-block">
@@ -27,13 +24,6 @@ get_header('main'); ?>
                     </div>
                 </form>
             </div> 
-            
-            <div class="row">
-                
-                <div style="margin-bottom: 20px;">
-                    <!-- ?php echo do_shortcode('[smartslider3 slider=2]'); ? -->
-                </div>
-            </div>
         </div>  
         
         <div class="container">
@@ -47,30 +37,37 @@ get_header('main'); ?>
                 </div>
                 <div class="col-md-9">
                     
-
-                    
                 <!-- news section -->   
                     <h3 class="hidden-md-up center admintext">News</h3>
                     
                     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
                     
                     <div class="news-item-wrapper">
+                        <div class="float-xs-right">
+                                <?php edit_post_link('<button id="editBtn" class="btn btn-primary" style="font-size: 12px;"><i class="fa fa-1x fa-fw fa-pencil-square-o" aria-hidden="true"></i> EDIT</button>'); ?> 
+                                </div>
                         <div class="row">
-                            <!-- 
+                             
                             <div class="col-sm-4 news-item-img">
-                                <a href="<php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <php the_title_attribute(); ?>">
-                                <php if ( is_singular() and has_post_thumbnail() ) {
+                                <a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
+                                <!--<php if ( is_singular() and has_post_thumbnail() ) {
                                     the_post_thumbnail('post-thumbnail', ['class' => 'img-fluid', 'title' => 'Feature Image']);
                                 } else { ?>
-                                    <img src="<php echo get_first_image_url ($post->ID); ?>" class="img-fluid" title="Featured Image" alt="?php the_title(); ?>"/>
-                                <php } ?>
+                                    <img src="<php echo get_first_image_url ($post->ID); ?>" class="img-fluid" title="Featured Image" alt="<php the_title(); ?>"/>
+                                <php } ?>-->
+                                
+                                    <?php if ( in_category('news') ) { ?>
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/1.jpg" />
+                                    <?php } else if ( in_category('announcement') ) { ?>
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/2.jpg" />
+                                    <?php } else { ?> 
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/3.jpg" />
+                                    <?php } ?>
                                 </a>
                             </div>
-                            -->
-                            <div class="col-sm-12">
-                                <div class="float-xs-right">
-                                <?php edit_post_link('<button id="editBtn" class="btn btn-primary" style="font-size: 12px;"><i class="fa fa-1x fa-fw fa-pencil-square-o" aria-hidden="true"></i> Edit This Post</button>'); ?> 
-                                </div>
+                            
+                            <div class="col-sm-7">
+                                
                                 
                                 <div id="post-<?php the_ID(); ?>" <?php post_class( 'card-block news-item-content' ); ?>>
                                     <h6 class="cat-text"><?php the_category( ', ' ); ?></h6>
