@@ -1979,7 +1979,7 @@ function headerOutput() {
             }
             
             .announcement img:hover  {
-                border-color: <?php echo get_theme_mod('panel_links_color', '#0275d8') ?> !important;
+                box-shadow: 0 0 2px 1px <?php echo get_theme_mod('panel_links_color', '#0275d8') ?> !important;
             }
             
             .top-nav {
@@ -2025,11 +2025,15 @@ function headerOutput() {
             /** BOOTSTRAP OVERRIDES **/
             
             .modal-dialog a p b i, .nf-form-wrap {
-                color: color: <?php echo get_theme_mod('panel_text_color', '#FFFFFF') ?> !important; 
+                color: <?php echo get_theme_mod('panel_text_color', '#FFFFFF') ?> !important; 
             }
             
             .modal-dialog a h3 {
-                color: color: <?php echo get_theme_mod('panel_links_color', '#FFFFFF') ?>; 
+                color: <?php echo get_theme_mod('panel_links_color', '#FFFFFF') ?>; 
+            }
+            
+            .news-item-img {
+                border-color: <?php echo get_theme_mod('panel_links_color', '#FFFFFF') ?>;
             }
             
             /** WIDGET **/
