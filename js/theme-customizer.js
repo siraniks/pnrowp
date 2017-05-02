@@ -159,6 +159,7 @@
             $('.announcement img:hover').css('border-color', to );
             //$('.top-nav').css('background-color', to );
             $('.admintext').css('color', to );
+            $('.news-item-img').css('border-color', to );
 		} );
 	} );
     
@@ -251,7 +252,7 @@
 		value.bind( function( to ) {
             var imp = ' !important';
             $('#mainnavbtn').css( 'background-color', to );
-            $('.navbar').css( 'background-color', to + imp );
+            $('.navbg').css( 'background-color', to + imp );
             $('#primary_nav_wrap ul ul a:hover').css( 'background-color', to );
             $('#mainnavbtn').css( 'border-color', to );
 		} );
