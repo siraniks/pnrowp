@@ -1401,23 +1401,6 @@ function penrowp_options ( $wp_customize ) {
     
     // Panel (21-30)
     
-//    $wp_customize->add_control ( new WP_Customize_Control (
-//        $wp_customize,
-//        'panel_text_color_control',
-//        array (
-//            'label'         => __( 'Content - Panel Text Color', 'penrowp2-0' ),
-//            'description'   => __( 'The text inside the main content found on front-page and blog.', 'penrowp2-0' ),
-//            'section'       => 'pwp_content_options',
-//            'settings'      => 'panel_text_color',
-//            'priority'      => '21',
-//            'type'          => 'radio',
-//            'choices'       => array (
-//                '#ffffff'     =>  'Light',
-//                '#292b2c'     =>  'Dark'
-//            )
-//        )
-//    ));
-    
     $wp_customize->add_control ( new WP_Customize_Color_Control (
         $wp_customize,
         'panel_links_color_control',
@@ -1430,23 +1413,6 @@ function penrowp_options ( $wp_customize ) {
         )
     ));
     
-//    $wp_customize->add_control ( new WP_Customize_Control (
-//        $wp_customize,
-//        'panel_bg_color_control',
-//        array (
-//            'label'         => __( 'Content - Panel BG Color', 'penrowp2-0' ),
-//            'description'   => __( 'The background panel found on front-page and blog.', 'penrowp2-0' ),
-//            'section'       => 'pwp_content_options',
-//            'settings'      => 'panel_bg_color',
-//            'priority'      => '23',
-//            'type'          => 'radio',
-//            'choices'       => array (
-//                '#ffffff'     =>  'Light',
-//                '#292b2c'     =>  'Dark'
-//            )
-//        )
-//    ));
-    
     $wp_customize->add_control ( new WP_Customize_Control (
         $wp_customize,
         'btn_color_control',
@@ -1458,11 +1424,13 @@ function penrowp_options ( $wp_customize ) {
             'priority'      => '24',
             'type'          => 'select',
             'choices'       => array (
-                '#0275d8'     =>  'Blue',
+                '#d9534f'     =>  'Red',
                 '#5cb85c'     =>  'Green',
-                '#5bc0de'     =>  'Light-Blue',
+                '#81d94f'     =>  'Lime-Green',
+                '#d9d54f'     =>  'Yellow',
+                '#4fd980'     =>  'Blue-Green',
                 '#f0ad4e'     =>  'Orange',
-                '#d9534f'     =>  'Red'
+                '#a74fd9'     =>  'Purple',
             )
         )
     ));
@@ -1776,11 +1744,14 @@ function penrowp_options ( $wp_customize ) {
             'priority'      => '31',
             'type'          => 'select',
             'choices'       => array (
-                '#0275d8'     =>  'Blue',
-                '#5cb85c'     =>  'Green',
-                '#5bc0de'     =>  'Light-Blue',
-                '#f0ad4e'     =>  'Orange',
+                '#0275d8'     =>  'Default (Blue)',
                 '#d9534f'     =>  'Red',
+                '#5cb85c'     =>  'Green',
+                '#81d94f'     =>  'Lime-Green',
+                '#d9d54f'     =>  'Yellow',
+                '#4fd980'     =>  'Blue-Green',
+                '#f0ad4e'     =>  'Orange',
+                '#a74fd9'     =>  'Purple',
                 '#292b2c'     =>  'Dark'
             )
         )
@@ -1813,55 +1784,21 @@ function penrowp_options ( $wp_customize ) {
             'priority'      => '33',
             'type'          => 'select',
             'choices'       => array (
-                '#ffffff'     =>  'Light',
-                '#0275d8'     =>  'Blue',
-                '#5cb85c'     =>  'Green',
-                '#5bc0de'     =>  'Light-Blue',
-                '#f0ad4e'     =>  'Orange',
+                '#0275d8'     =>  'Default (Blue)',
                 '#d9534f'     =>  'Red',
-                '#292b2c'     =>  'Dark'
+                '#5cb85c'     =>  'Green',
+                '#81d94f'     =>  'Lime-Green',
+                '#d9d54f'     =>  'Yellow',
+                '#4fd980'     =>  'Blue-Green',
+                '#f0ad4e'     =>  'Orange',
+                '#a74fd9'     =>  'Purple',
+                '#ffffff'     =>  'Light',
+                '#292b2c'     =>  'Dark',
+                
+                
             )
         )
     ));
-    
-//    $wp_customize->add_control ( new WP_Customize_Control (
-//        $wp_customize,
-//        'menu_login-btn_color_control',
-//        array (
-//            'label'         => __( 'Menu - Login Button Color', 'penrowp2-0' ),
-//            'section'       => 'pwp_content_options',
-//            'settings'      => 'menu_login-btn_color',
-//            'priority'      => '32',
-//            'type'          => 'select',
-//            'choices'       => array (
-//                '#292b2c'     =>  'Dark',
-//                '#0275d8'     =>  'Blue',
-//                '#5cb85c'     =>  'Green',
-//                '#5bc0de'     =>  'Light-Blue',
-//                '#f0ad4e'     =>  'Orange',
-//                '#d9534f'     =>  'Red'
-//            )
-//        )
-//    ));
-    
-//    $wp_customize->add_control ( new WP_Customize_Control (
-//        $wp_customize,
-//        'menu_feedback-btn_color_control',
-//        array (
-//            'label'         => __( 'Menu - Feedback Button Color', 'penrowp2-0' ),
-//            'section'       => 'pwp_content_options',
-//            'settings'      => 'menu_feedback-btn_color',
-//            'priority'      => '33',
-//            'type'          => 'select',
-//            'choices'       => array (
-//                '#0275d8'     =>  'Blue',
-//                '#5cb85c'     =>  'Green',
-//                '#5bc0de'     =>  'Light-Blue',
-//                '#f0ad4e'     =>  'Orange',
-//                '#d9534f'     =>  'Red'
-//            )
-//        )
-//    ));
     
     // Footer (41-50)
     
@@ -1900,18 +1837,6 @@ function penrowp_options ( $wp_customize ) {
             'priority'      => '43',
         )
     ));
-    
-//    $wp_customize->add_control ( new WP_Customize_Color_Control (
-//        $wp_customize,
-//        'footer_link_color_control',
-//        array (
-//            'label'         => __( 'Footer - Footer Link Color', 'penrowp2-0' ),
-//            'section'       => 'pwp_content_options',
-//            'settings'      => 'footer_link_color',
-//            'priority'      => '43',
-//        )
-//    ));
-    
     
     $wp_customize->add_control ( new WP_Customize_Image_Control (
         $wp_customize,
@@ -1986,8 +1911,13 @@ function headerOutput() {
 /*                background-color: <php echo get_theme_mod('panel_links_color', '#373a3c') ?> !important;*/
             }
             
+            /** BREADCRUMBS **/
             .breadcrumb {
                 color: <?php echo get_theme_mod('panel_bg_color', '#FFFFFF') ?>;
+            }
+            
+            .breadbg {
+                background: <?php echo get_theme_mod('panel_text_color', '#FFFFFF') ?>;
             }
             
             .breadcrumb a, .announcement li a {
@@ -1998,9 +1928,7 @@ function headerOutput() {
                 border-color: <?php echo get_theme_mod('panel_links_color', '#0275d8') ?>;
             }
             
-            .breadbg {
-                background: <?php echo get_theme_mod('panel_text_color', '#FFFFFF') ?>;
-            }
+            
             
             .card, .news-item-wrapper  { 
                 background-color: <?php echo get_theme_mod('panel_bg_color', '#FFFFFF') ?>;
@@ -2069,7 +1997,7 @@ function headerOutput() {
                 border-color: <?php echo get_theme_mod('menu_btn_color', '#5cb85c') ?>;
             }
             
-            .navbar, #primary_nav_wrap ul ul a:hover {
+            .navbg, #primary_nav_wrap ul ul a:hover {
                 background-color: <?php echo get_theme_mod('menu_btn_color', '#5cb85c') ?> !important;
             }
             
