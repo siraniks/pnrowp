@@ -74,14 +74,6 @@
                 </div><!-- row-fluid -->
             </div><!-- container footer sub -->
         </div><!-- footer -->
-    
-        <!-- Modal -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/sombra.png" data-dismiss="modal" aria-label="Close" style="width: 100%;"/>
-              <h3 class="text-white center">Sombra hacked this site</h3>
-          </div>
-        </div>
             
         <!-- Feedback Form -->
         <?php if(function_exists('dynamic_sidebar') && dynamic_sidebar("Feedback")):else: ?><?php endif; ?>
