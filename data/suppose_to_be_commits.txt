@@ -1,0 +1,22 @@
+ok this was supposed to be commits but then have been lost because I delete a branch ... 
+
+No more footer navigation 
+
+footer.php
+- added Office logon on the left 
+- moved Transparency Seal on the right 
+- added office agency name, address and contact details at the middle
+
+functions.php 
+- comment:add_responsive_class part as it giving a bad result when looking for empty post (temporary)
+- css: added default background image on body
+- css: added default background image on footer
+
+.header-main 
+- rearranged sidenav-header-subcontent and add office address
+- added button label on feedback and login
+- date move to the left side
+
+style.css
+- add new values - .foot-kgw, .foot-pnr, .foot-reg, .foot-adr, .foot-telfax, .foot-email
+
