@@ -238,26 +238,26 @@ add_action('widgets_init', 'frontpage_widget');
 //}
 //add_filter('the_content', 'filter_images');
 
-// adds additional class to <img> inside content 
-function add_responsive_class($content){
-
-        $content = mb_convert_encoding($content, 'HTML-ENTITIES', "UTF-8");
-        $document = new DOMDocument();
-        libxml_use_internal_errors(true);
-        $document->loadHTML(utf8_decode($content));
-
-        $imgs = $document->getElementsByTagName('img');
-        foreach ($imgs as $img) {           
-            $existing_class = $img->getAttribute('class');
-            $img->setAttribute('class', 'img-fluid img-thumbnail ' . $existing_class);
-           //$img->setAttribute('class','img-fluid img-thumbnail');
-        }
-
-        $html = $document->saveHTML();
-        return $html;   
-}
-
-add_filter('the_content', 'add_responsive_class');
+// adds additional class to <img> inside content (DONT DELETE THIS YET)
+//function add_responsive_class($content){
+//
+//        $content = mb_convert_encoding($content, 'HTML-ENTITIES', "UTF-8");
+//        $document = new DOMDocument();
+//        libxml_use_internal_errors(true);
+//        $document->loadHTML(utf8_decode($content));
+//
+//        $imgs = $document->getElementsByTagName('img');
+//        foreach ($imgs as $img) {           
+//            $existing_class = $img->getAttribute('class');
+//            $img->setAttribute('class', 'img-fluid img-thumbnail ' . $existing_class);
+//           //$img->setAttribute('class','img-fluid img-thumbnail');
+//        }
+//
+//        $html = $document->saveHTML();
+//        return $html;   
+//}
+//
+//add_filter('the_content', 'add_responsive_class');
 
 
 // Bootstrap Pagination style
