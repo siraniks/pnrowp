@@ -16,7 +16,6 @@ This theme is mainly for PENRO / DENR but the knowledge on making this theme is 
 
 @import url(css/bootstrap-reboot.min.css);
 @import url(css/bootstrap.min.css);
-/*@import url(css/font-awesome.min.css);*/
 
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
@@ -418,14 +417,26 @@ img.transparency-seal25 {
 }
 
 .cat-text {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: normal;
-    padding-bottom: 5px;
-    margin-top: -20px;
+    margin-bottom: 15px;
+    text-decoration: none;
 }
 
 .cat-text a {
     color: #c1c1c1;
+    border: thin solid;
+    padding: 3px 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.cat-text a:hover {
+    color: white;
+    text-decoration: none;
 }
 
 .news-title {
@@ -463,8 +474,20 @@ img.transparency-seal25 {
     padding-left: 15px;
 }
 
+.announcement ul li a {
+    color: black !important;
+}
+
+.announcement ul li a:hover {
+/*    text-decoration: underline;*/
+    background-color: black;
+    border-radius: 5px;
+}
+
 .announcement ul li:before {
-    content: '[+] ';
+    border-left: 5px solid;
+    padding-left: 15px;
+    content: '';
 }
 
 .cat-item li {
@@ -1123,6 +1146,13 @@ ul.unstyled2 {
     content: " ";
 }
 
+.cat-icon {
+/*
+    opacity: 0.1;
+    filter: alpha(opacity=10);  For IE8 and earlier 
+*/
+}
+
 .sharelist {
     display: block;
     list-style: none;
@@ -1469,4 +1499,11 @@ ul.mobi-menu li a {
 /** EDIT POST **/
 p.editThePost {
     padding-bottom: 15px;
+}
+
+/** SEARCH BAR **/
+
+.searchbtn:hover {
+    background-color: white;
+    color: #373a3c;
 }
