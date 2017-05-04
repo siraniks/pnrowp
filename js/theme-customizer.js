@@ -160,6 +160,7 @@
             //$('.top-nav').css('background-color', to );
             $('.admintext').css('color', to );
             $('.news-item-img').css('border-color', to );
+            $('.announcement ul li:before').css('border-color', to );
 		} );
 	} );
     
@@ -182,6 +183,7 @@
             $('#mainnavbtn').css( 'background-color', to );
             $('#mainnavbtn').css( 'border-color', to );
             $('.cat-text a').css('color', to );
+            $('.cat-icon').css('color', to );
 		} );
 	} );
     
@@ -252,7 +254,8 @@
 		value.bind( function( to ) {
             var imp = ' !important';
             $('#mainnavbtn').css( 'background-color', to );
-            $('.navbg').css( 'background-color', to + imp );
+            $('#mainnavbar').css( 'background-color', to );
+            $('#primary_nav_wrap').css( 'background-color', to );
             $('#primary_nav_wrap ul ul a:hover').css( 'background-color', to );
             $('#mainnavbtn').css( 'border-color', to );
 		} );

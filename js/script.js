@@ -2,17 +2,10 @@ var $ = jQuery.noConflict();
 
 $(document).ready(function () {
     
-    
     // Tooltip
     "use strict";
     $('[data-toggle="tooltip"]').tooltip();
     // $('a').tooltip('show'); // this is to test if tooltips work
-    
-    // Clipboard
-    $('#copyclipboard').click(function () {
-       // some function to copy contents to clipboard
-    });
-
     
     // Add a class to image thumbnail inside the_content
     //$('#contentThumbs').addClass('img-fluid img-thumbnail');
@@ -45,24 +38,6 @@ $(document).ready(function () {
     $(".maps").mouseleave(function () {
         $('.maps iframe').css("pointer-events", "none");
     });
-    
-    // For Navigation 
-    /*$('.nav-dropdown-content').mouseover(function () {
-        $(this).className = 
-    });*/
-    
-    /*$('.nav-dropdown-content').mouseleave(function () {
-        $(this).css("background-color", "#ffffff"); 
-    });*/
-    
-    // For Overlay and Sidebar
-//    $('#menubtn').click(function () {
-//        $('#mySidenav').css("width", "280px");
-//        $('#sidenav-overlay').css("background-color", "rgba(0,0,0,0.9)");
-//        $('#sidenav-overlay').css("pointer-events", "auto");
-//        $('body').css("overflow-y", "hidden");
-//        $('ac-small').css('height', 0);
-//    });
     
     $('#mainnavbtn').click(function () {
         $('#mySidenav').css("width", "280px");
@@ -125,23 +100,6 @@ $(document).ready(function () {
             $(this).parent().children('mobi-sub-menu:first').show();
         }
     });
-    
-    /*//Dropdown hover
-    $(".dropdown-hover").hover(            
-            function () {
-                $('.dropdown-menu', this).stop( true, true ).fadeIn("fast");
-                $(this).toggleClass('open');
-                $('b', this).toggleClass("caret caret-up");                
-            },
-            function () {
-                $('.dropdown-menu', this).stop( true, true ).fadeOut("fast");
-                $(this).toggleClass('open');
-                $('b', this).toggleClass("caret caret-up");                
-            }); */
-    
-//        $('.mob-item-header').before( '<i class="fa fa-user fa-fw" aria-hidden="true"></i>'  ); 
-    
-    
     
 });
 
