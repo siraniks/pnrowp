@@ -47,6 +47,9 @@
         <!-- make this as a navmenu instead - default values - navbar-full -->
         <nav class="top-nav navbar-full navbar-dark bg-inverse hidden-md-down">
             <div class="container">
+                <a id="feedbackbtn" href="#" class="float-xs-right hidden-lg-down ownBtn-login-sm btn-success xbtn" data-toggle="modal" data-target="#feedbackModal"><i class="fa fa-comments fa-fw" aria-hidden="true"></i></a>
+                <a id="loginbtn" href="<?php echo home_url(); ?>/wp-login.php" class="float-xs-right hidden-lg-down ownBtn-login-sm btn-primary"><i class="fa fa-1x fa-fw fa-sign-in" aria-hidden="true"></i></a>
+                
                 <span class="navbar-text float-xs-left">
                     <?php
                     $menuparameters = array(
@@ -141,9 +144,9 @@
             <div class="newsp-header">
                 <button id="mainnavbtn" type="button" class="btn btn-success btn-sm float-xs-right float-top hidden-md-up"><i class="fa fa-navicon fa-fw" aria-hidden="true"></i>MENU</button>
                 
-                <a id="feedbackbtn" href="#" class="float-xs-right hidden-lg-down ownBtn-login-sm btn-success xbtn" data-toggle="modal" data-target="#feedbackModal"><i class="fa fa-comments fa-fw" aria-hidden="true"></i></a>
                 
-                <a id="loginbtn" href="<?php echo home_url(); ?>/wp-login.php" class="float-xs-right hidden-lg-down ownBtn-login-sm btn-primary"><i class="fa fa-1x fa-fw fa-user" aria-hidden="true"></i></a>
+                
+                
                 
                 <p class="float-xs-right hidden-lg-down"><i class="cnr fa fa-calendar fa-fw" aria-hidden="true"></i><a href="#" class="subhead-link" data-toggle="tooltip" data-placement="bottom" title="Today is">&nbsp;<?php echo date_i18n( get_option( 'date_format' ), strtotime( '11/15-1976' ) ); ?></a></p>
             
@@ -158,7 +161,7 @@
         <!-- eo sub-header -->
 
         <!-- desktop -->
-        <nav id="primary_nav_wrap" class="navbar navbar-full navbar-dark navbg hidden-md-down">
+        <nav id="primary_nav_wrap" class="navbar navbar-full navbar-dark hidden-md-down">
             <div class="container">
                 <ul>
                     <?php

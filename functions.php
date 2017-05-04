@@ -1899,7 +1899,7 @@ function headerOutput() {
 /*                border-color: <?php echo get_theme_mod('panel_text_color', '#373a3c') ?>;*/
             }
             
-            .card-title a, .news-item-wrapper a, #sidebar a, h3.headertext, i.cnr, .admintext, a.subhead-link:hover  {
+            .card-title a, .news-item-wrapper a, #sidebar a, h3.headertext, i.cnr, .admintext, a.subhead-link:hover {
                 color: <?php echo get_theme_mod('panel_links_color', '#0275d8') ?>;
             }
             
@@ -1920,11 +1920,11 @@ function headerOutput() {
                 background: <?php echo get_theme_mod('panel_text_color', '#FFFFFF') ?>;
             }
             
-            .breadcrumb a, .announcement li a {
+            .breadcrumb a {
                 color: <?php echo get_theme_mod('panel_links_color', '#FFFFFF') ?>;
             }
             
-            .announcement img:hover {
+            .announcement img:hover, .announcement ul li:before {
                 border-color: <?php echo get_theme_mod('panel_links_color', '#0275d8') ?>;
             }
             
@@ -1934,8 +1934,28 @@ function headerOutput() {
                 background-color: <?php echo get_theme_mod('panel_bg_color', '#FFFFFF') ?>;
             }
             
-            a.back-to-top:hover, .cat-text a {
+            a.back-to-top:hover {
                 color: <?php echo get_theme_mod('btn_color', '#0275d8') ?>;
+            }
+            
+            .cat-icon {
+                color: <?php echo get_theme_mod('btn_color', '#0275d8') ?>;
+                opacity: 0.5;
+                filter: alpha(opacity=50); /* IE8 or earlier */
+            }
+            
+            .cat-text a {
+                border-color: <?php echo get_theme_mod('btn_color', '#0275d8') ?>;
+            }
+            
+            .cat-text a:hover {
+                background-color: <?php echo get_theme_mod('btn_color', '#0275d8') ?>;
+            }
+            
+            .searchbtn:hover {
+                color: white;
+                background-color: <?php echo get_theme_mod('btn_color', '#0275d8') ?>;
+                border-color: <?php echo get_theme_mod('btn_color', '#0275d8') ?>;
             }
             
             #readBtn, #editBtn {
@@ -1997,7 +2017,7 @@ function headerOutput() {
                 border-color: <?php echo get_theme_mod('menu_btn_color', '#5cb85c') ?>;
             }
             
-            .navbg, #primary_nav_wrap ul ul a:hover {
+            #mainnavbar, #primary_nav_wrap,  #primary_nav_wrap ul ul a:hover {
                 background-color: <?php echo get_theme_mod('menu_btn_color', '#5cb85c') ?> !important;
             }
             
@@ -2028,7 +2048,7 @@ function headerOutput() {
             
             .footer {
                 background-color: <?php echo get_theme_mod('footer_bg_color') ?>;
-                background-image: url(<?php echo get_theme_mod('footer_bg_image') ?>);
+                background-image: url(<?php echo get_theme_mod('footer_bg_image', get_template_directory_uri() . '/images/footer-bg.png') ?>);
             }
             
             .footer-sub, .footer-sub p, .footer-sub a {

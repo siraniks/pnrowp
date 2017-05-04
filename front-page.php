@@ -19,7 +19,7 @@ get_header('main'); ?>
                     <div class="input-group">
                         <input type="text" class="form-control" value name="s" placeholder="Search for...">
                         <span class="input-group-btn">
-                             <button type="submit" class="btn btn-secondary" type="button"><i class="fa fa-search" aria-hidden="true"></i></button> 
+                             <button type="submit" class="btn btn-secondary searchbtn" type="button"><i class="fa fa-search" aria-hidden="true"></i></button> 
                         </span>
                     </div>
                 </form>
@@ -53,13 +53,15 @@ get_header('main'); ?>
                                     
                                     
                                     
-                                    <h6 class="cat-text"><?php the_category( ', ' ); ?></h6>
+                                    <h6 class="cat-text"><?php the_category( ' ' ); ?></h6>
                                     <h4 class="card-title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h4>
+                                    
                                     <p class="editThePost"><?php edit_post_link('EDIT'); ?></p>
                                     
                                     <?php the_excerpt(); ?>
                                     
-                                    <a id="readBtn" href="<?php the_permalink(); ?>" class="btn btn-primary"><?php echo get_theme_mod( 'read-btn_textbox' ); ?></a>
+                                    <a id="readBtn" href="<?php the_permalink(); ?>" class="btn btn-primary"><?php echo get_theme_mod( 'read-btn_textbox', 'Read' ); ?></a>
+                                    
                                 </div>
                             </div>
                             
