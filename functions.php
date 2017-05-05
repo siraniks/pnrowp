@@ -658,10 +658,21 @@ function penrowp_options ( $wp_customize ) {
     // S E C T I O N S \\
     
     $wp_customize->add_section (
+        'pwp_sect_contact',
+        array (
+            'title'         => __( 'Contact Details', 'penrowp2-0' ),
+            'priority'      => 1,
+            'capability'    => 'edit_theme_options',
+            'description'   => __( 'Add contact details - email, address and telephone number', 'penrowp2-0' ),
+            'panel'         => 'pwp_panel',
+        )
+    );
+    
+    $wp_customize->add_section (
         'pwp_sect_sitebg',
         array (
             'title'         => __( 'Background', 'penrowp2-0' ),
-            'priority'      => 1,
+            'priority'      => 2,
             'capability'    => 'edit_theme_options',
             'description'   => __( 'Change image or color of the background.', 'penrowp2-0' ),
             'panel'         => 'pwp_panel',
@@ -673,7 +684,7 @@ function penrowp_options ( $wp_customize ) {
         'pwp_sect_header',
         array (
             'title'         => __( 'Header', 'penrowp2-0' ),
-            'priority'      => 1,
+            'priority'      => 3,
             'capability'    => 'edit_theme_options',
             'description'   => __( 'Change text color and add contact details.', 'penrowp2-0' ),
             'panel'         => 'pwp_panel',
@@ -681,12 +692,12 @@ function penrowp_options ( $wp_customize ) {
     );
     
     $wp_customize->add_section (
-        'pwp_sect_admin',
+        'pwp_sect_menu',
         array (
-            'title'         => __( 'Administrators', 'penrowp2-0' ),
-            'priority'      => 2,
+            'title'         => __( 'Menu', 'penrowp2-0' ),
+            'priority'      => 4,
             'capability'    => 'edit_theme_options',
-            'description'   => __( 'Change the portraits of the office administrators.', 'penrowp2-0' ),
+            'description'   => __( 'Change the color of menu buttons, links and background color. (click Menu first to see changes in the previewer)', 'penrowp2-0' ),
             'panel'         => 'pwp_panel',
         )
     );
@@ -695,7 +706,7 @@ function penrowp_options ( $wp_customize ) {
         'pwp_sect_content',
         array (
             'title'         => __( 'Content', 'penrowp2-0' ),
-            'priority'      => 3,
+            'priority'      => 5,
             'capability'    => 'edit_theme_options',
             'description'   => __( 'Change color of buttons and links.', 'penrowp2-0' ),
             'panel'         => 'pwp_panel',
@@ -706,7 +717,7 @@ function penrowp_options ( $wp_customize ) {
         'pwp_sect_widget',
         array (
             'title'         => __( 'Widget', 'penrowp2-0' ),
-            'priority'      => 4,
+            'priority'      => 6,
             'capability'    => 'edit_theme_options',
             'description'   => __( 'Built-in widget image and url (up to 5 slots).', 'penrowp2-0' ),
             'panel'         => 'pwp_panel',
@@ -714,21 +725,23 @@ function penrowp_options ( $wp_customize ) {
     );
     
     $wp_customize->add_section (
-        'pwp_sect_menu',
+        'pwp_sect_admin',
         array (
-            'title'         => __( 'Menu', 'penrowp2-0' ),
-            'priority'      => 5,
+            'title'         => __( 'Administrators', 'penrowp2-0' ),
+            'priority'      => 7,
             'capability'    => 'edit_theme_options',
-            'description'   => __( 'Change the color of menu buttons, links and background color. (click Menu first to see changes in the previewer)', 'penrowp2-0' ),
+            'description'   => __( 'Change the portraits of the office administrators.', 'penrowp2-0' ),
             'panel'         => 'pwp_panel',
         )
     );
+    
+    
     
     $wp_customize->add_section (
         'pwp_sect_footer',
         array (
             'title'         => __( 'Footer', 'penrowp2-0' ),
-            'priority'      => 6,
+            'priority'      => 8,
             'capability'    => 'edit_theme_options',
             'description'   => __( 'Change the color of the footer image, color and links color.', 'penrowp2-0' ),
             'panel'         => 'pwp_panel',
@@ -1331,14 +1344,14 @@ function penrowp_options ( $wp_customize ) {
     
     $wp_customize->add_control ( new WP_Customize_Control (
         $wp_customize,
-        'contact_email_control',
+        'contact_adr_control',
         array (
             'label'         => __( 'Address', 'penrowp2-0' ),
             'description'   => __( 'Office address.', 'penrowp2-0' ),
-            'section'       => 'pwp_sect_header',
+            'section'       => 'pwp_sect_contact',
             'settings'      => 'contact_adr',
             'type'          => 'text',
-            'priority'      => '2',
+            'priority'      => '1',
         )
     ));
     
@@ -1348,10 +1361,10 @@ function penrowp_options ( $wp_customize ) {
         array (
             'label'         => __( 'Email', 'penrowp2-0' ),
             'description'   => __( 'Office email.', 'penrowp2-0' ),
-            'section'       => 'pwp_sect_header',
+            'section'       => 'pwp_sect_contact',
             'settings'      => 'contact_email',
             'type'          => 'email',
-            'priority'      => '3',
+            'priority'      => '2',
         )
     ));
     
@@ -1361,10 +1374,10 @@ function penrowp_options ( $wp_customize ) {
         array (
             'label'         => __( 'Telephone Number', 'penrowp2-0' ),
             'description'   => __( 'Office telephone number.', 'penrowp2-0' ),
-            'section'       => 'pwp_sect_header',
+            'section'       => 'pwp_sect_contact',
             'settings'      => 'contact_telnum',
             'type'          => 'text',
-            'priority'      => '4',
+            'priority'      => '3',
         )
     ));
 
