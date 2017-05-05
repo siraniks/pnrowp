@@ -831,9 +831,18 @@ function penrowp_options ( $wp_customize ) {
     );
     
     $wp_customize->add_setting (
+        'contact_adr',
+        array (
+            'default'       =>  'Block 1, Martinez Subd., Zone IV, 9506 City of Koronadal',
+            'type'          =>  'theme_mod',
+            'transport'     =>  'postMessage',
+        )
+    );
+    
+    $wp_customize->add_setting (
         'contact_email',
         array (
-            'default'       =>  'admin@penrosocot.com',
+            'default'       =>  'penro.southcotabato@yahoo.com',
             'type'          =>  'theme_mod',
             'transport'     =>  'postMessage',
         )
@@ -842,7 +851,7 @@ function penrowp_options ( $wp_customize ) {
     $wp_customize->add_setting (
         'contact_telnum',
         array (
-            'default'       =>  '(800)-123-456',
+            'default'       =>  '(083) 228-3502',
             'type'          =>  'theme_mod',
             'transport'     =>  'postMessage',
         )
@@ -1319,6 +1328,19 @@ function penrowp_options ( $wp_customize ) {
     ));
     
     // CONTACTS (1-10)
+    
+    $wp_customize->add_control ( new WP_Customize_Control (
+        $wp_customize,
+        'contact_email_control',
+        array (
+            'label'         => __( 'Address', 'penrowp2-0' ),
+            'description'   => __( 'Office address.', 'penrowp2-0' ),
+            'section'       => 'pwp_sect_header',
+            'settings'      => 'contact_adr',
+            'type'          => 'text',
+            'priority'      => '2',
+        )
+    ));
     
     $wp_customize->add_control ( new WP_Customize_Control (
         $wp_customize,
@@ -1945,6 +1967,7 @@ function headerOutput() {
             }
             
             .cat-text a {
+                color: <?php echo get_theme_mod('btn_color', '#0275d8') ?>;
                 border-color: <?php echo get_theme_mod('btn_color', '#0275d8') ?>;
             }
             

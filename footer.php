@@ -6,7 +6,16 @@
                     <div class="span12">
                         
                         <!-- transparency logo -->
-                        <div class="col-lg-3 center">
+                        <div class="col-lg-9 hidden-sm-down">
+                            <h6 class="footdnr">Department of Environment and Natural Resources</h6>
+                            <h4 class="footpnr"><a href="<?php echo home_url(); ?>" data-toggle="tooltip" data-placement="bottom" title="Return Home"><?php bloginfo('name'); ?></a></h4>
+                            <h5 class="footrnr"><?php bloginfo('description'); ?></h5><br>
+                            <i class="cnr fa fa-map-marker fa-fw" aria-hidden="true" ></i>&nbsp;<?php echo get_theme_mod('contact_adr', 'Block 1, Martinez Subd., Zone IV, 9506 City of Koronadal'); ?><br>
+                            <i class="cnr fa fa-envelope fa-fw" aria-hidden="true" ></i>&nbsp;<?php echo get_theme_mod('contact_email', 'penro.southcotabato@yahoo.com'); ?><br>
+                            <i class="cnr fa fa-phone fa-fw" aria-hidden="true"></i>&nbsp;<?php echo get_theme_mod('contact_telnum', '(083) 228-3502'); ?>
+                        </div>
+                        
+                        <div class="col-lg-3 center float-xs-right">
                             <!-- desktop -->
                             <a href="<?php echo esc_url( get_permalink( get_page_by_title( 'Transparency Seal' ) ) ); ?>" data-toggle="tooltip" data-placement="bottom" title="What is Transparency Seal?"><img class="transparency-seal75 hidden-md-down" src="<?php echo get_template_directory_uri(); ?>/images/transparency-seal.png" /></a>
                             <!-- tablet -->
@@ -15,9 +24,9 @@
                             <a href="<?php echo esc_url( get_permalink( get_page_by_title( 'Transparency Seal' ) ) ); ?>" data-toggle="tooltip" data-placement="bottom" title="What is Transparency Seal?"><img class="transparency-seal75 hidden-sm-up" src="<?php echo get_template_directory_uri(); ?>/images/transparency-seal.png" /></a>
                         </div>
                         <!-- Site map / expanded footer Links -->
-                        <div class="col-lg-9 hidden-md-down">
+                        <!-- <div class="col-lg-9 hidden-md-down">
                                 
-                            <?php
+                            <php
                             $footerparams = array(
                             'menu'  =>  'Footer Menu',
                             'container' => '',
@@ -30,7 +39,7 @@
                               echo strip_tags(wp_nav_menu( $footerparams ), '<a>' ); 
                             ?>
                                 
-                        </div><!-- wrapper -->
+                        </div> wrapper -->
                     </div><!-- span12 -->
                 </div><!-- row-fluid -->
             </div><!-- container -->
@@ -68,7 +77,12 @@
                         </div>
                         <!-- mobile -->
                         <div class="span12 hidden-sm-up" style="font-size: 12px;">
-                            <p class="center">Copyright <?php echo date('Y'); ?> PENRO <?php bloginfo('description'); ?>. All rights reserved</p>
+                            <p class="center">
+                                <i class="cnr fa fa-map-marker fa-fw" aria-hidden="true" ></i>&nbsp;<?php echo get_theme_mod('contact_adr', 'Block 1, Martinez Subd., Zone IV, 9506 City of Koronadal'); ?><br>
+                                <i class="cnr fa fa-envelope fa-fw" aria-hidden="true" ></i>&nbsp;<?php echo get_theme_mod('contact_email', 'penro.southcotabato@yahoo.com'); ?><br>
+                                <i class="cnr fa fa-phone fa-fw" aria-hidden="true"></i>&nbsp;<?php echo get_theme_mod('contact_telnum', '(083) 228-3502'); ?>
+                            </p>
+                            <p class="center">Copyright <?php echo date('Y'); ?> PENRO <?php bloginfo('description'); ?>. <br>All rights reserved</p>
                         </div>
                     </div><!-- footer content -->
                 </div><!-- row-fluid -->

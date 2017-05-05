@@ -1113,6 +1113,29 @@ ul.unstyled2 {
     margin-top: -15px;
 }
 
+.footdnr {
+    
+}
+
+.footpnr {
+    font-size: 28px;
+    line-height: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.footpnr a {
+    color: white;
+}
+
+.footpnr a:hover {
+    color: #0275d8;
+}
+
+.footrnr {
+    
+}
+
 .tags {
     color: #c1c1c1;
 }
