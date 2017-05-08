@@ -559,15 +559,18 @@ img.transparency-seal25 {
 
 .rp {
     line-height: 12px;
+    cursor: default;
 }
 
 .dnr {
     line-height: 15px;
+    cursor: default;
 }
 
 .rnr {
     font-size: 25px;
     line-height: 15px;
+    cursor: default;
 }
 
 .cnr {
