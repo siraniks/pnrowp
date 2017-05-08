@@ -48,7 +48,7 @@
         <nav class="top-nav navbar-full navbar-dark bg-inverse hidden-md-down">
             <div class="container">
                 <a id="feedbackbtn" href="#" class="float-xs-right hidden-lg-down ownBtn-login-sm btn-transparent" data-toggle="modal" data-target="#feedbackModal"><i class="fa fa-question fa-fw" aria-hidden="true"></i></a>
-                <a id="loginbtn" href="<?php echo home_url(); ?>/wp-login.php" class="float-xs-right hidden-lg-down ownBtn-login-sm btn-transparent"><i class="fa fa-1x fa-fw fa-sign-in" aria-hidden="true"></i></a>
+                <a id="loginbtn" href="<?php echo home_url(); ?>/wp-login.php" class="float-xs-right hidden-lg-down ownBtn-login-sm btn-transparent" data-toggle="tooltip" data-placement="bottom" title="Sign-in"><i class="fa fa-1x fa-fw fa-sign-in" aria-hidden="true"></i></a>
                 
                 <span class="navbar-text float-xs-left">
                     <?php
