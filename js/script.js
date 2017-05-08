@@ -2,6 +2,14 @@ var $ = jQuery.noConflict();
 
 $(document).ready(function () {
     
+    // Override PAGASA Time Stamp 
+    // $('iframe #serverdate').addClass("invisible");
+    
+//    $('iframe').load( function() {
+//        $('iframe').contents().find("head")
+//        .append($("<style type='text/css'>  #serverdate{display:none !important;}  </style>"));
+//    });
+    
     // Tooltip
     "use strict";
     $('[data-toggle="tooltip"]').tooltip();

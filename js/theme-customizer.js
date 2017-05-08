@@ -257,6 +257,7 @@
             $('#mainnavbar').css( 'background-color', to );
             $('#primary_nav_wrap').css( 'background-color', to );
             $('#primary_nav_wrap ul ul a:hover').css( 'background-color', to );
+            $('a.subhead-time').css( 'background-color', to );
             $('#mainnavbtn').css( 'border-color', to );
 		} );
 	} );
