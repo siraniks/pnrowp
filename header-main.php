@@ -47,8 +47,8 @@
         <!-- make this as a navmenu instead - default values - navbar-full -->
         <nav class="top-nav navbar-full navbar-dark bg-inverse hidden-md-down">
             <div class="container">
-                <a id="feedbackbtn" href="#" class="float-xs-right hidden-lg-down ownBtn-login-sm btn-success xbtn" data-toggle="modal" data-target="#feedbackModal"><i class="fa fa-comments fa-fw" aria-hidden="true"></i></a>
-                <a id="loginbtn" href="<?php echo home_url(); ?>/wp-login.php" class="float-xs-right hidden-lg-down ownBtn-login-sm btn-primary"><i class="fa fa-1x fa-fw fa-sign-in" aria-hidden="true"></i></a>
+                <a id="feedbackbtn" href="#" class="float-xs-right hidden-lg-down ownBtn-login-sm btn-transparent" data-toggle="modal" data-target="#feedbackModal"><i class="fa fa-question fa-fw" aria-hidden="true"></i></a>
+                <a id="loginbtn" href="<?php echo home_url(); ?>/wp-login.php" class="float-xs-right hidden-lg-down ownBtn-login-sm btn-transparent"><i class="fa fa-1x fa-fw fa-sign-in" aria-hidden="true"></i></a>
                 
                 <span class="navbar-text float-xs-left">
                     <?php
@@ -92,9 +92,6 @@
                 <div class="card-img">
                     
                     <div class="sidenav-header-subcontent">
-                        
-                        <i class="cnr fa fa-envelope fa-fw" aria-hidden="true" ></i>&nbsp;<?php echo get_theme_mod('contact_email', 'admin@penrosocot.com'); ?>
-                        <i class="cnr fa fa-phone fa-fw" aria-hidden="true"></i>&nbsp;<?php echo get_theme_mod('contact_telnum', 'Company call number'); ?>
                     </div>
                 </div>
                 
@@ -110,7 +107,7 @@
                             'theme_location' => 'mobprimary',
                             'items_wrap' => mobnav_wrap(),
                             //'depth' => '0',
-                            'walker' => new mobnav2_walker()
+                            'walker' => new mobnav_walker()
                             );
 
                             echo strip_tags(wp_nav_menu( $mobmenuparameters ), '<a>' ); 
@@ -122,7 +119,6 @@
                             'menu'  =>  'Top Menu',
                             'container' => '',
                             'theme_location' => 'topnav',
-                            //'items_wrap' => topnavmob_wrap(),
                             'depth' => '0',
                             );
 
@@ -143,19 +139,9 @@
         <div class="container">
             <div class="newsp-header">
                 <button id="mainnavbtn" type="button" class="btn btn-success btn-sm float-xs-right float-top hidden-md-up"><i class="fa fa-navicon fa-fw" aria-hidden="true"></i>MENU</button>
-                
-                
-                
-                
-                
-                <p class="float-xs-right hidden-lg-down"><i class="cnr fa fa-calendar fa-fw" aria-hidden="true"></i><a href="#" class="subhead-link" data-toggle="tooltip" data-placement="bottom" title="Today is">&nbsp;<?php echo date_i18n( get_option( 'date_format' ), strtotime( '11/15-1976' ) ); ?></a></p>
+                                
+                <p class="float-xs-right hidden-lg-down"><a href="#" class="subhead-time" data-toggle="tooltip" data-placement="bottom" title="Today is"><i class="fa fa-fw fa-calendar"></i>&nbsp;<?php echo date_i18n( get_option( 'date_format' ), strtotime( '11/15-1976' ) ); ?></a></p>
             
-                
-            
-                <span class="hidden-lg-down">
-                    <i id="copyclipboard" class="cnr fa fa-envelope fa-fw" aria-hidden="true" ></i>&nbsp;<a id="email" href="#" class="subhead-link" data-toggle="tooltip" data-placement="bottom" title="Email us!"><?php echo get_theme_mod('contact_email', 'admin@penrosocot.com'); ?></a>
-                    <i class="cnr fa fa-phone fa-fw" aria-hidden="true"></i>&nbsp;<a id="telnum" href="#" class="subhead-link" data-toggle="tooltip" data-placement="bottom" title="Call us!"><?php echo get_theme_mod('contact_telnum', 'Company call number'); ?></a>
-                </span>
             </div>
         </div>
         <!-- eo sub-header -->

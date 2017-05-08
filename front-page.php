@@ -168,7 +168,7 @@ get_header('main'); ?>
                                     <img src="<?php 
                                               $dir = get_template_directory_uri(); ;
                                               $img = "/images/adminpic.png";
-                                              echo get_theme_mod( 'admin-sec', $dir . $img ); ?>" alt="Secretary" class="center">
+                                              echo get_theme_mod( 'admin-sec', $dir . $img ); ?>" alt="Secretary" class="adminfx center">
                                     <!-- <img src="<php echo get_template_directory_uri(); ?>/images/adminpic.png" alt="Card image" class="center"> -->
                                 </div>
                             </div>
@@ -177,7 +177,7 @@ get_header('main'); ?>
                                     <img src="<?php 
                                               $dir = get_template_directory_uri(); ;
                                               $img = "/images/adminpic.png";
-                                              echo get_theme_mod( 'admin-rd', $dir . $img ); ?>" alt="Regional Director" class="center">
+                                              echo get_theme_mod( 'admin-rd', $dir . $img ); ?>" alt="Regional Director" class="adminfx center">
                                     <!-- <img src="<php echo get_template_directory_uri(); ?>/images/adminpic2.png" alt="Card image" class="center"> -->
                                 </div>
                             </div>
@@ -186,7 +186,7 @@ get_header('main'); ?>
                                     <img src="<?php 
                                               $dir = get_template_directory_uri(); ;
                                               $img = "/images/adminpic.png";
-                                              echo get_theme_mod( 'admin-penro', $dir . $img ); ?>" alt="PENRO Officer" class="center">
+                                              echo get_theme_mod( 'admin-penro', $dir . $img ); ?>" alt="PENRO Officer" class="adminfx center">
                                     <!-- <img src="<php echo get_template_directory_uri(); ?>/images/adminpic3.png" alt="Card image" class="center"> -->
                                 </div>
                             </div>

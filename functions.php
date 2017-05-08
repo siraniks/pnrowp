@@ -7,11 +7,6 @@
  * @since PENRO WP
  */
 
-//@ini_set( 'upload_max_size' , '10M' );
-//@ini_set( 'post_max_size', '10M');
-//@ini_set( 'max_execution_time', '300' );
-
-
 // This theme styles the visual editor with editor-style.css to match the theme style.
 add_editor_style();
 
@@ -67,10 +62,9 @@ if ( function_exists('add_theme_support')) {
 
 function register_my_menus() {
     register_nav_menus( array(
-        'dropnav' => __('Dropdown Primary Menu','penrowp2-0'),
-        'newnav'  => __('New Primary Menu','penrowp2-0'),
+        'newnav'  => __('Primary Menu','penrowp2-0'),
         'mobprimary' => __('Mobile Primary Menu','penrowp2-0'),
-        'footnav' => __('Footer Menu','penrowp2-0'),
+//        'footnav' => __('Footer Menu','penrowp2-0'),
         'topnav' => __('Top Menu','penrowp2-0')
         )
     );
@@ -89,16 +83,6 @@ function topnav_wrap() {
     return $topnavwrap;
 }
 
-function topnavmob_wrap() {
-    $topnavwrap = '<ul class="topnavmob-links">';
-    // $topnavwrap .= 'CENRO : ';
-    $topnavwrap .= '%3$s';
-    // close the <ul>
-    $topnavwrap .= '</ul>';
-    // return the result
-    return $topnavwrap;
-}
-
 // Desktop
 function mainnav_wrap() {
     $mainnavwrap = '<ul class="nav navbar-nav">';
@@ -108,17 +92,6 @@ function mainnav_wrap() {
     $mainnavwrap .= '</ul>';
     // return the result
     return $mainnavwrap;
-}
-
-// dropdown navigation wrap
-function dropnav_wrap() {
-    $dropnavwrap = '<ul class="navbar-nav">';
-    // per item 
-    $dropnavwrap .= '%3$s';
-    // close the <ul>
-    $dropnavwrap .= '</ul>';
-    // return the result
-    return $dropnavwrap;
 }
 
 // mobile navigation wrap
@@ -307,47 +280,6 @@ function crazy_pagination ($pages = '', $range = 4) {
 
 // Walker Class for desktop
 
-class main_desk_nav extends Walker_Nav_Menu {
-    
-    function start_lvl(&$output, $depth = 0, $args = Array()) {
-        $indent = str_repeat("\t", $depth);
-        //$output .= "\n$indent<div class=\"nav-dropdown-content\"><ul>\n";
-        $output .= "\n$indent<ul class='item-list'>\n";
-    }
-    
-    function start_el(&$output, $item, $depth = 0, $args = Array(), $id = 0) {
-        
-        global $item_output;
-        
-        if ($depth == 0) {
-            $output .= "<li class='nav-item'>";
-        }
-        if ($depth == 1) {
-            $output .= "<li>";
-        }
-        
-        $attributes = '';
-        
-        ! empty( $item->attr_title ) and $attributes .= ' title="' . esc_attr( $item->attr_title ) .'"';
-        ! empty( $item->target )and $attributes .= ' target="' . esc_attr( $item->target ) .'"';
-        ! empty( $item->xfn )and $attributes .= ' rel="' . esc_attr( $item->xfn ) .'"';
-        ! empty( $item->url )and $attributes .= ' href="' . esc_attr( $item->url ) .'"';
-        
-        $title = apply_filters ('the_title', $item->title, $item->ID);
-        
-        $item_output = $args->before;
-        $item_output .= '<a class="nav-dropdown-btn nav-link" '. $attributes .'>'; 
-        $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
-        $item_output .= '</a>';
-        $item_output .= $args->after;
-
-        $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
-        
-
-        //$output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth);
-    }
-}
-
 class mobnav_walker extends Walker_Nav_Menu {
     
     function start_lvl(&$output, $depth = 0, $args = Array()) {
@@ -444,8 +376,6 @@ class mobnav2_walker extends Walker_Nav_Menu {
         $item_output2 .= '</a>';
         $item_output2 .= $args->after;
         
-//        echo esc_attr($item_output2);
-        
         if ($depth == 0) { // if top level
             $output .= "<li>";
             $matchoutput = "<ul class='mob-sub-menu'>";
@@ -465,46 +395,6 @@ class mobnav2_walker extends Walker_Nav_Menu {
             $output .= apply_filters( 'walker_nav_menu_start_el', $item_output2, $item, $depth, $args );
         }
         
-    }
-    
-    
-}
-
-class dropnav_walker extends Walker_Nav_Menu {
-    
-    function start_lvl(&$output, $depth = 0, $args = Array()) {
-        $indent = str_repeat("\t", $depth);
-        //$output .= "\n$indent<div class=\"nav-dropdown-content\"><ul>\n";
-        $output .= "\n$indent<div class='dropdown-menu'>\n";
-    }
-    
-    function start_el(&$output, $item, $depth = 0, $args = Array(), $id = 0) {
-        
-        global $item_output;
-        
-        if ($depth == 0) {
-            $output .= "<a class='nav-link dropdown-toggle' id='navbarDropdownMenuLink' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>";
-        }
-        if ($depth == 1) {
-            $output .= "<a class='dropdown-item'>";
-        }
-        
-        $attributes = '';
-        
-        ! empty( $item->attr_title ) and $attributes .= ' title="' . esc_attr( $item->attr_title ) .'"';
-        ! empty( $item->target )and $attributes .= ' target="' . esc_attr( $item->target ) .'"';
-        ! empty( $item->xfn )and $attributes .= ' rel="' . esc_attr( $item->xfn ) .'"';
-        ! empty( $item->url )and $attributes .= ' href="' . esc_attr( $item->url ) .'"';
-        
-        $title = apply_filters ('the_title', $item->title, $item->ID);
-        
-        $item_output = $args->before;
-        $item_output .= '<a class="nav-link" '. $attributes .'>'; 
-        $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
-        $item_output .= '</a>';
-        $item_output .= $args->after;
-
-        $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
     }
     
     
@@ -658,10 +548,21 @@ function penrowp_options ( $wp_customize ) {
     // S E C T I O N S \\
     
     $wp_customize->add_section (
+        'pwp_sect_info',
+        array (
+            'title'         => __( 'Information', 'penrowp2-0' ),
+            'priority'      => 1,
+            'capability'    => 'edit_theme_options',
+            'description'   => __( "Resources and Guides for the theme's needs.", 'penrowp2-0' ),
+            'panel'         => 'pwp_panel',
+        )
+    );
+    
+    $wp_customize->add_section (
         'pwp_sect_contact',
         array (
             'title'         => __( 'Contact Details', 'penrowp2-0' ),
-            'priority'      => 1,
+            'priority'      => 2,
             'capability'    => 'edit_theme_options',
             'description'   => __( 'Add contact details - email, address and telephone number', 'penrowp2-0' ),
             'panel'         => 'pwp_panel',
@@ -672,7 +573,7 @@ function penrowp_options ( $wp_customize ) {
         'pwp_sect_sitebg',
         array (
             'title'         => __( 'Background', 'penrowp2-0' ),
-            'priority'      => 2,
+            'priority'      => 3,
             'capability'    => 'edit_theme_options',
             'description'   => __( 'Change image or color of the background.', 'penrowp2-0' ),
             'panel'         => 'pwp_panel',
@@ -684,23 +585,13 @@ function penrowp_options ( $wp_customize ) {
         'pwp_sect_header',
         array (
             'title'         => __( 'Header', 'penrowp2-0' ),
-            'priority'      => 3,
+            'priority'      => 4,
             'capability'    => 'edit_theme_options',
             'description'   => __( 'Change text color and add contact details.', 'penrowp2-0' ),
             'panel'         => 'pwp_panel',
         )
     );
     
-    $wp_customize->add_section (
-        'pwp_sect_menu',
-        array (
-            'title'         => __( 'Menu', 'penrowp2-0' ),
-            'priority'      => 4,
-            'capability'    => 'edit_theme_options',
-            'description'   => __( 'Change the color of menu buttons, links and background color. (click Menu first to see changes in the previewer)', 'penrowp2-0' ),
-            'panel'         => 'pwp_panel',
-        )
-    );
     
     $wp_customize->add_section (
         'pwp_sect_content',
@@ -1301,7 +1192,7 @@ function penrowp_options ( $wp_customize ) {
         $wp_customize,
         'header_text_color_control',
         array (
-            'label'         => __( 'Text Color', 'penrowp2-0' ),
+            'label'         => __( 'Header Text Color', 'penrowp2-0' ),
             'section'       => 'pwp_sect_header',
             'settings'      => 'header_text_color',
             'priority'      => '1',
@@ -1317,7 +1208,7 @@ function penrowp_options ( $wp_customize ) {
         $wp_customize,
         'header_link_color_control',
         array (
-            'label'         => __( 'Link Color', 'penrowp2-0' ),
+            'label'         => __( 'Header Link Color', 'penrowp2-0' ),
             'section'       => 'pwp_sect_header',
             'settings'      => 'header_link_color',
             'priority'      => '2',
@@ -1336,6 +1227,74 @@ function penrowp_options ( $wp_customize ) {
             'choices'       => array (
                 '#373a3c'       =>  'Dark',
                 '#ffffff'       =>  'Light',
+            )
+        )
+    ));
+    
+    // MENU
+    
+    $wp_customize->add_control ( new WP_Customize_Control (
+        $wp_customize,
+        'menu_btn_color_control',
+        array (
+            'label'         => __( 'Mobile Menu Button and Navbar Color', 'penrowp2-0' ),
+            'section'       => 'pwp_sect_header',
+            'settings'      => 'menu_btn_color',
+            'priority'      => '4',
+            'type'          => 'select',
+            'choices'       => array (
+                '#0275d8'     =>  'Default (Blue)',
+                '#d9534f'     =>  'Red',
+                '#5cb85c'     =>  'Green',
+                '#81d94f'     =>  'Lime-Green',
+                '#d9d54f'     =>  'Yellow',
+                '#4fd980'     =>  'Blue-Green',
+                '#f0ad4e'     =>  'Orange',
+                '#a74fd9'     =>  'Purple',
+                '#292b2c'     =>  'Dark'
+            )
+        )
+    ));
+    
+    $wp_customize->add_control ( new WP_Customize_Control (
+        $wp_customize,
+        'menu_panel_color_control',
+        array (
+            'label'         => __( 'Mobile Menu Background Color', 'penrowp2-0' ),
+            'description'   => __( 'Change background color of the menu', 'penrowp2-0' ),
+            'section'       => 'pwp_sect_header',
+            'settings'      => 'menu_panel_color',
+            'priority'      => '5',
+            'type'          => 'radio',
+            'choices'       => array (
+                '#ffffff'     =>  'Light',
+                '#292b2c'     =>  'Dark'
+            )
+        )
+    ));
+    
+    $wp_customize->add_control ( new WP_Customize_Control (
+        $wp_customize,
+        'menu_link_color_control',
+        array (
+            'label'         => __( 'Mobile Menu Link Color', 'penrowp2-0' ),
+            'section'       => 'pwp_sect_header',
+            'settings'      => 'menu_link_color',
+            'priority'      => '6',
+            'type'          => 'select',
+            'choices'       => array (
+                '#0275d8'     =>  'Default (Blue)',
+                '#d9534f'     =>  'Red',
+                '#5cb85c'     =>  'Green',
+                '#81d94f'     =>  'Lime-Green',
+                '#d9d54f'     =>  'Yellow',
+                '#4fd980'     =>  'Blue-Green',
+                '#f0ad4e'     =>  'Orange',
+                '#a74fd9'     =>  'Purple',
+                '#ffffff'     =>  'Light',
+                '#292b2c'     =>  'Dark',
+                
+                
             )
         )
     ));
@@ -1383,18 +1342,6 @@ function penrowp_options ( $wp_customize ) {
 
     
     // ADMIN (11-20)
-    
-//    $wp_customize->add_control ( new WP_Customize_Image_Control (
-//        $wp_customize,
-//        'admin_pres_image_control',
-//        array (
-//            'label'         => __( "Country's President", 'penrowp2-0' ),
-//            'description'   => __( 'Upload or Change the image of your respected adminsitrators.', 'penrowp2-0' ),
-//            'section'       => 'pwp_sect_admin',
-//            'settings'      => 'admin-pres',
-//            'priority'      => '11',
-//        )
-//    ));
     
     $wp_customize->add_control ( new WP_Customize_Image_Control (
         $wp_customize,
@@ -1459,6 +1406,7 @@ function penrowp_options ( $wp_customize ) {
             'priority'      => '24',
             'type'          => 'select',
             'choices'       => array (
+                '#0275d8'     =>  'Default (Blue)',
                 '#d9534f'     =>  'Red',
                 '#5cb85c'     =>  'Green',
                 '#81d94f'     =>  'Lime-Green',
@@ -1538,23 +1486,6 @@ function penrowp_options ( $wp_customize ) {
             'priority'      => '11',
         )
     ));
-    
-//    $wp_customize->add_control ( new WP_Customize_Control (
-//        $wp_customize,
-//        'w_1_disp_control',
-//        array (
-//            'label'         => __( "Display", 'penrowp2-0' ),
-//            'description'   => __( "It will always show by default.", 'penrowp2-0' ),
-//            'section'       => 'pwp_sect_widget',
-//            'settings'      => 'w_1_disp',
-//            'priority'      => '12',
-//            'type'          => 'radio',
-//            'choices'       => array (
-//                'block'     =>  'Show',
-//                'none'      =>  'Hide'
-//            )
-//        )
-//    ));
     
     $wp_customize->add_control ( new WP_Customize_Image_Control (
         $wp_customize,
@@ -1724,19 +1655,6 @@ function penrowp_options ( $wp_customize ) {
         )
     ));
     
-//    ITS NOT REQUIRED TO CHANGE FACEBOOK IMAGE
-//    $wp_customize->add_control ( new WP_Customize_Image_Control (
-//        $wp_customize,
-//        'w_6_image_control',
-//        array (
-//            'label'         => __( 'Widget Image #6', 'penrowp2-0' ),
-//            'description'   => __( 'Upload or Change the image of the link.', 'penrowp2-0' ),
-//            'section'       => 'pwp_sect_widget',
-//            'settings'      => 'w_6_image',
-//            'priority'      => '60',
-//        )
-//    ));
-    
     $wp_customize->add_control ( new WP_Customize_Control (
         $wp_customize,
         'w_6_url_control',
@@ -1767,73 +1685,7 @@ function penrowp_options ( $wp_customize ) {
         )
     ));
     
-    // Menu (31-40)
     
-    $wp_customize->add_control ( new WP_Customize_Control (
-        $wp_customize,
-        'menu_btn_color_control',
-        array (
-            'label'         => __( 'Menu Button and Navbar Color', 'penrowp2-0' ),
-            'section'       => 'pwp_sect_menu',
-            'settings'      => 'menu_btn_color',
-            'priority'      => '31',
-            'type'          => 'select',
-            'choices'       => array (
-                '#0275d8'     =>  'Default (Blue)',
-                '#d9534f'     =>  'Red',
-                '#5cb85c'     =>  'Green',
-                '#81d94f'     =>  'Lime-Green',
-                '#d9d54f'     =>  'Yellow',
-                '#4fd980'     =>  'Blue-Green',
-                '#f0ad4e'     =>  'Orange',
-                '#a74fd9'     =>  'Purple',
-                '#292b2c'     =>  'Dark'
-            )
-        )
-    ));
-    
-    $wp_customize->add_control ( new WP_Customize_Control (
-        $wp_customize,
-        'menu_panel_color_control',
-        array (
-            'label'         => __( 'Menu Background Color', 'penrowp2-0' ),
-            'description'   => __( 'Change background color of the menu', 'penrowp2-0' ),
-            'section'       => 'pwp_sect_menu',
-            'settings'      => 'menu_panel_color',
-            'priority'      => '32',
-            'type'          => 'radio',
-            'choices'       => array (
-                '#ffffff'     =>  'Light',
-                '#292b2c'     =>  'Dark'
-            )
-        )
-    ));
-    
-    $wp_customize->add_control ( new WP_Customize_Control (
-        $wp_customize,
-        'menu_link_color_control',
-        array (
-            'label'         => __( 'Link Color', 'penrowp2-0' ),
-            'section'       => 'pwp_sect_menu',
-            'settings'      => 'menu_link_color',
-            'priority'      => '33',
-            'type'          => 'select',
-            'choices'       => array (
-                '#0275d8'     =>  'Default (Blue)',
-                '#d9534f'     =>  'Red',
-                '#5cb85c'     =>  'Green',
-                '#81d94f'     =>  'Lime-Green',
-                '#d9d54f'     =>  'Yellow',
-                '#4fd980'     =>  'Blue-Green',
-                '#f0ad4e'     =>  'Orange',
-                '#a74fd9'     =>  'Purple',
-                '#ffffff'     =>  'Light',
-                '#292b2c'     =>  'Dark',
-                
-                
-            )
-        )
-    ));
     
     // Footer (41-50)
     
@@ -1893,7 +1745,7 @@ function headerOutput() {
         <!-- Customizer CSS -->
         <style type="text/css">
             
-            /** PANEL ***/
+            /*BACKGROUND*/
             
             body {
                 background-image: url(<?php echo get_theme_mod('bg_image') ?>);
@@ -1913,6 +1765,8 @@ function headerOutput() {
                 user-select: <?php echo get_theme_mod('restrict-copy', 'text') ?>;
             }
             
+            /*HEADER*/
+            
             h6.rp, h6.dnr, h4.pnr a, h5.rnr {
                 color: <?php echo get_theme_mod('header_text_color', '#373a3c') ?>;
             }
@@ -1923,6 +1777,25 @@ function headerOutput() {
             
             h4.pnr a:hover {
                 color: <?php echo get_theme_mod('header_link_color', '#0275d8') ?> !important;
+            }
+            
+            /** MENU **/
+            
+            #mainnavbtn {
+                background-color: <?php echo get_theme_mod('menu_btn_color', '#5cb85c') ?>;
+                border-color: <?php echo get_theme_mod('menu_btn_color', '#5cb85c') ?>;
+            }
+            
+            #mainnavbar, #primary_nav_wrap,  #primary_nav_wrap ul ul a:hover, a.subhead-time {
+                background-color: <?php echo get_theme_mod('menu_btn_color', '#5cb85c') ?> !important;
+            }
+            
+            #mySidenav, #primary_nav_wrapper ul ul li a {
+                background-color: <?php echo get_theme_mod('menu_panel_color', '#FFFFFF') ?>;
+            }
+            
+            li.mob-item-header a, .sidenav-header-text, .sidenav-sub-text {
+                color: <?php echo get_theme_mod('menu_link_color', '#0275d8') ?>;
             }
             
             .news-item-wrapper, ul.pagenation li a.inactve, #sidebar p, #sidebar span,
@@ -2046,40 +1919,6 @@ function headerOutput() {
                 display: <?php echo get_theme_mod('w_6_disp', 'block'); ?>;
             }
             
-            /** MENU **/
-            
-            #mainnavbtn {
-                background-color: <?php echo get_theme_mod('menu_btn_color', '#5cb85c') ?>;
-                border-color: <?php echo get_theme_mod('menu_btn_color', '#5cb85c') ?>;
-            }
-            
-            #mainnavbar, #primary_nav_wrap,  #primary_nav_wrap ul ul a:hover {
-                background-color: <?php echo get_theme_mod('menu_btn_color', '#5cb85c') ?> !important;
-            }
-            
-            #mySidenav, #primary_nav_wrapper ul ul li a {
-                background-color: <?php echo get_theme_mod('menu_panel_color', '#FFFFFF') ?>;
-            }
-            
-            li.mob-item-header a, .sidenav-header-text, .sidenav-sub-text {
-                color: <?php echo get_theme_mod('menu_link_color', '#0275d8') ?>;
-            }
-            
-/*
-            #loginbtn {
-                background-color: <php echo get_theme_mod('menu_login-btn_color', '#0275d8') ?>;
-                border-color: <php echo get_theme_mod('menu_login-btn_color', '#0275d8') ?>;
-            }
-*/
-            
-/*
-            #feedbackbtn {
-                background-color: <php echo get_theme_mod('menu_feedback-btn_color', '#5cb85c') ?>;
-                border-color: <php echo get_theme_mod('menu_feedback-btn_color', '#5cb85c') ?>;
-            }
-*/
-            
-            
             /** FOOTER ***/
             
             .footer {
@@ -2093,10 +1932,7 @@ function headerOutput() {
             
             ul.unstyled li.footnav-first-level a, ul.unstyled ul.footnav-second-level li a { 
                 color: <?php echo get_theme_mod('footer_header-link_color', '#ffffff') ?>;
-            }
-            
-            /** content options **/
-            
+            }    
             
         </style>
     <?php  
