@@ -156,6 +156,23 @@ a.subhead-time {
     cursor: default;
 }
 
+a.subhead-contact {
+    color: white;
+    padding: 5px 15px;
+    text-transform: uppercase;
+    font-size: 12px;
+    -webkit-border-radius: 15px;
+    -khtml-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -o-border-radius: 15px;
+    border-radius: 15px;
+    text-decoration: none;
+}
+
+a.subhead-contact:hover {
+    
+}
+
 /* floating menu button for mobile */
 .float-top {
     position: fixed;
@@ -490,13 +507,11 @@ img.transparency-seal25 {
 }
 
 .announcement ul li a {
-    color: black !important;
+    color: #373a3c !important;
 }
 
 .announcement ul li a:hover {
-/*    text-decoration: underline;*/
-    background-color: black;
-    border-radius: 5px;
+    text-decoration: underline;
 }
 
 .announcement ul li:before {
