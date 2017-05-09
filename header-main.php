@@ -139,8 +139,10 @@
         <div class="container">
             <div class="newsp-header">
                 <button id="mainnavbtn" type="button" class="btn btn-success btn-sm float-xs-right float-top hidden-md-up"><i class="fa fa-navicon fa-fw" aria-hidden="true"></i>MENU</button>
-                                
-                <p class="float-xs-right hidden-lg-down"><a href="#" class="subhead-time" data-toggle="tooltip" data-placement="bottom" title="Today is"><i class="fa fa-fw fa-calendar"></i>&nbsp;<?php echo date_i18n( get_option( 'date_format' ), strtotime( '11/15-1976' ) ); ?></a></p>
+                
+                <p class="float-xs-left hidden-lg-down"><a href="#" class="subhead-time" data-toggle="tooltip" data-placement="bottom" title="Today is"><i class="fa fa-fw fa-calendar"></i>&nbsp;<?php echo date_i18n( get_option( 'date_format' ), strtotime( '11/15-1976' ) ); ?></a></p>
+                <p class="float-xs-right hidden-lg-down"><a href="<?php echo esc_url( get_permalink( get_page_by_title( 'Contact Us' ) ) ); ?>" class="subhead-contact bg-success"><i class="fa fa-fw fa-phone"></i>&nbsp;Contact Us</a></p>                
+                
             
             </div>
         </div>
