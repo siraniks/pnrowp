@@ -162,6 +162,17 @@ function frontpage_widget() {
         'after_title' => '</h3>',
     ));
     
+    // Downloads Post Sidebar
+    register_sidebar( array(
+        'name' => 'Sidebar - Downloads',
+        'id' => 'downloads_sidebar_widget',
+        'description' => __( 'an area for displaying sidebar widgets that only be seen on downloads.', 'penrowp2-0' ),
+        'before_widget' => '<div class="card announcement card-block">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="headertext center">',
+        'after_title' => '</h3>',
+    ));
+    
     // Announcement Slider
     register_sidebar( array(
         'name' => 'Announcement Slider',
@@ -997,6 +1008,22 @@ function penrowp_options ( $wp_customize ) {
         )
     );
     
+    $wp_customize->add_setting (
+        'w_7_url',
+        array (
+            'default'       =>  get_permalink( get_page_by_title( 'Downloads' ) ),
+            'transport'     =>  'postMessage',
+        )
+    );
+    
+    $wp_customize->add_setting (
+        'w_7_disp',
+        array (
+            'default'       =>  'block',
+            'transport'     =>  'postMessage',
+        )
+    );
+    
     // Menu
     
     $wp_customize->add_setting (
@@ -1685,6 +1712,37 @@ function penrowp_options ( $wp_customize ) {
         )
     ));
     
+    $wp_customize->add_control ( new WP_Customize_Control (
+        $wp_customize,
+        'w_7_url_control',
+        array (
+            'label'         => __( 'Download Page URL', 'penrowp2-0' ),
+            'description'   => __( "Link of your Download Page.", 'penrowp2-0' ),
+            'section'       => 'pwp_sect_widget',
+            'settings'      => 'w_7_url',
+            'type'          => 'text',
+            'priority'      => '71',
+        )
+    ));
+    
+    $wp_customize->add_control ( new WP_Customize_Control (
+        $wp_customize,
+        'w_7_disp_control',
+        array (
+            'label'         => __( "Display", 'penrowp2-0' ),
+            'description'   => __( "Don't display the image or link.", 'penrowp2-0' ),
+            'section'       => 'pwp_sect_widget',
+            'settings'      => 'w_7_disp',
+            'priority'      => '72',
+            'type'          => 'radio',
+            'choices'       => array (
+                'block'     =>  'Show',
+                'none'      =>  'Hide'
+            )
+        )
+    ));
+    
+    
     
     
     // Footer (41-50)
@@ -1917,6 +1975,10 @@ function headerOutput() {
             
             .w6 {
                 display: <?php echo get_theme_mod('w_6_disp', 'block'); ?>;
+            }
+            
+            .w7 {
+                display: <?php echo get_theme_mod('w_7_disp', 'block'); ?>;
             }
             
             /** FOOTER ***/
