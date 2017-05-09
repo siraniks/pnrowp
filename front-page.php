@@ -115,6 +115,12 @@ get_header('main'); ?>
                                               $dir = get_template_directory_uri(); ;
                                               $img = "/images/widget/fb.jpg";
                                               echo get_theme_mod( 'w_6_image', $dir . $img ); ?>"/></a>
+                        <br>
+                        <a href="<?php echo get_theme_mod('w_7_url',esc_url( get_permalink( get_page_by_title( 'Downloads' ) ) )); ?>"><img class="w7" src="<?php 
+                                              $dir = get_template_directory_uri(); ;
+                                              $img = "/images/widget/elib.jpg";
+                                              echo get_theme_mod( 'w_7_image', $dir . $img ); ?>"/></a>
+                        
                     </div>
                     
                     <!-- announcement -->
