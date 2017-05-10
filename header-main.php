@@ -89,12 +89,6 @@
         <a href="#" class="closebtn">&times;</a>
             <div class="sidenav-content">
                 
-                <div class="card-img">
-                    
-                    <div class="sidenav-header-subcontent">
-                    </div>
-                </div>
-                
                 <!-- menu -->  
                 <div class="mobile-nav">
                     
@@ -102,12 +96,12 @@
 
                         <?php
                             $mobmenuparameters = array(
-                            'menu'  =>  'Primary Menu',
-                            'container' => '',
+                            'menu'           => 'Primary Menu',
+                            'container'      => '',
                             'theme_location' => 'mobprimary',
-                            'items_wrap' => mobnav_wrap(),
+                            'items_wrap'     => mobnav_wrap(),
                             //'depth' => '0',
-                            'walker' => new mobnav_walker()
+                            'walker'         => new mobnav_walker()
                             );
 
                             echo strip_tags(wp_nav_menu( $mobmenuparameters ), '<a>' ); 
@@ -116,19 +110,20 @@
                     <hr>
                     <?php
                             $menuparameters = array(
-                            'menu'  =>  'Top Menu',
-                            'container' => '',
+                            'menu'           =>  'Top Menu',
+                            'container'      => '',
                             'theme_location' => 'topnav',
-                            'depth' => '0',
+                            'depth'          => '0',
                             );
 
                             echo strip_tags(wp_nav_menu( $menuparameters ), '<a>' ); 
                         ?>
                     <hr>
                     <div class="container">
-                        <a id="loginbtn" href="<?php echo home_url(); ?>/wp-login.php" class="ownBtn btn-primary"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Login</a>
-
-                        <a id="feedbackbtn" href="#" class="ownBtn btn-success xbtn" data-toggle="modal" data-target="#feedbackModal"><i class="fa fa-comments fa-fw" aria-hidden="true"></i>Feedback</a>
+                        <a id="loginbtn" href="<?php echo home_url(); ?>/wp-login.php" class="ownBtn btn-primary"><i class="fa fa-download fa-fw" aria-hidden="true"></i>&nbsp;eLibrary</a>
+                        <a id="loginbtn" href="<?php echo home_url(); ?>/wp-login.php" class="ownBtn btn-primary"><i class="fa fa-phone fa-fw" aria-hidden="true"></i>&nbsp;Contact Us</a>
+                        <a id="loginbtn" href="<?php echo home_url(); ?>/wp-login.php" class="ownBtn btn-primary"><i class="fa fa-user fa-fw" aria-hidden="true"></i>&nbsp;Login</a>
+                        <a id="feedbackbtn" href="#" class="ownBtn btn-success xbtn" data-toggle="modal" data-target="#feedbackModal"><i class="fa fa-comments fa-fw" aria-hidden="true"></i>&nbsp;Feedback</a>
                     </div><!-- container -->
                 </div>
                 <br>
