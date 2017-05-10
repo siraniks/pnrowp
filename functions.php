@@ -241,8 +241,7 @@ add_action('widgets_init', 'frontpage_widget');
 //        return $html;   
 //}
 //
-//add_filter('the_content', 'add_responsive_class');
-
+//add_filter('the_content', 'add_responsive_class');s
 
 // Bootstrap Pagination style
 function crazy_pagination ($pages = '', $range = 4) {
@@ -289,6 +288,19 @@ function crazy_pagination ($pages = '', $range = 4) {
     }
 }
 
+
+//add_filter( 'wp_nav_menu_objects', 'add_has_children_to_nav_items' );
+//
+//function add_has_children_to_nav_items( $items )
+//{
+//    $parents = wp_list_pluck( $items, 'menu_item_parent');
+//
+//    foreach ( $items as $item )
+//        in_array( $item->ID, $parents ) && $item->classes[] = 'has-children';
+//
+//    return $items;
+//}
+
 // Walker Class for desktop
 
 class mobnav_walker extends Walker_Nav_Menu {
@@ -301,13 +313,26 @@ class mobnav_walker extends Walker_Nav_Menu {
     
     function start_el(&$output, $item, $depth = 0, $args = Array(), $id = 0) {
         
+        $classes = empty( $item->classes ) ? array() : (array) $item->classes;
+        $classes[] = 'menu-item-' . $item->ID;
+        
+        $args = apply_filters( 'nav_menu_item_args', $args, $item, $depth );
+        
+        $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
+        $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : ''; 
+        
+        $id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args, $depth );
+        $id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
+ 
+        //$output .= $indent . '<li' . $id . $class_names .'>'; default - "<li class='mob-item-header'>";
+        
         global $item_output;
         
         if ($depth == 0) {
-            $output .= "<li class='mob-item-header'>";
+            $output .= '<li' . $id . $class_names .'>';
         }
         if ($depth == 1) {
-            $output .= "<li class='mob-sub-item'>";
+            $output .= '<li' . $id . $class_names .'>';
         }
         
         $attributes = '';
@@ -326,6 +351,8 @@ class mobnav_walker extends Walker_Nav_Menu {
         $item_output .= $args->after;
 
         $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+        
+           
     }
     
     
