@@ -9,40 +9,7 @@
  */
 
 get_header('main'); ?>
-<main>
-        <div class="container">
-            <!-- Search bar (mobile-tablet only) -->
-            <!-- <div class="empty-top-margin hidden-lg-up"></div> -->
-            
-            <!-- announcement -->
-            
-            
-            <div class="card card-block">
-                <form role="search" method="get" action="<?php echo home_url(); ?>">
-                    <div class="input-group">
-                        <input type="text" class="form-control" value name="s" placeholder="Search for...">
-                        <span class="input-group-btn">
-                             <button type="submit" class="btn btn-secondary" type="button"><i class="fa fa-search" aria-hidden="true"></i></button> 
-                        </span>
-                    </div>
-                </form>
-            </div> 
-            
-            <div class="row">
-                
-                <div style="margin-bottom: 20px;">
-                    <!-- ?php echo do_shortcode('[smartslider3 slider=2]'); ? -->
-                </div>
-            </div>
-            <!-- alert bar
-            <div class="alert alert-warning alert-dismissible fade in" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <i class="fa fa-exclamation-triangle fa-fw"></i>&nbsp;<strong>Still in Development. </strong> If you found some bugs, just let us know.
-            </div> -->
-        </div>  
-    
+<main>    
         <div class="container">
             <div class="row">
                 <!-- news section -->

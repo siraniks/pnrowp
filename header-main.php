@@ -47,17 +47,18 @@
         <!-- make this as a navmenu instead - default values - navbar-full -->
         <nav class="top-nav navbar-full navbar-dark bg-inverse hidden-md-down">
             <div class="container">
-                <a id="feedbackbtn" href="#" class="float-xs-right hidden-lg-down ownBtn-login-sm btn-transparent" data-toggle="modal" data-target="#feedbackModal"><i class="fa fa-question fa-fw" aria-hidden="true"></i></a>
-                <a id="loginbtn" href="<?php echo home_url(); ?>/wp-login.php" class="float-xs-right hidden-lg-down ownBtn-login-sm btn-transparent" data-toggle="tooltip" data-placement="bottom" title="Sign-in"><i class="fa fa-1x fa-fw fa-sign-in" aria-hidden="true"></i></a>
+                <a id="feedbackbtn" href="#" class="float-xs-right hidden-lg-down ownBtn-login-sm btn-transparent" data-toggle="modal" data-target="#feedbackModal" title="Send Feedback"><i class="fa fa-paper-plane-o fa-fw" aria-hidden="true"></i></a>
+                <a id="loginbtn" href="<?php echo home_url(); ?>/wp-login.php" class="float-xs-right hidden-lg-down ownBtn-login-sm btn-transparent" data-toggle="tooltip" data-placement="bottom" title="Sign-in"><i class="fa fa-1x fa-fw fa-user-o" aria-hidden="true"></i></a>
                 
                 <span class="navbar-text float-xs-left">
                     <?php
                     $menuparameters = array(
-                    'menu'  =>  'Top Menu',
-                    'container' => '',
+                    'menu'           =>  'Top Menu',
+                    'container'      => '',
                     'theme_location' => 'topnav',
-                    'items_wrap' => topnav_wrap(),
-                    'depth' => '0',
+                    'items_wrap'     => topnav_wrap(),
+                    'depth'          => '0',
+                    'walker'         => new topnav_walker()                    
                     );
 
                     echo strip_tags(wp_nav_menu( $menuparameters ), '<a>' ); 
@@ -114,16 +115,16 @@
                             'container'      => '',
                             'theme_location' => 'topnav',
                             'depth'          => '0',
+
                             );
 
                             echo strip_tags(wp_nav_menu( $menuparameters ), '<a>' ); 
                         ?>
                     <hr>
                     <div class="container">
-                        <a id="loginbtn" href="<?php echo home_url(); ?>/wp-login.php" class="ownBtn btn-primary"><i class="fa fa-download fa-fw" aria-hidden="true"></i>&nbsp;eLibrary</a>
                         <a id="loginbtn" href="<?php echo home_url(); ?>/wp-login.php" class="ownBtn btn-primary"><i class="fa fa-phone fa-fw" aria-hidden="true"></i>&nbsp;Contact Us</a>
-                        <a id="loginbtn" href="<?php echo home_url(); ?>/wp-login.php" class="ownBtn btn-primary"><i class="fa fa-user fa-fw" aria-hidden="true"></i>&nbsp;Login</a>
-                        <a id="feedbackbtn" href="#" class="ownBtn btn-success xbtn" data-toggle="modal" data-target="#feedbackModal"><i class="fa fa-comments fa-fw" aria-hidden="true"></i>&nbsp;Feedback</a>
+                        <a id="loginbtn" href="<?php echo home_url(); ?>/wp-login.php" class="ownBtn btn-primary"><i class="fa fa-user-o fa-fw" aria-hidden="true"></i>&nbsp;Login</a>
+                        <a id="feedbackbtn" href="#" class="ownBtn btn-success xbtn" data-toggle="modal" data-target="#feedbackModal"><i class="fa fa-paper-plane-o fa-fw" aria-hidden="true"></i>&nbsp;Feedback</a>
                     </div><!-- container -->
                 </div>
                 <br>
@@ -163,5 +164,21 @@
         </nav>
         
     <br>
-    <a href="#" class="back-to-top"><i class="fa fa-arrow-up fa-fw"></i></a>    
+    <a href="#" class="back-to-top"><i class="fa fa-arrow-up fa-fw"></i></a>
+        
+        <!-- SEARCH BOX -->
+        <div class="container">
+            <div class="hidden-sm-up card card-block invisible">.</div>
+            <div class="card card-block">
+                <form role="search" method="get" action="<?php echo home_url(); ?>">
+                    <div class="input-group">
+                        <input type="text" class="form-control" value name="s" placeholder="Search for...">
+                        <span class="input-group-btn">
+                             <button type="submit" class="btn btn-secondary searchbtn" type="button"><i class="fa fa-search" aria-hidden="true"></i></button> 
+                        </span>
+                    </div>
+                </form>
+            </div> 
+        </div>  
+        
     </header>

@@ -75,9 +75,8 @@ add_action('init', 'register_my_menus');
 // Top Nav
 function topnav_wrap() {
     $topnavwrap = '<ul class="topnav-links">';
-    // $topnavwrap .= 'CENRO : ';
     $topnavwrap .= '%3$s';
-    // close the <ul>
+    // close the <ul>   
     $topnavwrap .= '</ul>';
     // return the result
     return $topnavwrap;
@@ -173,6 +172,28 @@ function frontpage_widget() {
         'after_title' => '</h3>',
     ));
     
+    // Search Post Sidebar
+    register_sidebar( array(
+        'name' => 'Sidebar - Search Page',
+        'id' => 'search_sidebar_widget',
+        'description' => __( 'an area for displaying sidebar widgets that only be seen on search page.', 'penrowp2-0' ),
+        'before_widget' => '<div class="card announcement card-block">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="headertext center">',
+        'after_title' => '</h3>',
+    ));
+    
+    // Index Page Sidebar
+    register_sidebar( array(
+        'name' => 'Sidebar - Category Page',
+        'id' => 'index_sidebar_widget',
+        'description' => __( 'an area for displaying sidebar widgets that only be seen on category page.', 'penrowp2-0' ),
+        'before_widget' => '<div class="card announcement card-block">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="headertext center">',
+        'after_title' => '</h3>',
+    ));
+    
     // Announcement Slider
     register_sidebar( array(
         'name' => 'Announcement Slider',
@@ -210,8 +231,8 @@ function frontpage_widget() {
         'name' => 'Feedback',
         'id' => 'feedback',
         'description' => __( 'Place a feedback / contact form here, it will appear once you click "Feedback" button on Menu ', 'penrowp2-0' ),
-        'before_widget' => '<div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="card card-block">',
-        'after_widget' => '</div></div></div>',
+        'before_widget' => '<div class="modal fade bd-example-modal-sm" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true"><div class="modal-dialog modal-sm">',
+        'after_widget' => '</div></div>',
     ));
 }
 add_action('widgets_init', 'frontpage_widget');
@@ -435,6 +456,45 @@ class mobnav2_walker extends Walker_Nav_Menu {
         
     }
     
+    
+}
+
+class topnav_walker extends Walker_Nav_Menu {
+    
+    function start_lvl(&$output, $depth = 0, $args = Array()) {
+        $indent = str_repeat("\t", $depth);
+        //$output .= "\n$indent<div class=\"nav-dropdown-content\"><ul>\n";
+        $output .= "\n$indent<ul class='footnav-second-level'>\n";
+    }
+    
+    function start_el(&$output, $item, $depth = 0, $args = Array(), $id = 0) {
+        
+        global $item_output;
+        
+        if ($depth == 0) {
+            $output .= "<li class='topnav-links'>";
+        }
+        if ($depth == 1) {
+            $output .= "<li>";
+        }
+        
+        $attributes = '';
+        
+        ! empty( $item->attr_title ) and $attributes .= ' title="' . esc_attr( $item->attr_title ) .'"';
+        ! empty( $item->target )and $attributes .= ' target="' . esc_attr( $item->target ) .'"';
+        ! empty( $item->xfn )and $attributes .= ' rel="' . esc_attr( $item->xfn ) .'"';
+        ! empty( $item->url )and $attributes .= ' href="' . esc_attr( $item->url ) .'"';
+        
+        $title = apply_filters ('the_title', $item->title, $item->ID);
+        
+        $item_output = $args->before;
+        $item_output .= '<a '. $attributes .'>'; 
+        $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+        $item_output .= '</a>';
+        $item_output .= $args->after;
+
+        $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+    }
     
 }
 
@@ -1045,6 +1105,22 @@ function penrowp_options ( $wp_customize ) {
     
     $wp_customize->add_setting (
         'w_7_disp',
+        array (
+            'default'       =>  'block',
+            'transport'     =>  'postMessage',
+        )
+    );
+    
+    $wp_customize->add_setting (
+        'w_8_url',
+        array (
+            'default'       =>  get_permalink( get_page_by_title( 'Jobs' ) ),
+            'transport'     =>  'postMessage',
+        )
+    );
+    
+    $wp_customize->add_setting (
+        'w_8_disp',
         array (
             'default'       =>  'block',
             'transport'     =>  'postMessage',
@@ -1739,6 +1815,18 @@ function penrowp_options ( $wp_customize ) {
         )
     ));
     
+    $wp_customize->add_control ( new WP_Customize_Image_Control (
+        $wp_customize,
+        'w_7_image_control',
+        array (
+            'label'         => __( 'Widget Image #7', 'penrowp2-0' ),
+            'description'   => __( 'Upload or Change the image of the link.', 'penrowp2-0' ),
+            'section'       => 'pwp_sect_widget',
+            'settings'      => 'w_7_image',
+            'priority'      => '70',
+        )
+    ));
+    
     $wp_customize->add_control ( new WP_Customize_Control (
         $wp_customize,
         'w_7_url_control',
@@ -1761,6 +1849,48 @@ function penrowp_options ( $wp_customize ) {
             'section'       => 'pwp_sect_widget',
             'settings'      => 'w_7_disp',
             'priority'      => '72',
+            'type'          => 'radio',
+            'choices'       => array (
+                'block'     =>  'Show',
+                'none'      =>  'Hide'
+            )
+        )
+    ));
+    
+    $wp_customize->add_control ( new WP_Customize_Image_Control (
+        $wp_customize,
+        'w_8_image_control',
+        array (
+            'label'         => __( 'Widget Image #8', 'penrowp2-0' ),
+            'description'   => __( 'Upload or Change the image of the link.', 'penrowp2-0' ),
+            'section'       => 'pwp_sect_widget',
+            'settings'      => 'w_8_image',
+            'priority'      => '80',
+        )
+    ));
+    
+    $wp_customize->add_control ( new WP_Customize_Control (
+        $wp_customize,
+        'w_8_url_control',
+        array (
+            'label'         => __( 'Jobs Page URL', 'penrowp2-0' ),
+            'description'   => __( "Link of your Jobs Page.", 'penrowp2-0' ),
+            'section'       => 'pwp_sect_widget',
+            'settings'      => 'w_8_url',
+            'type'          => 'text',
+            'priority'      => '81',
+        )
+    ));
+    
+    $wp_customize->add_control ( new WP_Customize_Control (
+        $wp_customize,
+        'w_8_disp_control',
+        array (
+            'label'         => __( "Display", 'penrowp2-0' ),
+            'description'   => __( "Don't display the image or link.", 'penrowp2-0' ),
+            'section'       => 'pwp_sect_widget',
+            'settings'      => 'w_8_disp',
+            'priority'      => '82',
             'type'          => 'radio',
             'choices'       => array (
                 'block'     =>  'Show',
@@ -1900,21 +2030,20 @@ function headerOutput() {
                 box-shadow: 0 0 2px 1px <?php echo get_theme_mod('panel_links_color', '#0275d8') ?> !important;
             }
             
+            .taglist li a:hover {
+                background: <?php echo get_theme_mod('btn_color', '#0275d8') ?>;
+                border: 1px solid <?php echo get_theme_mod('btn_color', '#0275d8') ?>;
+            }
+            
             .top-nav {
 /*                background-color: <php echo get_theme_mod('panel_links_color', '#373a3c') ?> !important;*/
             }
             
             /** BREADCRUMBS **/
-            .breadcrumb {
-                color: <?php echo get_theme_mod('panel_bg_color', '#FFFFFF') ?>;
-            }
             
-            .breadbg {
-                background: <?php echo get_theme_mod('panel_text_color', '#FFFFFF') ?>;
-            }
-            
-            .breadcrumb a {
-                color: <?php echo get_theme_mod('panel_links_color', '#FFFFFF') ?>;
+            .breadcrumb > span {
+                color: <?php echo get_theme_mod('panel_links_color', '#373a3c') ?>;
+                cursor: default;
             }
             
             .announcement img:hover, .announcement ul li:before {
@@ -2006,6 +2135,10 @@ function headerOutput() {
             
             .w7 {
                 display: <?php echo get_theme_mod('w_7_disp', 'block'); ?>;
+            }
+            
+            .w8 {
+                display: <?php echo get_theme_mod('w_8_disp', 'block'); ?>;
             }
             
             /** FOOTER ***/
