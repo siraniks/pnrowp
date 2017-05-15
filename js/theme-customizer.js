@@ -184,6 +184,8 @@
             $('#mainnavbtn').css( 'border-color', to );
             $('.cat-text a').css('color', to );
             $('.cat-icon').css('color', to );
+            $('.taglist li a:hover').css('background', to );
+            $('.taglist li a:hover').css('border-color', to );
 		} );
 	} );
     
