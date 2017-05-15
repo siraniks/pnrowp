@@ -88,7 +88,28 @@
         </div><!-- footer -->
             
         <!-- Feedback Form -->
-        <?php if(function_exists('dynamic_sidebar') && dynamic_sidebar("Feedback")):else: ?><?php endif; ?>
+<!--        <php if(function_exists('dynamic_sidebar') && dynamic_sidebar("Feedback")):else: ?><php endif; ?>-->
+        
+        <div class="modal fade bd-example-modal-sm" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h6 class="modal-title" id="exampleModalLabel">PWP Theme Feedback</h6>
+                    </div>
+                    <div class="modal-body">
+                        <p>Leave a message there.
+                        </p>
+                        
+                        <div class="center"><iframe src="https://discordapp.com/widget?id=300837797344968704&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"></iframe></div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
             
         </footer>
         <!--end of footer -->
