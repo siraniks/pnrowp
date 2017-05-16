@@ -44,6 +44,35 @@ This theme is mainly for PENRO / DENR but the knowledge on making this theme is 
 }
 */
 
+/* PRINT */
+@media print {
+    #mainnavbtn, #searchbox, #temp, .announcement, .footer, ul.sharelist, ul.taglist, .breadcrumb, .back-to-top { display: none; visibility: hidden; }
+    body { background-image: none !important; background-color: white !important; }
+    .card-block, .news-item-wrapper, hr { border: 0 !important; }
+    .size-thumbnail, .size-medium, .size-large, .size-full, span { border: 0; }
+    blockquote p {
+        background-color: white;
+        background-image: url() !important;
+        background-position: none;
+        line-height: normal;
+        padding-left: 0;
+        font-size: 14px;
+        font-style: italic;
+        font-family: Arial;
+        margin: 0;
+        border: 0;
+    }
+    blockquote p:before {
+        content: '"';
+    }
+    
+    blockquote p:after {
+        content: '"';
+    }
+    .card-title { margin-top: -30px; }
+    .news-item-wrapper p { margin-top: -15px; }
+}
+
 /* online, for Firefox */
 @font-face {
     font-family: 'Roboto Light';
@@ -1265,11 +1294,11 @@ ul.unstyled2 {
 }
 
 .sharelist a {
-    color: #c1c1c1;
+/*    color: #c1c1c1;*/
 }
 
 .sharelist a:hover {
-    color: #0275d8;
+/*    color: #0275d8;*/
 }
 
 .sharelist li {
@@ -1654,4 +1683,54 @@ i.cross-out {
 
 .wp-caption-text:after {
     content: " )";
+}
+
+/** SHARE LIST **/
+.icon-fb {
+    color: #4267b2 !important;
+}
+
+.icon-fb:hover {
+    color: #809bd1 !important;
+}
+
+.icon-tw {
+    color: #1da1f2 !important;
+}
+
+.icon-tw:hover {
+    color: #64c3fe !important;
+}
+
+.icon-lin {
+    color: #0077b5 !important;
+}
+
+.icon-lin:hover {
+    color: #53a7d5 !important;
+}
+
+.icon-pckt {
+    color: #ee4056 !important;
+}
+
+.icon-pckt:hover {
+    color: #fa7d8d !important;
+}
+
+.icon-prntr {
+    color: #76777c !important;
+}
+
+.icon-prntr:hover {
+    color: #a6a6aa !important;
+    cursor: pointer;
+}
+
+.icon-mail {
+    color: #f1ce00 !important;
+}
+
+.icon-mail :hover{
+    color: #fee450 !important;
 }
