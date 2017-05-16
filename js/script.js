@@ -2,10 +2,11 @@ var $ = jQuery.noConflict();
 
 $(document).ready(function () {
     
-    $('.menu-item-has-children').click( function(){
+    $('.menu-item-has-children').click(function() {
        $('.menu-item-has-children').css('display','block'); 
     });
     
+       
     
     // Override PAGASA Time Stamp 
     // $('iframe #serverdate').addClass("invisible");
@@ -115,5 +116,3 @@ $(document).ready(function () {
     });
     
 });
-
-
