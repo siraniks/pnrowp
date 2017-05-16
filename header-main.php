@@ -167,7 +167,7 @@
     <a href="#" class="back-to-top"><i class="fa fa-arrow-up fa-fw"></i></a>
         
         <!-- SEARCH BOX -->
-        <div class="container">
+        <div id="searchbox" class="container">
             <div class="hidden-sm-up card card-block invisible">.</div>
             <div class="card card-block">
                 <form role="search" method="get" action="<?php echo home_url(); ?>">
