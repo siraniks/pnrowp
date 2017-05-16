@@ -2022,7 +2022,7 @@ function headerOutput() {
 /*                border-color: <?php echo get_theme_mod('panel_text_color', '#373a3c') ?>;*/
             }
             
-            .card-title a, .news-item-wrapper a, #sidebar a, h3.headertext, i.cnr, .admintext, a.subhead-link:hover {
+            .card-title a, #sidebar a, h3.headertext, i.cnr, .admintext, a.subhead-link:hover {
                 color: <?php echo get_theme_mod('panel_links_color', '#0275d8') ?>;
             }
             
