@@ -17,9 +17,10 @@ get_header('main'); ?>
             <div class="row">
                 <!-- news section -->
                 <!-- Announcement Slider -->
-                <div class="col-md-12">
+                <div class="container">
                     <?php if(function_exists('dynamic_sidebar') && dynamic_sidebar("Announcement Slider")):else: ?><?php endif; ?>
                 </div>
+                
                 <div class="col-md-9">
                     
                 <!-- news section -->   
@@ -68,37 +69,52 @@ get_header('main'); ?>
         </div><!-- header content container -->
         
         <!-- admin section -->
-        <div class="officers hidden-sm-down" style="background-color: #eceeef;">
+        <div class="officers admin_panel-bg">
             <div class="container">
                 <div class="row">
                     <div class="card-deck-wrapper">
                         <div class="card-deck">
                             
                             <div class="card">
+                                <div class="card-header uppercase aligncenter"><h5>DENR Secretary</h5></div>
                                 <div id="admin-sec" class="card-block">
                                     <img src="<?php 
                                               $dir = get_template_directory_uri(); ;
                                               $img = "/images/adminpic.png";
                                               echo get_theme_mod( 'admin-sec', $dir . $img ); ?>" alt="Secretary" class="adminfx center">
                                     <!-- <img src="<php echo get_template_directory_uri(); ?>/images/adminpic.png" alt="Card image" class="center"> -->
+                                    <br>
+                                    <div class="admin-label uppercase aligncenter">
+                                        <h5><?php $init = "Secretary "; echo get_theme_mod( 'admin_sec-name', $init . 'Roy Cimatu'); ?></h5>
+                                    </div>
                                 </div>
                             </div>
                             <div class="card">
+                                <div class="card-header uppercase aligncenter"><h5>Regional Director</h5></div>
                                 <div id="admin-rd" class="card-block">
                                     <img src="<?php 
                                               $dir = get_template_directory_uri(); ;
                                               $img = "/images/adminpic.png";
                                               echo get_theme_mod( 'admin-rd', $dir . $img ); ?>" alt="Regional Director" class="adminfx center">
                                     <!-- <img src="<php echo get_template_directory_uri(); ?>/images/adminpic2.png" alt="Card image" class="center"> -->
+                                    <br>
+                                    <div class="admin-label uppercase aligncenter">
+                                        <h5><?php $init = "RD "; echo get_theme_mod( 'admin_rd-name', $init . 'REYNULFO A. JUAN'); ?></h5>
+                                    </div>
                                 </div>
                             </div>
                             <div class="card">
+                                <div class="card-header uppercase aligncenter"><h5>PENR Officer</h5></div>
                                 <div id="admin-penro" class="card-block">
                                     <img src="<?php 
                                               $dir = get_template_directory_uri(); ;
                                               $img = "/images/adminpic.png";
                                               echo get_theme_mod( 'admin-penro', $dir . $img ); ?>" alt="PENRO Officer" class="adminfx center">
                                     <!-- <img src="<php echo get_template_directory_uri(); ?>/images/adminpic3.png" alt="Card image" class="center"> -->
+                                    <br>
+                                    <div class="admin-label uppercase aligncenter">
+                                        <h5><?php echo get_theme_mod( 'admin_penro-name', 'RADZAK B. SINARIMBO, MPA, LLB'); ?></h5>
+                                    </div>
                                 </div>
                             </div>
                             
@@ -107,42 +123,53 @@ get_header('main'); ?>
                 </div>
             </div>
         </div>
+        
         <!-- carousel admin for mobile only -->
+        
+<!--
         <div class="container">
-            <h3 class="center admintext hidden-md-up">Administrators</h3>
-            <div class="mx-auto" style="background-color:blue; width:200px; margin-bottom: 10px;">
-                <div id="carousel-example-generic" class="carousel slide hidden-md-up" data-ride="carousel">
-                      <div class="carousel-inner" role="listbox">
-                            <div class="carousel-item active">
-                                <img src="<?php 
-                                  $dir = get_template_directory_uri(); ;
-                                  $img = "/images/adminpic.png";
-                                  echo get_theme_mod( 'admin-sec', $dir . $img ); ?>" alt="Secretary">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="<?php 
-                                  $dir = get_template_directory_uri(); ;
-                                  $img = "/images/adminpic.png";
-                                  echo get_theme_mod( 'admin-rd', $dir . $img ); ?>" alt="Regional Director">
-                            </div>
-                          <div class="carousel-item">
-                              <img src="<?php 
-                                  $dir = get_template_directory_uri(); ;
-                                  $img = "/images/adminpic.png";
-                                  echo get_theme_mod( 'admin-penro', $dir . $img ); ?>" alt="PENRO Officer">
-                            </div>
-                      </div>
-                      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                            <span class="icon-prev" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                      </a>
-                      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                            <span class="icon-next" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                      </a>
+            <div class="card card-block">
+                <h3 class="center admintext hidden-md-up">Administrators</h3>
+                <div class="mx-auto" style="background-color:transparent; width:200px; margin-bottom: 10px;">
+                    <div id="carousel-example-generic" class="carousel slide hidden-md-up" data-ride="carousel">
+                          <div class="carousel-inner" role="listbox">
+                                <div class="carousel-item active">
+                                    <img src="<?php 
+                                      $dir = get_template_directory_uri(); ;
+                                      $img = "/images/adminpic.png";
+                                      echo get_theme_mod( 'admin-sec', $dir . $img ); ?>" alt="Secretary">
+                                    <div class="carousel-caption">
+                                        <h3>Cimatu</h3>
+                                        <p>DENR Secretary</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?php 
+                                      $dir = get_template_directory_uri(); ;
+                                      $img = "/images/adminpic.png";
+                                      echo get_theme_mod( 'admin-rd', $dir . $img ); ?>" alt="Regional Director">
+                                </div>
+                              <div class="carousel-item">
+                                  <img src="<?php 
+                                      $dir = get_template_directory_uri(); ;
+                                      $img = "/images/adminpic.png";
+                                      echo get_theme_mod( 'admin-penro', $dir . $img ); ?>" alt="PENRO Officer">
+                                </div>
+                          </div>
+                          <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                                <span class="icon-prev" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                          </a>
+                          <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                                <span class="icon-next" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                          </a>
+                    </div>
                 </div>
             </div>
         </div>
+-->
+        
         <!-- admin section -->    
         
         <div class="embed-container maps">
