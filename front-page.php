@@ -41,8 +41,6 @@ get_header('main'); ?>
                                     <h6 class="cat-text"><?php the_category( ' ' ); ?></h6>
                                     <h4 class="card-title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h4>
                                     
-                                    <p class="editThePost"><?php edit_post_link('EDIT'); ?></p>
-                                    
                                     <?php the_excerpt(); ?>
                                     
                                     <a id="readBtn" href="<?php the_permalink(); ?>" class="btn btn-primary"><?php echo get_theme_mod( 'read-btn_textbox', 'Read' ); ?></a>
