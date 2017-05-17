@@ -63,7 +63,7 @@ get_header('main'); ?>
                         </div>
                         
                         <hr>
-                        <?php the_tags( '<ul class="taglist"><i class="fa fa-fw fa-tags"></i>&nbsp;<li>', '</li><li>', '</li></ul>' ); ?>
+                        <?php the_tags( '<ul class="taglist"><i class="fa fa-fw fa-tags"></i>  Tags: &nbsp;<li>', '</li><li>', '</li></ul>' ); ?>
                         <br>
 <!--                        <php wp_list_comments( ); ?>-->
 <!--                        <php comments_template( ); ?>-->
