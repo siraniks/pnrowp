@@ -68,15 +68,33 @@
         </nav><!-- top navbar -->
         
         <div class="logo hidden-md-down">
+<!--
             <div class="center">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/logo150.png" /><br>
+                <img src="<php echo get_template_directory_uri(); ?>/images/logo150.png" /><br>
                 <p>
                 
                     <h6 class="rp">Republic of the Philippines</h6>
                     <h6 class="dnr">Department of Environment and Natural Resources</h6>
-                    <h4 class="pnr"><a href="<?php echo home_url(); ?>" data-toggle="tooltip" data-placement="bottom" title="Return Home"><?php bloginfo('name'); ?></a></h4>
-                    <h5 class="rnr"><?php bloginfo('description'); ?></h5>
+                    <h4 class="pnr"><a href="<php echo home_url(); ?>" data-toggle="tooltip" data-placement="bottom" title="Return Home"><php bloginfo('name'); ?></a></h4>
+                    <h5 class="rnr"><php bloginfo('description'); ?></h5>
                 </p>
+            </div>
+-->     
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-2">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/logo150.png" />    
+                    </div>
+                    <div class="col-xs-8 logotext">
+                        <h6 class="rp2 invisible">Republic of the Philippines</h6>
+                        <h6 class="dnr2">Department of Environment and Natural Resources</h6>
+                        <h4 class="pnr2"><a href="<?php echo home_url(); ?>" data-toggle="tooltip" data-placement="bottom" title="Return Home"><?php bloginfo('name'); ?></a></h4><hr class="logohr">
+                        <h5 class="rnr2"><?php bloginfo('description'); ?></h5>
+                    </div>
+                    <div class="col-xs-2">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/phlogo150.png" />    
+                    </div>
+                </div>
             </div>
         </div>
         
