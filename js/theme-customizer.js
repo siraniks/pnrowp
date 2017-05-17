@@ -94,7 +94,7 @@
     wp.customize( 'admin-pres', function( value ) {
 		value.bind( function( to ) {
 			$( '#admin-pres' ).html(function() {
-                return '<img src="' + to + '" alt="Philippine President" class="center">'
+                return '<img src="' + to + '" alt="Philippine President" class="aligncenter">'
             });
 		} );
 	} );
@@ -102,15 +102,16 @@
     wp.customize( 'admin-sec', function( value ) {
 		value.bind( function( to ) {
 			$( '#admin-sec' ).html(function() {
-                return '<img src="' + to + '" alt="DENR ecretary" class="center">'
+                return '<img src="' + to + '" alt="DENR ecretary" class="aligncenter">'
             });
 		} );
 	} );
     
+    
     wp.customize( 'admin-rd', function( value ) {
 		value.bind( function( to ) {
 			$( '#admin-rd' ).html(function() {
-                return '<img src="' + to + '" alt="Regional Director" class="center">'
+                return '<img src="' + to + '" alt="Regional Director" class="aligncenter">'
             });
 		} );
 	} );
@@ -118,7 +119,7 @@
     wp.customize( 'admin-penro', function( value ) {
 		value.bind( function( to ) {
 			$( '#admin-penro' ).html(function() {
-                return '<img src="' + to + '" alt="PENRO" class="center">'
+                return '<img src="' + to + '" alt="PENRO" class="aligncenter">'
             });
 		} );
 	} );
