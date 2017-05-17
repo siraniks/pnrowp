@@ -199,7 +199,7 @@ function frontpage_widget() {
         'name' => 'Announcement Slider',
         'id' => 'announcement',
         'description' => __( 'a slider area where announcement post will appear with ease.', 'penrowp2-0' ),
-        'before_widget' => '<div class="card card-block">',
+        'before_widget' => '<div class="card announcement-slider card-block">',
         'after_widget' => '</div>',
     ));
     
@@ -222,7 +222,7 @@ function frontpage_widget() {
         'name' => 'Time',
         'id' => 'time',
         'description' => __( 'Embed a time widget, recommend use PAGASA Philippine Time', 'penrowp2-0' ),
-        'before_widget' => '<div class="card card-block hidden-md-down">',
+        'before_widget' => '<div class="timePanel hidden-md-down">',
         'after_widget' => '</div>',
     ));
     
@@ -893,6 +893,30 @@ function penrowp_options ( $wp_customize ) {
         )
     );
     
+    $wp_customize->add_setting (
+        'admin_sec-name',
+        array (
+            'default'       =>  'Sec Juan Dela Cruz',
+            'transport'     =>  'postMessage',
+        )
+    );
+    
+    $wp_customize->add_setting (
+        'admin_rd-name',
+        array (
+            'default'       =>  'RD Juan Dela Cruz',
+            'transport'     =>  'postMessage',
+        )
+    );
+    
+    $wp_customize->add_setting (
+        'admin_penro-name',
+        array (
+            'default'       =>  'PENRO Juan Dela Cruz',
+            'transport'     =>  'postMessage',
+        )
+    );
+    
     // CONTENT
     
     // Panel
@@ -1478,7 +1502,7 @@ function penrowp_options ( $wp_customize ) {
         'admin_sec_control',
         array (
             'label'         => __( 'DENR Secretary', 'penrowp2-0' ),
-            'description'   => __( 'Upload or Change the image of your respected adminsitrators.', 'penrowp2-0' ),
+            'description'   => __( 'Upload or Change the image of your respected adminsitrators. (Image must be 200x200)', 'penrowp2-0' ),
             'section'       => 'pwp_sect_admin',
             'settings'      => 'admin-sec',
             'priority'      => '11',
@@ -1490,10 +1514,10 @@ function penrowp_options ( $wp_customize ) {
         'admin_rd_control',
         array (
             'label'         => __( 'Regional Director', 'penrowp2-0' ),
-            'description'   => __( 'Upload or Change the image of your respected adminsitrators.', 'penrowp2-0' ),
+            'description'   => __( 'Upload or Change the image of your respected adminsitrators. (Image must be 200x200)', 'penrowp2-0' ),
             'section'       => 'pwp_sect_admin',
             'settings'      => 'admin-rd',
-            'priority'      => '12',
+            'priority'      => '21',
         )
     ));
     
@@ -1502,10 +1526,46 @@ function penrowp_options ( $wp_customize ) {
         'admin_penro_control',
         array (
             'label'         => __( 'PENRO Officer', 'penrowp2-0' ),
-            'description'   => __( 'Upload or Change the image of your respected adminsitrators.', 'penrowp2-0' ),
+            'description'   => __( 'Upload or Change the image of your respected adminsitrators. (Image must be 200x200)', 'penrowp2-0' ),
             'section'       => 'pwp_sect_admin',
             'settings'      => 'admin-penro',
-            'priority'      => '13',
+            'priority'      => '31',
+        )
+    ));
+    
+    $wp_customize->add_control ( new WP_Customize_Control (
+        $wp_customize,
+        'admin_sec-name_control',
+        array (
+            'label'         => __( 'DENR Secretary', 'penrowp2-0' ),
+            'description'   => __( 'Supply the name of the respected adminsitrator.', 'penrowp2-0' ),
+            'section'       => 'pwp_sect_admin',
+            'settings'      => 'admin-sec',
+            'priority'      => '12',
+        )
+    ));
+    
+    $wp_customize->add_control ( new WP_Customize_Control (
+        $wp_customize,
+        'admin_rd-name_control',
+        array (
+            'label'         => __( 'Regional Director', 'penrowp2-0' ),
+            'description'   => __( 'Supply the name of the respected adminsitrator.', 'penrowp2-0' ),
+            'section'       => 'pwp_sect_admin',
+            'settings'      => 'admin-rd',
+            'priority'      => '22',
+        )
+    ));
+    
+    $wp_customize->add_control ( new WP_Customize_Control (
+        $wp_customize,
+        'admin_penro-name_control',
+        array (
+            'label'         => __( 'PENRO Officer', 'penrowp2-0' ),
+            'description'   => __( 'Supply the name of the respected adminsitrator.', 'penrowp2-0' ),
+            'section'       => 'pwp_sect_admin',
+            'settings'      => 'admin-penro',
+            'priority'      => '32',
         )
     ));
     
