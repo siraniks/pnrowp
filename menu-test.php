@@ -7,6 +7,8 @@ get_header('main'); ?>
 
 <div class="container"> 
     
+    <iframe src="https://oras.pagasa.dost.gov.ph/widget.shtml" width="auto" height="300px"></iframe>
+    
 <div class="row">
     <div class="card card-block">
         <div class="new-mobi-menu">
