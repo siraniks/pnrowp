@@ -103,7 +103,7 @@
                         <p>Leave a message there.
                         </p>
                         
-                        <div class="center"><iframe src="https://discordapp.com/widget?id=300837797344968704&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"></iframe></div>
+                        <div class="center"><iframe src="https://discordapp.com/widget?id=300837797344968704&theme=dark" width="300" height="500" allowtransparency="true" frameborder="0"></iframe></div>
                     </div>
                     
                 </div>
