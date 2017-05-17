@@ -648,6 +648,18 @@ img.transparency-seal25 {
     letter-spacing: 5px;
 }
 
+.logotext {
+    margin-top: 18px;
+}
+.logohr {
+    border-color: white;
+}
+.rp2 { color: rgba(255,255,255,0.5); line-height: 12px;}
+.dnr2 { color: rgba(255,255,255,0.8); font-size: 18px; line-height: 15px;}
+.pnr2 a { color: white; text-transform: uppercase; font-weight: bold; font-size: 28px;}
+.pnr2 a:hover { color: blue; }
+.rnr2 { color: white; text-transform: uppercase; font-size: 28px; }
+
 /*HEADLINE SECTION*/
 
 .widgetbox {
