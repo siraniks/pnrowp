@@ -1,0 +1,1 @@
+<iframe src="https://oras.pagasa.dost.gov.ph/widget.shtml" width="100%" height="65px" frameborder="0" style="border:0" scrolling="no" allowfullscreen></iframe>
