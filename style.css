@@ -151,10 +151,24 @@ blockquote {
     overflow: hidden;
 }
 
+.card-header h5 {
+    font-size: 25px;
+    color: #0275d8;
+    cursor: default;
+}
+
+.admin-label h5 {
+    cursor: default;
+}
+
 .navbar-fixed-top {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 }
+
+a.navbar-brand {
+    font-size: 18px;
+} 
 
 /* CUSTOM */
 
@@ -1814,4 +1828,5 @@ i.cross-out {
     margin-bottom: 8px;
     border-radius: 5px;
 }
+
 
