@@ -56,18 +56,18 @@
     
     wp.customize( 'header_text_color', function( value ) {
 		value.bind( function( to ) {
-
-            $('h6.rp').css( 'color', to );
-            $('h6.dnr').css( 'color', to );
-            $('h4.pnr a').css( 'color', to );
-            $('h5.rnr').css( 'color', to );
-            $('a.subhead-link').css( 'color', to );
+            $imp = ' !important';
+            $('h6.rp2').css( 'color', to );
+            $('h6.dnr2').css( 'color', to );
+            $('a.pnr2').css( 'color', to );
+            $('h5.rnr2').css( 'color', to );
+            $('.logohr').css( 'border-color', to );
 		} );
 	} );
     
     wp.customize( 'header_link_color', function( value ) {
 		value.bind( function( to ) {
-            $('h4.pnr a:hover').css( 'color', to );
+            $('a.pnr2:hover').css( 'color', to );
 		} );
 	} );
     
@@ -153,7 +153,7 @@
             $('li.mob-item-header a').css('color', to );
             $('.announcement img:hover').css('border-color', to );
             $('a.back-to-top:hover').css('color', to );
-            $('h4.pnr a:hover').css('color', to );
+            $('h4.pnr2 a:hover').css('color', to );
             $('.announcement li a').css('color', to );
             $('h3.headertext').css('color', to );
             $('i.cnr').css('color', to );
@@ -258,8 +258,8 @@
             var imp = ' !important';
             $('#mainnavbtn').css( 'background-color', to );
             $('#mainnavbar').css( 'background-color', to );
-            $('#primary_nav_wrap').css( 'background-color', to );
-            $('#primary_nav_wrap ul ul a:hover').css( 'background-color', to );
+            $('nav#primary_nav_wrap').css( 'background-color', to );
+            $('nav#primary_nav_wrap ul ul a:hover').css( 'background-color', to );
             $('a.subhead-time').css( 'background-color', to );
             $('#mainnavbtn').css( 'border-color', to );
 		} );
@@ -268,6 +268,7 @@
     wp.customize( 'menu_panel_color', function( value ) {
 		value.bind( function( to ) {
             $('#mySidenav').css( 'background-color', to );
+            $('nav#primary_nav_wrapper').css( 'background-color', to );
             $('#primary_nav_wrapper ul ul li a').css( 'background-color', to );
 		} );
 	} );
@@ -277,6 +278,8 @@
             $('li.mob-item-header a').css( 'color', to );
             $('.sidenav-header-text').css( 'color', to );
             $('.sidenav-sub-text').css( 'color', to );
+            $('ul.mob-menu li a').css( 'color', to );
+            $('ul.menu li a').css( 'color',  to );
 		} );
 	} );
     
@@ -306,7 +309,7 @@
     
     wp.customize( 'footer_bg_image', function( value ) {
 		value.bind( function( to ) {
-			$('.footer').css( 'background-image', to);
+			$('.footer').css( 'background-image', 'url(' + to + ')' );
 		} );
 	} );
 	
