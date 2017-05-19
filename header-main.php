@@ -105,14 +105,18 @@
         
         <!-- SIDENAV -->
         <div id="mySidenav" class="sidenav">
-        <a href="#" class="closebtn">&times;</a>
+        
+            <div class="top-mobnav">
+                <a href="#" class="closeBtn float-xs-right"><i class="fa fa-fw fa-times"></i></a>
+                <a href="<?php echo home_url(); ?>/wp-login.php" class="userBtn float-xs-right"><i class="fa fa-fw fa-user-o"></i></a>
+                <a href="<?php echo esc_url( get_permalink( get_page_by_title( 'Contact Us' ) ) ); ?>" class="callBtn float-xs-right"><i class="fa fa-fw fa-phone"></i></a>            
+            </div>
+            
             <div class="sidenav-content">
                 
                 <!-- menu -->  
                 <div class="mobile-nav">
                     
-                    <div style="margin-bottom: 30px;"></div>
-
                         <?php
                             $mobmenuparameters = array(
                             'menu'           => 'Primary Menu',
@@ -138,11 +142,7 @@
 
                             echo strip_tags(wp_nav_menu( $menuparameters ), '<a>' ); 
                         ?>
-                    <hr class="mobhr">
                     <div class="container">
-                        <a id="loginbtn" href="<?php echo home_url(); ?>/wp-login.php" class="ownBtn btn-success"><i class="fa fa-phone fa-fw" aria-hidden="true"></i>&nbsp;Contact Us</a>
-                        <a id="loginbtn" href="<?php echo home_url(); ?>/wp-login.php" class="ownBtn btn-primary"><i class="fa fa-user-o fa-fw" aria-hidden="true"></i>&nbsp;Login</a>
-                        <br>
                     </div><!-- container -->
                 </div>
                 <br>
