@@ -88,11 +88,11 @@
                     <div class="col-xs-8 logotext">
                         <h6 class="rp2 invisible">Republic of the Philippines</h6>
                         <h6 class="dnr2">Department of Environment and Natural Resources</h6>
-                        <h4 class="pnr2"><a href="<?php echo home_url(); ?>" data-toggle="tooltip" data-placement="bottom" title="Return Home"><?php bloginfo('name'); ?></a></h4><hr class="logohr">
+                        <h4><a class="pnr2" href="<?php echo home_url(); ?>" title="Return Home"><?php bloginfo('name'); ?></a></h4><hr class="logohr">
                         <h5 class="rnr2"><?php bloginfo('description'); ?></h5>
                     </div>
                     <div class="col-xs-2">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/phlogo150.png" />    
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/phlogo150.png" class="alignright"/>    
                     </div>
                 </div>
             </div>
@@ -126,7 +126,7 @@
                             echo strip_tags(wp_nav_menu( $mobmenuparameters ), '<a>' ); 
                         ?> 
                          
-                    <hr>
+                    <hr class="mobhr">
                     <?php
                             $menuparameters = array(
                             'menu'           =>  'Top Menu',
@@ -138,11 +138,11 @@
 
                             echo strip_tags(wp_nav_menu( $menuparameters ), '<a>' ); 
                         ?>
-                    <hr>
+                    <hr class="mobhr">
                     <div class="container">
-                        <a id="loginbtn" href="<?php echo home_url(); ?>/wp-login.php" class="ownBtn btn-primary"><i class="fa fa-phone fa-fw" aria-hidden="true"></i>&nbsp;Contact Us</a>
+                        <a id="loginbtn" href="<?php echo home_url(); ?>/wp-login.php" class="ownBtn btn-success"><i class="fa fa-phone fa-fw" aria-hidden="true"></i>&nbsp;Contact Us</a>
                         <a id="loginbtn" href="<?php echo home_url(); ?>/wp-login.php" class="ownBtn btn-primary"><i class="fa fa-user-o fa-fw" aria-hidden="true"></i>&nbsp;Login</a>
-                        <a id="feedbackbtn" href="#" class="ownBtn btn-success xbtn" data-toggle="modal" data-target="#feedbackModal"><i class="fa fa-paper-plane-o fa-fw" aria-hidden="true"></i>&nbsp;Feedback</a>
+                        <br>
                     </div><!-- container -->
                 </div>
                 <br>
