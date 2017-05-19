@@ -811,7 +811,7 @@ function penrowp_options ( $wp_customize ) {
     $wp_customize->add_setting (
         'header_text_color',
         array (
-            'default'       =>  '#373a3c',
+            'default'       =>  '#ffffff',
             'transport'     =>  'postMessage',
         )
     );
@@ -1353,7 +1353,7 @@ function penrowp_options ( $wp_customize ) {
             'type'          => 'radio',
             'choices'       => array (
                 '#ffffff'     =>  'Light',
-                '#292b2c'     =>  'Dark'
+                '#373a3c'     =>  'Dark'
             )
         )
     ));
@@ -1366,22 +1366,6 @@ function penrowp_options ( $wp_customize ) {
             'section'       => 'pwp_sect_header',
             'settings'      => 'header_link_color',
             'priority'      => '2',
-        )
-    ));
-    
-    $wp_customize->add_control ( new WP_Customize_Control (
-        $wp_customize,
-        'subhead_link_color_control',
-        array (
-            'label'         => __( 'Contact Details Text Color', 'penrowp2-0' ),
-            'section'       => 'pwp_sect_header',
-            'settings'      => 'subhead_link_color',
-            'priority'      => '3',
-            'type'          => 'radio',
-            'choices'       => array (
-                '#373a3c'       =>  'Dark',
-                '#ffffff'       =>  'Light',
-            )
         )
     ));
     
@@ -1405,7 +1389,8 @@ function penrowp_options ( $wp_customize ) {
                 '#4fd980'     =>  'Blue-Green',
                 '#f0ad4e'     =>  'Orange',
                 '#a74fd9'     =>  'Purple',
-                '#292b2c'     =>  'Dark'
+                '#292b2c'     =>  'Dark',
+                "rgba(0,0,0,0.3)"   =>  'Dark Transparent',
             )
         )
     ));
@@ -1445,10 +1430,6 @@ function penrowp_options ( $wp_customize ) {
                 '#4fd980'     =>  'Blue-Green',
                 '#f0ad4e'     =>  'Orange',
                 '#a74fd9'     =>  'Purple',
-                '#ffffff'     =>  'Light',
-                '#292b2c'     =>  'Dark',
-                
-                
             )
         )
     ));
@@ -2020,7 +2001,23 @@ function headerOutput() {
         <!-- Customizer CSS -->
         <style type="text/css">
             
-            /*BACKGROUND*/
+            /** BACK TO TOP **/
+            
+            a.back-to-top:hover {
+                color: <?php echo get_theme_mod('btn_color', '#0275d8') ?>;
+            }
+            
+            /** RESTRICTION **/
+            
+            .card-block p {
+                -webkit-user-select: <?php echo get_theme_mod('restrict-copy', 'text') ?>;
+                -khtml-user-select: <?php echo get_theme_mod('restrict-copy', 'text') ?>;
+                -moz-user-select: -moz-<?php echo get_theme_mod('restrict-copy', 'text') ?>;
+                -o-user-select: <?php echo get_theme_mod('restrict-copy', 'text') ?>;
+                user-select: <?php echo get_theme_mod('restrict-copy', 'text') ?>;
+            }
+            
+            /** BACKGROUND **/
             
             body {
                 background-image: url(<?php echo get_theme_mod('bg_image') ?>);
@@ -2032,27 +2029,25 @@ function headerOutput() {
                 background-color: <?php echo get_theme_mod('bg_color', '#ffffff') ?>;
             }
             
-            .card-block p {
-                -webkit-user-select: <?php echo get_theme_mod('restrict-copy', 'text') ?>;
-                -khtml-user-select: <?php echo get_theme_mod('restrict-copy', 'text') ?>;
-                -moz-user-select: -moz-<?php echo get_theme_mod('restrict-copy', 'text') ?>;
-                -o-user-select: <?php echo get_theme_mod('restrict-copy', 'text') ?>;
-                user-select: <?php echo get_theme_mod('restrict-copy', 'text') ?>;
+            /** HEADER **/
+            
+            .logotext {
+                color: <?php echo get_theme_mod('header_text_color', '#ffffff') ?>;
             }
             
-            /*HEADER*/
-            
-            h6.rp, h6.dnr, h4.pnr a, h5.rnr {
-                color: <?php echo get_theme_mod('header_text_color', '#373a3c') ?>;
+            a.pnr2 {
+                color: <?php echo get_theme_mod('header_text_color', '#ffffff') ?>;
             }
             
-            a.subhead-link {
-                color: <?php echo get_theme_mod('subhead_link_color', '#373a3c') ?> !important;
+            a.pnr2:hover {
+                color: <?php echo get_theme_mod('header_link_color', '#0275d8') ?>;
             }
             
-            h4.pnr a:hover {
-                color: <?php echo get_theme_mod('header_link_color', '#0275d8') ?> !important;
+            .logohr {
+                border-color: <?php echo get_theme_mod('header_text_color', '#ffffff') ?>;
             }
+            
+            
             
             /** MENU **/
             
@@ -2061,15 +2056,15 @@ function headerOutput() {
                 border-color: <?php echo get_theme_mod('menu_btn_color', '#5cb85c') ?>;
             }
             
-            #mainnavbar, #primary_nav_wrap,  #primary_nav_wrap ul ul a:hover, a.subhead-time {
-                background-color: <?php echo get_theme_mod('menu_btn_color', '#5cb85c') ?> !important;
+            #mainnavbar, nav#primary_nav_wrap,  nav#primary_nav_wrap ul ul a:hover, a.subhead-time {
+                background-color: <?php echo get_theme_mod('menu_btn_color', '#5cb85c') ?>;
             }
             
             #mySidenav, #primary_nav_wrapper ul ul li a {
                 background-color: <?php echo get_theme_mod('menu_panel_color', '#FFFFFF') ?>;
             }
             
-            li.mob-item-header a, .sidenav-header-text, .sidenav-sub-text {
+            ul.mob-menu li a, ul.menu li a, .sidenav-header-text, .sidenav-sub-text {
                 color: <?php echo get_theme_mod('menu_link_color', '#0275d8') ?>;
             }
             
@@ -2078,10 +2073,8 @@ function headerOutput() {
                 color: <?php echo get_theme_mod('panel_text_color', '#373a3c') ?>;
             }
             
-            .sidenav-content hr {
-/*                border-color: <?php echo get_theme_mod('panel_text_color', '#373a3c') ?>;*/
-            }
-            
+            /** SIDEBAR **/
+                    
             .card-title a, #sidebar a, h3.headertext, i.cnr, .admintext, a.subhead-link:hover {
                 color: <?php echo get_theme_mod('panel_links_color', '#0275d8') ?>;
             }
@@ -2093,10 +2086,6 @@ function headerOutput() {
             .taglist li a:hover {
                 background: <?php echo get_theme_mod('btn_color', '#0275d8') ?>;
                 border: 1px solid <?php echo get_theme_mod('btn_color', '#0275d8') ?>;
-            }
-            
-            .top-nav {
-/*                background-color: <php echo get_theme_mod('panel_links_color', '#373a3c') ?> !important;*/
             }
             
             /** BREADCRUMBS **/
@@ -2116,9 +2105,7 @@ function headerOutput() {
                 background-color: <?php echo get_theme_mod('panel_bg_color', '#FFFFFF') ?>;
             }
             
-            a.back-to-top:hover {
-                color: <?php echo get_theme_mod('btn_color', '#0275d8') ?>;
-            }
+            /** CATEGORIES **/
             
             .cat-icon {
                 color: <?php echo get_theme_mod('btn_color', '#0275d8') ?>;
@@ -2134,6 +2121,8 @@ function headerOutput() {
             .cat-text a:hover {
                 background-color: <?php echo get_theme_mod('btn_color', '#0275d8') ?>;
             }
+            
+            /** BUTTONS **/
             
             .searchbtn:hover {
                 color: white;
