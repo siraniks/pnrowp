@@ -6,7 +6,7 @@
                     <div class="span12">
                         
                         <!-- transparency logo -->
-                        <div class="col-lg-9 hidden-sm-down">
+                        <div class="col-lg-9 footer-text hidden-sm-down">
                             <h6 class="footdnr">Department of Environment and Natural Resources</h6>
                             <h4 class="footpnr"><a><?php bloginfo('name'); ?></a></h4>
                             <h5 class="footrnr"><?php bloginfo('description'); ?></h5><br>
@@ -80,6 +80,7 @@
                                 <i class="footcnr fa fa-phone fa-fw" aria-hidden="true"></i>&nbsp;<span class="footcontact"><?php echo get_theme_mod('contact_telnum', '(083) 228-3502'); ?></span>
                             </p>
                             <p class="center">Copyright <?php echo date('Y'); ?> PENRO <?php bloginfo('description'); ?>. <br>All rights reserved</p>
+                            <a id="feedbackbtn" href="#" class="aligncenter ownBtn-login-sm btn-success" data-toggle="modal" data-target="#feedbackModal" title="Send Feedback"><i class="fa fa-paper-plane-o fa-fw" aria-hidden="true"></i>&nbsp;Send Feedback</a><br>
                         </div>
                         
                     </div><!-- footer content -->
