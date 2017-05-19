@@ -13,6 +13,13 @@ get_header('main'); ?>
         
         <div class="container">
             
+            <!-- alert bar-->
+            <div class="alert <?php echo get_theme_mod( 'alert_type', 'alert-danger' ); ?> alert-dismissible fade in" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <i class="fa fa-exclamation-triangle fa-fw"></i>&nbsp;<strong>Alert. </strong> <?php echo get_theme_mod( 'alert_txtbox', 'Be alert!' ); ?>
+            </div> 
             
             <div class="row">
                 <!-- news section -->
