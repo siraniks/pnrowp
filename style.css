@@ -190,6 +190,10 @@ a.navbar-brand {
     margin: auto;
 }
 
+#readBtn:hover {
+    filter: brightness(120%);
+}
+
 /* Sub-header */
 
 .newsp-header {
@@ -719,10 +723,9 @@ h5.rnr2 { text-transform: uppercase; font-size: 28px; }
     position: fixed;
     z-index: 30;
     top: 0;
-    left: 0;
     background-color: white;
     overflow-x: hidden;
-    transition: 0.8s;
+    transition: 0.2s;
     box-shadow: 10px -5px 30px rgba(0,0,0,0.5);
     visibility: hidden;
     opacity: 0;
@@ -760,14 +763,7 @@ h5.rnr2 { text-transform: uppercase; font-size: 28px; }
     top: -50px;
 }
 
-.sidenav .closebtn {
-    position: absolute;
-    top: -15px;
-    right: 5px;
-    font-size: 36px;
-    margin-left: 50px;
-    z-index: 5;
-}
+
 
 .sidenav-header-img {
     position: relative;
@@ -825,6 +821,45 @@ h5.rnr2 { text-transform: uppercase; font-size: 28px; }
 }
 
 /* new mobile navigation structure - mobnav */
+
+.top-mobnav {
+/*    display: block;*/
+    background-color: rgba(0,0,0,0.5);
+    height: 10%;
+    padding: 5px 10px;
+    color: white;
+}
+
+.callBtn {
+    margin-top: 8px;
+    margin-left: 10px;
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.userBtn {
+    margin-top: 8px;
+    margin-left: 10px;
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: #0275d8;
+    color: white;
+/*    width: 14%;*/
+}
+
+.closeBtn {
+    margin-top: 8px;
+    margin-left: 10px;
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: #d9534f;
+    color: white;
+}
 
 .navbg {
 }
@@ -900,13 +935,13 @@ li.mob-sub-item a::before {
 /** **/
 
 .menu-item {
-    margin-left: -20px;
+    margin-left: -15px;
 }
 
 .mobile-nav {
     width: 100%;
-    position: absolute;
-    top: 10px;
+/*    position: absolute;*/
+/*    top: 10px;*/
 }
 
 .topnav-mobile-menu {
@@ -1349,6 +1384,10 @@ ul.unstyled2 {
 
 .taglist li:last-child:after {
     content: " ";
+}
+
+.cat-label {
+    text-transform: uppercase;
 }
 
 .cat-icon {
