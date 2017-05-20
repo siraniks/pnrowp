@@ -10,16 +10,17 @@
 
 get_header('main'); ?>
 <main>
-        
+        <!-- alert bar-->
         <div class="container">
-            
-            <!-- alert bar-->
             <div class="alert <?php echo get_theme_mod( 'alert_type', 'alert-danger' ); ?> alert-dismissible fade in" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <i class="fa fa-exclamation-triangle fa-fw"></i>&nbsp;<strong>Alert. </strong> <?php echo get_theme_mod( 'alert_txtbox', 'Be alert!' ); ?>
-            </div> 
+                <i class="fa fa-<?php echo get_theme_mod( 'alert_icon', 'exclamation-triangle' ); ?> fa-fw "></i>&nbsp;<span id="alertmsg"><strong id="alertheader"><?php echo get_theme_mod( 'alert_header', 'Alert!' ); ?></strong>&nbsp;<?php echo get_theme_mod( 'alert_msg', 'Be alert!' ); ?></span>
+            </div>    
+        </div> 
+    
+        <div class="container">
             
             <div class="row">
                 <!-- news section -->
@@ -60,7 +61,9 @@ get_header('main'); ?>
                     </div>
                     
                     <?php endwhile; else : ?>
-                        <p><?php _e( 'Sorry, no posts matched your criteria.', 'penrowp2-0' ); ?></p>
+                        <div class="news-item-wrapper">
+                            <p><?php _e( 'Sorry, no posts matched your criteria.', 'penrowp2-0' ); ?></p>
+                        </div>
                     <?php endif; ?>
                     
                     <!-- Pagination -->
@@ -89,10 +92,9 @@ get_header('main'); ?>
                                               $dir = get_template_directory_uri(); ;
                                               $img = "/images/adminpic.png";
                                               echo get_theme_mod( 'admin-sec', $dir . $img ); ?>" alt="Secretary" class="adminfx center">
-                                    <!-- <img src="<php echo get_template_directory_uri(); ?>/images/adminpic.png" alt="Card image" class="center"> -->
                                     <br>
                                     <div class="admin-label uppercase aligncenter">
-                                        <h5><?php $init = "Secretary "; echo get_theme_mod( 'admin_sec-name', $init . 'Roy Cimatu'); ?></h5>
+                                        <h5 id="admintext-sec"><?php echo get_theme_mod( 'admin_sec-name', 'ROY CIMATU'); ?></h5>
                                     </div>
                                 </div>
                             </div>
@@ -103,10 +105,9 @@ get_header('main'); ?>
                                               $dir = get_template_directory_uri(); ;
                                               $img = "/images/adminpic.png";
                                               echo get_theme_mod( 'admin-rd', $dir . $img ); ?>" alt="Regional Director" class="adminfx center">
-                                    <!-- <img src="<php echo get_template_directory_uri(); ?>/images/adminpic2.png" alt="Card image" class="center"> -->
                                     <br>
                                     <div class="admin-label uppercase aligncenter">
-                                        <h5><?php $init = "RD "; echo get_theme_mod( 'admin_rd-name', $init . 'REYNULFO A. JUAN'); ?></h5>
+                                        <h5 id="admintext-rd"><?php echo get_theme_mod( 'admin_rd-name', 'REYNULFO A. JUAN'); ?></h5>
                                     </div>
                                 </div>
                             </div>
@@ -117,10 +118,9 @@ get_header('main'); ?>
                                               $dir = get_template_directory_uri(); ;
                                               $img = "/images/adminpic.png";
                                               echo get_theme_mod( 'admin-penro', $dir . $img ); ?>" alt="PENRO Officer" class="adminfx center">
-                                    <!-- <img src="<php echo get_template_directory_uri(); ?>/images/adminpic3.png" alt="Card image" class="center"> -->
                                     <br>
                                     <div class="admin-label uppercase aligncenter">
-                                        <h5><?php echo get_theme_mod( 'admin_penro-name', 'RADZAK B. SINARIMBO, MPA, LLB'); ?></h5>
+                                        <h5 id="admintext-penro"><?php echo get_theme_mod( 'admin_penro-name', 'RADZAK B. SINARIMBO, MPA, LLB'); ?></h5>
                                     </div>
                                 </div>
                             </div>
