@@ -40,7 +40,12 @@
                                               $dir = get_template_directory_uri(); ;
                                               $img = "/images/widget/elib.jpg";
                                               echo get_theme_mod( 'w_7_image', $dir . $img ); ?>"/></a>
-                        
+                        <br>
+                        <a href="<?php echo get_theme_mod('w_8_url',esc_url( get_permalink( get_page_by_title( 'Jobs' ) ) )); ?>"><img class="w8" src="<?php 
+                                              $dir = get_template_directory_uri(); ;
+                                              $img = "/images/widget/job.jpg";
+                                              echo get_theme_mod( 'w_8_image', $dir . $img ); ?>"/></a>
+        
                     </div>
                     
                 </div><!-- sidebar -->

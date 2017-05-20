@@ -45,9 +45,7 @@
                                               $dir = get_template_directory_uri(); ;
                                               $img = "/images/widget/job.jpg";
                                               echo get_theme_mod( 'w_8_image', $dir . $img ); ?>"/></a>
-                        
+        
                     </div>
                     
                 </div><!-- sidebar -->
-            </div><!-- header content -->
-        </div><!-- header content container -->
