@@ -16,16 +16,14 @@ get_header('main'); ?>
             
             <div class="row">
                 <!-- news section -->
-                <!-- Announcement Slider -->
-                <div class="col-md-12">
-                    <?php if(function_exists('dynamic_sidebar') && dynamic_sidebar("Announcement Slider")):else: ?><?php endif; ?>
-                </div>
                 <div class="col-md-9">
                     
 
                     
                 <!-- news section -->   
-                    <h3>Search Results: </h3>
+                    <div class="card card-block">
+                        <h3>Search Results: </h3>
+                    </div>
                     
                     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
                     
@@ -53,14 +51,16 @@ get_header('main'); ?>
                                     <p>
                                         <?php the_excerpt(); ?>
                                     </p>
-                                    <a id="readBtn" href="<?php the_permalink(); ?>" class="btn btn-primary"><?php echo get_theme_mod( 'read-btn_textbox' ); ?></a>
+                                    <a id="readBtn" href="<?php the_permalink(); ?>" class="btn btn-primary"><?php echo get_theme_mod( 'read-btn_textbox', 'Read' ); ?></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
                     <?php endwhile; else : ?>
-                        <p><?php _e( 'Sorry, no posts matched your criteria.', 'penrowp2-0' ); ?></p>
+                        <div class="news-item-wrapper">
+                            <p><?php _e( 'Sorry, no posts matched your criteria.', 'penrowp2-0' ); ?></p>
+                        </div>
                     <?php endif; ?>
                     
                     <!-- Pagination -->
