@@ -50,14 +50,16 @@ get_header('main'); ?>
                                 
                                 <li><a href="javascript:window.print()" class="icon-prntr"><i class="fa fa-fw fa-print"></i></a></li>
                                 
-                                <li><a href="#" title="Email This" class="icon-mail"><i class="fa fa-fw fa-envelope"></i></a></li>
+                                <li><a href="mailto:?subject=<?php the_title(); ?>&body=Read it from here - <?php the_permalink(); ?>" title="Email This" class="icon-mail"><i class="fa fa-fw fa-envelope"></i></a></li>
                                 
                             </ul><br>
                             
                             <?php the_content(); ?>
                             
                             <?php endwhile; else : ?>
-                                <p><?php _e( 'Sorry, no posts matched your criteria.', 'penrowp2-0' ); ?></p>
+                                <div class="news-item-wrapper">
+                                    <p><?php _e( 'Sorry, no posts matched your criteria.', 'penrowp2-0' ); ?></p>
+                                </div>
                             <?php endif; ?>
                             
                         </div>
