@@ -6,7 +6,16 @@ $(document).ready(function () {
        $('.menu-item-has-children').css('display','block'); 
     });
     
-       
+    // Replace source
+//    $('img').error(function() {
+//         $(this).attr('src', + '../images/image-not-found.jpg');
+//    });
+
+    // Or, hide them
+    $(".news-item-wrapper img").error(function() {
+//            $(this).hide();
+        $(this).replaceWith('<span class="img-placeholder"></span>');
+    });   
     
     // Override PAGASA Time Stamp 
     // $('iframe #serverdate').addClass("invisible");
