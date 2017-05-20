@@ -34,7 +34,7 @@ $defaults = array(
 function penrowp2_scripts() {
     
     wp_enqueue_script( 'fontawesome', 'https://use.fontawesome.com/5ecdc716c8.js', array(), '4.7.0', false);
-    wp_enqueue_style( 'style', get_stylesheet_uri() );   
+    wp_enqueue_style(  'style', get_stylesheet_uri() );   
     wp_enqueue_script( 'jquery' );
     wp_enqueue_script( 'tether', get_template_directory_uri() . '/js/tether.js', array(), '1.0.0', true );
     wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array(), '4.0.0', true );
@@ -512,7 +512,7 @@ class footnav_walker extends Walker_Nav_Menu {
         
         if ($depth == 0) {
             $output .= "<li class='footnav-first-level'>";
-            $output .= "<div class='col-md-4' style='width: 20%;'>";
+            $output .= "<div class='col-md-10' style='width: 20%;'>";
         }
         if ($depth == 1) {
             $output .= "<li>";
@@ -646,6 +646,17 @@ function penrowp_options ( $wp_customize ) {
     // S E C T I O N S \\
     
     $wp_customize->add_section (
+        'pwp_sect_msg',
+        array (
+            'title'         => __( 'Messages and Alerts', 'penrowp2-0' ),
+            'priority'      => 1,
+            'capability'    => 'edit_theme_options',
+            'description'   => __( "Message or Alerts.", 'penrowp2-0' ),
+            'panel'         => 'pwp_panel',
+        )
+    );
+    
+    $wp_customize->add_section (
         'pwp_sect_info',
         array (
             'title'         => __( 'Information', 'penrowp2-0' ),
@@ -740,6 +751,48 @@ function penrowp_options ( $wp_customize ) {
     
     // S E T T I N G S \\
     
+    // MESSAGE 
+    
+    $wp_customize->add_setting (
+        'alert_type',
+        array (
+            'default'       =>  'alert-success',
+            'transport'     =>  'refresh',
+        )
+    );
+    
+    $wp_customize->add_setting (
+        'alert_icon',
+        array (
+            'default'       =>  'check-circle',
+            'transport'     =>  'refresh',
+        )
+    );
+    
+    $wp_customize->add_setting (
+        'alert_header',
+        array (
+            'default'       =>  'Alert!',
+            'transport'     =>  'refresh',
+        )
+    );
+    
+    $wp_customize->add_setting (
+        'alert_msg',
+        array (
+            'default'       =>  'Hi, Goodmorning!',
+            'transport'     =>  'refresh',
+        )
+    );
+    
+    $wp_customize->add_setting (
+        'alert_disp',
+        array (
+            'default'       =>  'none',
+            'transport'     =>  'refresh',
+        )
+    );
+    
     // BACKGROUND
     
     $wp_customize->add_setting (
@@ -820,7 +873,7 @@ function penrowp_options ( $wp_customize ) {
         'header_link_color',
         array (
             'default'       =>  '#0275d8',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -836,8 +889,7 @@ function penrowp_options ( $wp_customize ) {
         'contact_adr',
         array (
             'default'       =>  'Block 1, Martinez Subd., Zone IV, 9506 City of Koronadal',
-            'type'          =>  'theme_mod',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -845,8 +897,7 @@ function penrowp_options ( $wp_customize ) {
         'contact_email',
         array (
             'default'       =>  'penro.southcotabato@yahoo.com',
-            'type'          =>  'theme_mod',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -854,8 +905,7 @@ function penrowp_options ( $wp_customize ) {
         'contact_telnum',
         array (
             'default'       =>  '(083) 228-3502',
-            'type'          =>  'theme_mod',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -896,24 +946,24 @@ function penrowp_options ( $wp_customize ) {
     $wp_customize->add_setting (
         'admin_sec-name',
         array (
-            'default'       =>  'Sec Juan Dela Cruz',
-            'transport'     =>  'postMessage',
+            'default'       =>  'Juan Dela Cruz',
+            'transport'     =>  'refresh',
         )
     );
     
     $wp_customize->add_setting (
         'admin_rd-name',
         array (
-            'default'       =>  'RD Juan Dela Cruz',
-            'transport'     =>  'postMessage',
+            'default'       =>  'Juan Dela Cruz',
+            'transport'     =>  'refresh',
         )
     );
     
     $wp_customize->add_setting (
         'admin_penro-name',
         array (
-            'default'       =>  'PENRO Juan Dela Cruz',
-            'transport'     =>  'postMessage',
+            'default'       =>  'Juan Dela Cruz',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -952,7 +1002,7 @@ function penrowp_options ( $wp_customize ) {
         'btn_color',
         array (
             'default'       =>  '#0275d8',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -968,7 +1018,7 @@ function penrowp_options ( $wp_customize ) {
         'restrict-copy',
         array (
             'default'       =>  'text',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
             'capability'     =>  'edit_theme_options',
         )
     );
@@ -987,7 +1037,7 @@ function penrowp_options ( $wp_customize ) {
         'w_1_url',
         array (
             'default'       =>  'http://localhost/wordpress/transparency-seal',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -1011,7 +1061,7 @@ function penrowp_options ( $wp_customize ) {
         'w_2_url',
         array (
             'default'       =>  'http://denr.gov.ph/component/content/article/839.html#',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -1035,7 +1085,7 @@ function penrowp_options ( $wp_customize ) {
         'w_3_url',
         array (
             'default'       =>  'http://www.gov.ph/pbb/',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -1059,7 +1109,7 @@ function penrowp_options ( $wp_customize ) {
         'w_4_url',
         array (
             'default'       =>  'http://ngp.denr.gov.ph/',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -1083,7 +1133,7 @@ function penrowp_options ( $wp_customize ) {
         'w_5_url',
         array (
             'default'       =>  'http://localhost/wordpress/transparency-governance/citizens-charter/',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -1107,7 +1157,7 @@ function penrowp_options ( $wp_customize ) {
         'w_6_url',
         array (
             'default'       =>  'https://www.facebook.com/penro.southcotabato',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -1120,10 +1170,18 @@ function penrowp_options ( $wp_customize ) {
     );
     
     $wp_customize->add_setting (
+        'w_7_image',
+        array (
+            'default'       =>  get_template_directory_uri() . '/images/widget/elib.jpg',
+            'transport'     =>  'postMessage',
+        )
+    );
+    
+    $wp_customize->add_setting (
         'w_7_url',
         array (
             'default'       =>  get_permalink( get_page_by_title( 'Downloads' ) ),
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -1136,10 +1194,18 @@ function penrowp_options ( $wp_customize ) {
     );
     
     $wp_customize->add_setting (
+        'w_8_image',
+        array (
+            'default'       =>  get_template_directory_uri() . '/images/widget/job.jpg',
+            'transport'     =>  'postMessage',
+        )
+    );
+    
+    $wp_customize->add_setting (
         'w_8_url',
         array (
             'default'       =>  get_permalink( get_page_by_title( 'Jobs' ) ),
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -1182,18 +1248,18 @@ function penrowp_options ( $wp_customize ) {
     $wp_customize->add_setting (
         'footer_text_color',
         array (
-            'default'       =>  '#c1c1c1',
+            'default'       =>  'rgba(255,255,255,1);',
             'transport'     =>  'postMessage',
         )
     );
     
-    $wp_customize->add_setting (
-        'footer_header-link_color',
-        array (
-            'default'       =>  '#ffffff',
-            'transport'     =>  'postMessage',
-        )
-    );
+//    $wp_customize->add_setting (
+//        'footer_header-link_color',
+//        array (
+//            'default'       =>  '#ffffff',
+//            'transport'     =>  'postMessage',
+//        )
+//    );
     
     $wp_customize->add_setting (
         'footer_bg_color',
@@ -1212,6 +1278,89 @@ function penrowp_options ( $wp_customize ) {
     );
     
     // C O N T R O L S \\
+    
+    // MESSAGES
+    
+    $wp_customize->add_control ( new WP_Customize_Control (
+        $wp_customize,
+        'alert_type_control',
+        array (
+            'label'         => __( 'Alert Type', 'penrowp2-0' ),
+            'description'   => __( 'Background color of the alert bar.', 'penrowp2-0' ),
+            'section'       => 'pwp_sect_msg',
+            'settings'      => 'alert_type',
+            'type'          => 'select',
+            'priority'      => '1',
+            'choices'       => array (
+                'alert-success'    =>  'Success',
+                'alert-info'       =>  'Informative',
+                'alert-warning'    =>  'Warning',
+                'alert-danger'     =>  'Danger',
+            )
+        )
+    ));
+    
+    $wp_customize->add_control ( new WP_Customize_Control (
+        $wp_customize,
+        'alert_icon_control',
+        array (
+            'label'         => __( 'Alert Icon', 'penrowp2-0' ),
+            'description'   => __( 'Symbol to be used in the alert message.', 'penrowp2-0' ),
+            'section'       => 'pwp_sect_msg',
+            'settings'      => 'alert_icon',
+            'type'          => 'select',
+            'priority'      => '2',
+            'choices'       => array (
+                'check-circle'          =>  'Success',
+                'info-circle'           =>  'Informative',
+                'exclamation-triangle'  =>  'Warning',
+                'times-circle'          =>  'Danger',
+            )
+        )
+    ));
+    
+    $wp_customize->add_control ( new WP_Customize_Control (
+        $wp_customize,
+        'alert_header_control',
+        array (
+            'label'         => __( 'Header', 'penrowp2-0' ),
+            'description'   => __( 'Header of your alert message.', 'penrowp2-0' ),
+            'section'       => 'pwp_sect_msg',
+            'settings'      => 'alert_header',
+            'type'          => 'text',
+            'priority'      => '3',
+        )
+    ));
+    
+    $wp_customize->add_control ( new WP_Customize_Control (
+        $wp_customize,
+        'alert_msg_control',
+        array (
+            'label'         => __( 'Alert Message', 'penrowp2-0' ),
+            'description'   => __( 'The Message you want to give for the users to read.', 'penrowp2-0' ),
+            'section'       => 'pwp_sect_msg',
+            'settings'      => 'alert_msg',
+            'type'          => 'text',
+            'priority'      => '4',
+        )
+    ));
+    
+    $wp_customize->add_control ( new WP_Customize_Control (
+        $wp_customize,
+        'alert_disp_control',
+        array (
+            'label'         => __( 'Display Alert?', 'penrowp2-0' ),
+            'description'   => __( 'Show or Hide Alert', 'penrowp2-0' ),
+            'section'       => 'pwp_sect_msg',
+            'settings'      => 'alert_disp',
+            'type'          => 'select',
+            'priority'      => '5',
+            'choices'       => array (
+                'block'          =>  'Show',
+                'none'           =>  'Hide',
+            )
+        )
+    ));
 
     
     // BACKGROUND
@@ -1330,12 +1479,7 @@ function penrowp_options ( $wp_customize ) {
                 'multiply'    =>  'Multiply',
                 'screen'      =>  'Screen',
                 'overlay'     =>  'Overlay',
-                'darken'      =>  'Darken',
-                'lighten'     =>  'Lighten',
-                'color-dodge' =>  'Color-Dodge',
-                'saturation'  =>  'Saturation',
-                'color'       =>  'Color',
-                'luminosity'  =>  'Luminosity'
+                'luminosity'  =>  'Black and White'
             )
         )
     ));
@@ -1521,7 +1665,8 @@ function penrowp_options ( $wp_customize ) {
             'label'         => __( 'DENR Secretary', 'penrowp2-0' ),
             'description'   => __( 'Supply the name of the respected adminsitrator.', 'penrowp2-0' ),
             'section'       => 'pwp_sect_admin',
-            'settings'      => 'admin-sec',
+            'settings'      => 'admin_sec-name',
+            'type'          => 'text',
             'priority'      => '12',
         )
     ));
@@ -1533,7 +1678,8 @@ function penrowp_options ( $wp_customize ) {
             'label'         => __( 'Regional Director', 'penrowp2-0' ),
             'description'   => __( 'Supply the name of the respected adminsitrator.', 'penrowp2-0' ),
             'section'       => 'pwp_sect_admin',
-            'settings'      => 'admin-rd',
+            'settings'      => 'admin_rd-name',
+            'type'          => 'text',
             'priority'      => '22',
         )
     ));
@@ -1545,7 +1691,8 @@ function penrowp_options ( $wp_customize ) {
             'label'         => __( 'PENRO Officer', 'penrowp2-0' ),
             'description'   => __( 'Supply the name of the respected adminsitrator.', 'penrowp2-0' ),
             'section'       => 'pwp_sect_admin',
-            'settings'      => 'admin-penro',
+            'settings'      => 'admin_penro-name',
+            'type'          => 'text',
             'priority'      => '32',
         )
     ));
@@ -1570,7 +1717,7 @@ function penrowp_options ( $wp_customize ) {
         $wp_customize,
         'btn_color_control',
         array (
-            'label'         => __( 'Button Color', 'penrowp2-0' ),
+            'label'         => __( 'Read Button Color', 'penrowp2-0' ),
             'description'   => __( 'Read, pagenation, category links and Go-to-Top buttons.', 'penrowp2-0' ),
             'section'       => 'pwp_sect_content',
             'settings'      => 'btn_color',
@@ -1604,23 +1751,10 @@ function penrowp_options ( $wp_customize ) {
     
     $wp_customize->add_control ( new WP_Customize_Control (
         $wp_customize,
-        'read-btn_textbox_control',
-        array (
-            'label'         => __( 'Read Button Label', 'penrowp2-0' ),
-            'description'   => __( 'Default: "Read".', 'penrowp2-0' ),
-            'section'       => 'pwp_sect_content',
-            'settings'      => 'read-btn_textbox',
-            'type'          => 'text',
-            'priority'      => '25',
-        )
-    ));
-    
-    $wp_customize->add_control ( new WP_Customize_Control (
-        $wp_customize,
         'restrict-copy_control',
         array (
             'label'         => __( 'Content Copy Restriction', 'penrowp2-0' ),
-            'description'   => __( 'Restrict readers in copying the content (needs refresh to see results).', 'penrowp2-0' ),
+            'description'   => __( 'Restrict readers in copying the content.', 'penrowp2-0' ),
             'section'       => 'pwp_sect_content',
             'settings'      => 'restrict-copy',
             'type'          => 'radio',
@@ -1826,6 +1960,18 @@ function penrowp_options ( $wp_customize ) {
         )
     ));
     
+    $wp_customize->add_control ( new WP_Customize_Image_Control (
+        $wp_customize,
+        'w_6_image_control',
+        array (
+            'label'         => __( 'Widget Image #6', 'penrowp2-0' ),
+            'description'   => __( 'Upload or Change the image of the link.', 'penrowp2-0' ),
+            'section'       => 'pwp_sect_widget',
+            'settings'      => 'w_6_image',
+            'priority'      => '60',
+        )
+    ));
+    
     $wp_customize->add_control ( new WP_Customize_Control (
         $wp_customize,
         'w_6_url_control',
@@ -1945,29 +2091,36 @@ function penrowp_options ( $wp_customize ) {
     
     // Footer (41-50)
     
-    $wp_customize->add_control ( new WP_Customize_Color_Control (
+    $wp_customize->add_control ( new WP_Customize_Control (
         $wp_customize,
         'footer_text_color_control',
         array (
             'label'         => __( 'Footer - Text Color', 'penrowp2-0' ),
-            'description'   => __( 'The text in the footer and those text with "|" .', 'penrowp2-0' ),
+            'description'   => __( 'The text in the footer.', 'penrowp2-0' ),
             'section'       => 'pwp_sect_footer',
             'settings'      => 'footer_text_color',
+            'type'          => 'select',
             'priority'      => '41',
+            'choices'       => array (
+                'rgba(255,255,255,1)'   => 'Light',
+                'rgba(0,0,0,1)'         => 'Dark',
+                'rgba(255,255,255,0.5)' => 'Light Transparent',
+                'rgba(0,0,0,0.5)'       => 'Dark Transparent',
+            )
         )
     ));
     
-    $wp_customize->add_control ( new WP_Customize_Color_Control (
-        $wp_customize,
-        'footer_header-link_color_control',
-        array (
-            'label'         => __( 'Footer: Menu Links Color', 'penrowp2-0' ),
-            'description'   => __( 'The menu links found in the footer section.', 'penrowp2-0' ),
-            'section'       => 'pwp_sect_footer',
-            'settings'      => 'footer_header-link_color',
-            'priority'      => '42',
-        )
-    ));
+//    $wp_customize->add_control ( new WP_Customize_Color_Control (
+//        $wp_customize,
+//        'footer_header-link_color_control',
+//        array (
+//            'label'         => __( 'Footer: Menu Links Color', 'penrowp2-0' ),
+//            'description'   => __( 'The menu links found in the footer section.', 'penrowp2-0' ),
+//            'section'       => 'pwp_sect_footer',
+//            'settings'      => 'footer_header-link_color',
+//            'priority'      => '42',
+//        )
+//    ));
     
     $wp_customize->add_control ( new WP_Customize_Color_Control (
         $wp_customize,
@@ -2047,6 +2200,11 @@ function headerOutput() {
                 border-color: <?php echo get_theme_mod('header_text_color', '#ffffff') ?>;
             }
             
+            /** ALERT **/
+            
+            .alert {
+                display: <?php echo get_theme_mod('alert_disp', 'none') ?>;
+            }
             
             
             /** MENU **/
@@ -2075,7 +2233,7 @@ function headerOutput() {
             
             /** SIDEBAR **/
                     
-            .card-title a, #sidebar a, h3.headertext, i.cnr, .admintext, a.subhead-link:hover {
+            .card-title a, .card-title, #sidebar a, h3.headertext, i.cnr, .admintext, a.subhead-link:hover {
                 color: <?php echo get_theme_mod('panel_links_color', '#0275d8') ?>;
             }
             
@@ -2197,13 +2355,15 @@ function headerOutput() {
                 background-image: url(<?php echo get_theme_mod('footer_bg_image', get_template_directory_uri() . '/images/footer-bg.png') ?>);
             }
             
-            .footer-sub, .footer-sub p, .footer-sub a {
-                color: <?php echo get_theme_mod('footer_text_color', '#ffffff') ?>;
+            .footer-sub, .footer-sub p, .footer-sub a, .footcontact, .footdnr, .footpnr, .footrnr, .footcnr {
+                color: <?php echo get_theme_mod('footer_text_color', 'rgba(255,255,255,1)') ?>;
             }
             
+/*
             ul.unstyled li.footnav-first-level a, ul.unstyled ul.footnav-second-level li a { 
-                color: <?php echo get_theme_mod('footer_header-link_color', '#ffffff') ?>;
+                color: <php echo get_theme_mod('footer_header-link_color', '#ffffff') ?>;
             }    
+*/
             
         </style>
     <?php  
