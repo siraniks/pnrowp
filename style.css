@@ -48,7 +48,7 @@ This theme is mainly for PENRO / DENR but the knowledge on making this theme is 
 @media print {
     .container { margin: 0 !important; padding: 0 !important; }
     
-    #mainnavbtn, #searchbox, #temp, .announcement, .footer, ul.sharelist, ul.taglist, .breadcrumb, a.back-to-top { display: none; visibility: hidden; }
+    #mainnavbtn, #searchbox, #temp, .announcement, .footer, ul.sharelist, ul.taglist, .breadcrumb, a.back-to-top, .alert { display: none; visibility: hidden; }
     
     button#editBtn { display: none; visibility: hidden; }
     a.post-edit-link:after { display:none; }
@@ -1231,10 +1231,15 @@ ul.unstyled ul.footnav-second-level li a:hover {
     background-image: url(images/footer-bg.png);
     background-color: #767676;
     background-repeat: no-repeat;
-    background-position: bottom right;
+    background-attachment: scroll;
+    background-position: center center;
     background-size:cover;
     color: white;
     padding-top: 30px;
+}
+
+.desk-tos ul li a:hover {
+    filter: brightness(120%);
 }
 
 .sub-footer ul {
@@ -1302,8 +1307,16 @@ ul.unstyled2 {
     margin-top: -15px;
 }
 
-.footdnr, .footpnr, .footrnr, .footcontact {
+.footdnr, .footpnr, .footrnr, .footcnr, .footcontact {
     cursor: default;
+}
+
+.footdnr, .footpnr, .footrnr, .footcnr, .footbr {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: -moz-none;
+    -o-user-select: none;
+    user-select: none;
 }
 
 .footdnr {
@@ -1895,4 +1908,19 @@ i.cross-out {
     border-radius: 5px;
 }
 
+span.img-placeholder {
+    display: block;
+    background: #e3e3e3;
+    width: auto;
+    height: 100%;
+    text-align: center;
+    padding: 50px 10px;
+    border-radius: 10px;
+    margin: 10px 0;
+    cursor: default;
+}
 
+span.img-placeholder:before {
+    content: "IMAGE NOT FOUND";
+    user-select: none;
+}
