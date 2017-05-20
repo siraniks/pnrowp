@@ -67,7 +67,9 @@ get_header('main'); ?>
                     </div>
                     
                     <?php endwhile; else : ?>
-                        <p><?php _e( 'Sorry, no posts matched your criteria.', 'penrowp2-0' ); ?></p>
+                        <div class="news-item-wrapper">
+                            <p><?php _e( 'Sorry, no posts matched your criteria.', 'penrowp2-0' ); ?></p>
+                        </div>
                     <?php endif; ?>
                     
                     <!-- Pagination -->
