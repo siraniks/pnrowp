@@ -77,6 +77,12 @@
 		} );
 	} );
     
+    wp.customize( 'contact_adr', function( value ) {
+		value.bind( function( to ) {
+			$( '#adr' ).text( to );
+		} );
+	} );
+    
     wp.customize( 'contact_email', function( value ) {
 		value.bind( function( to ) {
 			$( '#email' ).text( to );
@@ -88,6 +94,27 @@
 			$( '#telnum' ).text( to );
 		} );
 	} );
+    
+    // ALERT BAR
+    
+    wp.customize( 'alert_disp', function( value ) {
+		value.bind( function( to ) {
+            $('.alert').css( 'display', to );
+		} );
+	} );
+    
+    wp.customize( 'alert_header', function( value ) {
+		value.bind( function( to ) {
+			$( 'strong#alertheader' ).text( to );
+		} );
+	} );
+    
+    wp.customize( 'alert_msg', function( value ) {
+		value.bind( function( to ) {
+			$( '#alertmsg' ).text( to );
+		} );
+	} );
+    
     
     // ADMIN
     
@@ -124,8 +151,26 @@
 		} );
 	} );
     
+    wp.customize( 'admin_sec-name', function( value ) {
+		value.bind( function( to ) {
+			$('#admintext-sec').text( to );
+		} );
+	} );  
     
-    // PANEL
+    wp.customize( 'admin_rd-name', function( value ) {
+		value.bind( function( to ) {
+			$('#admintext-rd').text( to );
+		} );
+	} ); 
+    
+    wp.customize( 'admin_penro-name', function( value ) {
+		value.bind( function( to ) {
+			$('#admintext-penro').text( to );
+		} );
+	} ); 
+    
+    
+    // CONTENT
     
     wp.customize( 'panel_text_color', function( value ) {
 		value.bind( function( to ) {
@@ -149,6 +194,7 @@
     wp.customize( 'panel_links_color', function( value ) {
 		value.bind( function( to ) {
 			$('.card-title a').css( 'color', to );
+            $('.card-title').css( 'color', to );
             $('#sidebar a').css('color', to );
             $('li.mob-item-header a').css('color', to );
             $('.announcement img:hover').css('border-color', to );
@@ -251,6 +297,20 @@
 		} );
 	} );
     
+    wp.customize( 'w_7_disp', function( value ) {
+		value.bind( function( to ) {
+            var imp = '!important';
+            $('.w7').css( 'display', to);
+		} );
+	} );
+    
+    wp.customize( 'w_8_disp', function( value ) {
+		value.bind( function( to ) {
+            var imp = '!important';
+            $('.w8').css( 'display', to);
+		} );
+	} );
+    
     // MENU
     
     wp.customize( 'menu_btn_color', function( value ) {
@@ -291,15 +351,22 @@
             $('.footer-sub').css( 'color', to );
 			$('.footer-sub p').css( 'color', to );
             $('.footer-sub a').css( 'color', to );
+            $('.footer-sub a').css( 'color', to );
+            $('.footcontact').css( 'color', to );
+            $('.footdnr').css( 'color', to );
+            $('.footpnr').css( 'color', to );
+            $('.footrnr').css( 'color', to );
+            $('.footcnr').css( 'color', to );
+            
 		} );
 	} );
     
-    wp.customize( 'footer_header-link_color', function( value ) {
-		value.bind( function( to ) {
-			$('ul.unstyled li.footnav-first-level a').css( 'color', to );
-            $('ul.unstyled ul.footnav-second-level li a').css( 'color', to );
-		} );
-	} );
+//    wp.customize( 'footer_header-link_color', function( value ) {
+//		value.bind( function( to ) {
+//			$('ul.unstyled li.footnav-first-level a').css( 'color', to );
+//            $('ul.unstyled ul.footnav-second-level li a').css( 'color', to );
+//		} );
+//	} );
     
     wp.customize( 'footer_bg_color', function( value ) {
 		value.bind( function( to ) {
