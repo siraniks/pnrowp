@@ -17,14 +17,23 @@
     
     <head>
         
-        <meta property="og:url" content="<?php echo home_url(); ?>" />
-        <meta property="og:title" content="<?php bloginfo('name'); ?>" />
-        <meta property="og:description" content="<?php bloginfo('description'); ?>" />
-        <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/images/logo150.png" />
+<!--
+        <meta property="og:url" content="<php echo home_url(); ?>" />
+        <meta property="og:title" content="<php bloginfo('name'); ?>" />
+        <meta property="og:description" content="<php bloginfo('description'); ?>" />
+        <meta property="og:image" content="<php echo get_template_directory_uri(); ?>/images/logo150.png" />
+-->
         
         <!-- THIS IS TEMPORARY -->
         <meta http-equiv="Cache-control" content="no-cache">
+        <meta property="fb:app_id" content="{<?php echo get_theme_mod('fb-appid'); ?>}" />
+        <meta property="fb:admins" content="{<?php echo get_theme_mod('fb-adminid'); ?>}"/>
         
+        <meta property="og:url"                content="<?php the_permalink(); ?>" />
+        <meta property="og:type"               content="article" />
+        <meta property="og:title"              content="<?php the_title(); ?>" />
+        <meta property="og:description"        content="<?php the_excerpt(); ?>" />
+        <meta property="og:image"              content="<?php echo the_post_thumbnail_url(); ?>" />
         
         <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -42,6 +51,18 @@
         <?php wp_head(); ?>
     </head>
     <body <?php body_class(); ?>>
+        
+        <!--  FB JS SDK -->
+        
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+        
         <header>
         <div id="sidenav-overlay"></div><!-- overlay for sidenav -->
         <!-- make this as a navmenu instead - default values - navbar-full -->
