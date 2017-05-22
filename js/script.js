@@ -14,6 +14,7 @@ $(document).ready(function () {
     // Or, hide them
     $(".news-item-wrapper img").error(function() {
 //            $(this).hide();
+        $('a.img-link').removeAttr("href");
         $(this).replaceWith('<span class="img-placeholder"></span>');
     });   
     
