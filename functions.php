@@ -125,7 +125,7 @@ function newnav_wrap() {
 
 //Excerpt Length
 function theExcerptLength( $length ) {
-	return 75;
+	return 25;
 }
 add_filter( 'excerpt_length', 'theExcerptLength' );
 
@@ -646,17 +646,6 @@ function penrowp_options ( $wp_customize ) {
     // S E C T I O N S \\
     
     $wp_customize->add_section (
-        'pwp_sect_msg',
-        array (
-            'title'         => __( 'Messages and Alerts', 'penrowp2-0' ),
-            'priority'      => 1,
-            'capability'    => 'edit_theme_options',
-            'description'   => __( "Message or Alerts.", 'penrowp2-0' ),
-            'panel'         => 'pwp_panel',
-        )
-    );
-    
-    $wp_customize->add_section (
         'pwp_sect_info',
         array (
             'title'         => __( 'Information', 'penrowp2-0' ),
@@ -748,6 +737,28 @@ function penrowp_options ( $wp_customize ) {
         )
     );
     
+    $wp_customize->add_section (
+        'pwp_sect_msg',
+        array (
+            'title'         => __( 'Alerts', 'penrowp2-0' ),
+            'priority'      => 9,
+            'capability'    => 'edit_theme_options',
+            'description'   => __( "Message or Alerts.", 'penrowp2-0' ),
+            'panel'         => 'pwp_panel',
+        )
+    );
+    
+    $wp_customize->add_section (
+        'pwp_sect_fb',
+        array (
+            'title'         => __( 'Facebook Integration', 'penrowp2-0' ),
+            'priority'      => 10,
+            'capability'    => 'edit_theme_options',
+            'description'   => __( 'Comments, Share Button, Like, Save, Embed Post config, etc.', 'penrowp2-0' ),
+            'panel'         => 'pwp_panel',
+        )
+    );
+    
     
     // S E T T I N G S \\
     
@@ -787,6 +798,16 @@ function penrowp_options ( $wp_customize ) {
     
     $wp_customize->add_setting (
         'alert_disp',
+        array (
+            'default'       =>  'none',
+            'transport'     =>  'refresh',
+        )
+    );
+    
+    // FACEBOOK
+    
+    $wp_customize->add_setting (
+        'fbcomment_disp',
         array (
             'default'       =>  'none',
             'transport'     =>  'refresh',
@@ -1355,6 +1376,23 @@ function penrowp_options ( $wp_customize ) {
             'settings'      => 'alert_disp',
             'type'          => 'select',
             'priority'      => '5',
+            'choices'       => array (
+                'block'          =>  'Show',
+                'none'           =>  'Hide',
+            )
+        )
+    ));
+    
+    $wp_customize->add_control ( new WP_Customize_Control (
+        $wp_customize,
+        'fbcomment_disp_control',
+        array (
+            'label'         => __( 'Show Facebook Comments', 'penrowp2-0' ),
+            'description'   => __( 'Show or Hide Alert', 'penrowp2-0' ),
+            'section'       => 'pwp_sect_msg',
+            'settings'      => 'fbcomment_disp',
+            'type'          => 'select',
+            'priority'      => '6',
             'choices'       => array (
                 'block'          =>  'Show',
                 'none'           =>  'Hide',
@@ -2204,6 +2242,10 @@ function headerOutput() {
             
             .alert {
                 display: <?php echo get_theme_mod('alert_disp', 'none') ?>;
+            }
+            
+            #fbcommentbox {
+                display: <?php echo get_theme_mod('fbcomment_disp', 'none') ?> !important;
             }
             
             
