@@ -115,6 +115,11 @@
 		} );
 	} );
     
+    wp.customize( 'fbcomment_disp', function( value ) {
+		value.bind( function( to ) {
+            $('#fbcommentbox').css( 'display', to );
+		} );
+	} );
     
     // ADMIN
     
