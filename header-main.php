@@ -31,9 +31,12 @@
         
         <meta property="og:url"                content="<?php the_permalink(); ?>" />
         <meta property="og:type"               content="article" />
+        <meta property="og:site_name"          content="<?php bloginfo('name'); ?>-<?php bloginfo('description'); ?>"/>
         <meta property="og:title"              content="<?php the_title(); ?>" />
         <meta property="og:description"        content="<?php the_excerpt(); ?>" />
-        <meta property="og:image"              content="<?php echo the_post_thumbnail_url(); ?>" />
+        <meta property="og:image"              content="<?php echo the_post_thumbnail_url(); ?>" /> <!-- needs if / else if there's no the_post_thumbnails -->
+        <meta property="og:locale"             content="<?php echo get_locale(); ?>" />
+        <meta property="og:locale:alternate"   content="en_PH" />
         
         <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -53,15 +56,24 @@
     <body <?php body_class(); ?>>
         
         <!--  FB JS SDK -->
-        
-        <div id="fb-root"></div>
-        <script>(function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9";
-          fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
+        <script>
+          window.fbAsyncInit = function() {
+            FB.init({
+              appId      : '<?php echo get_theme_mod('fb-appid'); ?>',
+              xfbml      : true,
+              version    : 'v2.9'
+            });
+            FB.AppEvents.logPageView();
+          };
+
+          (function(d, s, id){
+             var js, fjs = d.getElementsByTagName(s)[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement(s); js.id = id;
+             js.src = "//connect.facebook.net/en_US/sdk.js";
+             fjs.parentNode.insertBefore(js, fjs);
+           }(document, 'script', 'facebook-jssdk'));
+        </script>
         
         <header>
         <div id="sidenav-overlay"></div><!-- overlay for sidenav -->
