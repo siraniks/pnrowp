@@ -51,6 +51,27 @@ function theme_slug_setup() {
 }
 add_action( 'after_setup_theme', 'theme_slug_setup' );
 
+/**
+ * Attach a class to linked images' parent anchors
+ * Works for existing content
+ */
+function give_linked_images_class($content) {
+
+  $classes = 'img-link'; // separate classes by spaces - 'img image-link'
+
+  // check if there are already a class property assigned to the anchor (should be $content and not $classes - but it work! lol )
+  if ( preg_match('/<a.*? class=".*?"><img/', $classes) ) {
+    // If there is, simply add the class
+    $content = preg_replace('/(<a.*? class=".*?)(".*?><img)/', '$1 ' . $classes . '$2', $content);
+  } else {
+    // If there is not an existing class, create a class property
+    $content = preg_replace('/(<a.*?)><img/', '$1 class="' . $classes . '" ><img', $content);
+  }
+  return $content;
+}
+
+add_filter('the_content','give_linked_images_class');
+
 
 // Enable post thumbnails
 if ( function_exists('add_theme_support')) {
@@ -754,7 +775,7 @@ function penrowp_options ( $wp_customize ) {
             'title'         => __( 'Facebook Integration', 'penrowp2-0' ),
             'priority'      => 10,
             'capability'    => 'edit_theme_options',
-            'description'   => __( 'Comments, Share Button, Like, Save, Embed Post config, etc.', 'penrowp2-0' ),
+            'description'   => __( 'Comments box configuration', 'penrowp2-0' ),
             'panel'         => 'pwp_panel',
         )
     );
@@ -805,6 +826,22 @@ function penrowp_options ( $wp_customize ) {
     );
     
     // FACEBOOK
+    
+    $wp_customize->add_setting (
+        'fb-appid',
+        array (
+            'default'       =>  'YOUR_FACEBOOK_APPID',
+            'transport'     =>  'refresh',
+        )
+    );
+    
+    $wp_customize->add_setting (
+        'fb-adminid',
+        array (
+            'default'       =>  'YOUR_FACEBOOK_ID',
+            'transport'     =>  'refresh',
+        )
+    );
     
     $wp_customize->add_setting (
         'fbcomment_disp',
@@ -1383,16 +1420,44 @@ function penrowp_options ( $wp_customize ) {
         )
     ));
     
+    // FACEBOOK
+    
+    $wp_customize->add_control ( new WP_Customize_Control (
+        $wp_customize,
+        'fb-appid_control',
+        array (
+            'label'         => __( 'Facebook App ID', 'penrowp2-0' ),
+            'description'   => __( '(optional)', 'penrowp2-0' ),
+            'section'       => 'pwp_sect_fb',
+            'settings'      => 'fb-appid',
+            'type'          => 'text',
+            'priority'      => '1',
+        )
+    ));
+    
+    $wp_customize->add_control ( new WP_Customize_Control (
+        $wp_customize,
+        'fb-adminid_control',
+        array (
+            'label'         => __( 'Facebook Admin ID', 'penrowp2-0' ),
+            'description'   => __( '', 'penrowp2-0' ),
+            'section'       => 'pwp_sect_fb',
+            'settings'      => 'fb-adminid',
+            'type'          => 'text',
+            'priority'      => '2',
+        )
+    ));
+    
     $wp_customize->add_control ( new WP_Customize_Control (
         $wp_customize,
         'fbcomment_disp_control',
         array (
             'label'         => __( 'Show Facebook Comments', 'penrowp2-0' ),
             'description'   => __( 'Show or Hide Alert', 'penrowp2-0' ),
-            'section'       => 'pwp_sect_msg',
+            'section'       => 'pwp_sect_fb',
             'settings'      => 'fbcomment_disp',
             'type'          => 'select',
-            'priority'      => '6',
+            'priority'      => '3',
             'choices'       => array (
                 'block'          =>  'Show',
                 'none'           =>  'Hide',
@@ -2330,7 +2395,7 @@ function headerOutput() {
                 border-color: <?php echo get_theme_mod('btn_color', '#0275d8') ?>;
             }
             
-            #readBtn, #editBtn {
+            #btn, #editBtn {
                 color: white !important;
                 background-color: <?php echo get_theme_mod('btn_color', '#0275d8') ?>;
                 border-color: <?php echo get_theme_mod('btn_color', '#0275d8') ?>;
