@@ -4,7 +4,7 @@
                         <?php if(function_exists('dynamic_sidebar') && dynamic_sidebar("Time")):else: ?><?php endif; ?>
                     <!-- Sidebar -->
                         <?php if(function_exists('dynamic_sidebar') && dynamic_sidebar("frontpage_sidebar_widget")):else: ?><?php endif; ?>
-                    
+                                        
                     <div class="card announcement card-block">
                         <a href="<?php echo get_theme_mod('w_1_url','http://localhost/wordpress/transparency-seal'); ?>"><img class="w1" src="<?php 
                                               $dir = get_template_directory_uri(); ;
