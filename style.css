@@ -48,7 +48,7 @@ This theme is mainly for PENRO / DENR but the knowledge on making this theme is 
 @media print {
     .container { margin: 0 !important; padding: 0 !important; }
     
-    #mainnavbtn, #searchbox, #temp, .announcement, .footer, ul.sharelist, ul.taglist, .breadcrumb, a.back-to-top, .alert { display: none; visibility: hidden; }
+    #mainnavbtn, #searchbox, #temp, .announcement, .footer, ul.sharelist, ul.taglist, .breadcrumb, a.back-to-top, .alert, #fbcommentbox { display: none; visibility: hidden; }
     
     button#editBtn { display: none; visibility: hidden; }
     a.post-edit-link:after { display:none; }
@@ -190,7 +190,7 @@ a.navbar-brand {
     margin: auto;
 }
 
-#readBtn:hover {
+#btn:hover {
     filter: brightness(120%);
 }
 
@@ -1927,6 +1927,7 @@ span.img-placeholder {
     border-radius: 10px;
     margin: 10px 0;
     cursor: default;
+    user-select: none;
 }
 
 span.img-placeholder:before {
@@ -1950,6 +1951,23 @@ span.img-placeholder:before {
     position: relative;
     width: 100%;
     height: auto;
+    top: -20%;
+    z-index: 10;
+}
+
+.post-img-caption {
+    position: relative;
+    z-index: 20;
+    height: 40px;
+    bottom: 40px;
+    color: rgba(255,255,255,0.8);
+    text-shadow: 2px 2px 8px black;
+    text-align: right;
+    padding: 5px 20px;
+}
+
+.post-img-caption:before {
+    content: "image courtesy from ";
 }
 
 .post-thumb-wrapper {
@@ -1961,13 +1979,10 @@ span.img-placeholder:before {
 
 .post-thumb-img {
     position: relative;
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
-}
-
-.roundcorners {
-    border-radius: 5px;
+    width: 200%;
+    height: 200%;
+    left: -30%;
+    bottom: 50%;
 }
 
 .post-thumb-content {
@@ -1975,3 +1990,4 @@ span.img-placeholder:before {
     overflow: hidden;
     margin-bottom: 10px;
 }
+
