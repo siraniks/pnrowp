@@ -1,6 +1,6 @@
 <?php
 /** 
- * The single template file_
+ * The search template file_
  *
  * @package Wordpress
  * @subpackage PENROWP
@@ -21,46 +21,53 @@ get_header('main'); ?>
 
                     
                 <!-- news section -->   
+                    
                     <div class="card card-block">
-                        <h3>Search Results: </h3>
+                        <?php if ( have_posts() ) : ?>
+                            <h3 class="page-title"><?php printf( __( 'Search Results for: %s', 'penrowp2-0' ), '<span>' . get_search_query() . '</span>' ); ?></h3>
+                        <?php else : ?>
+                            <h3 class="page-title"><?php _e( 'No results found.', 'penrowp2-0' ); ?></h3>
+                        <?php endif; ?>
                     </div>
                     
                     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
                     
                     <div class="news-item-wrapper">
+                        
                         <div class="row">
-                            <!-- 
-                            <div class="col-sm-4 news-item-img">
-                                <a href="<php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <php the_title_attribute(); ?>">
-                                <php if ( is_singular() and has_post_thumbnail() ) {
-                                    the_post_thumbnail('post-thumbnail', ['class' => 'img-fluid', 'title' => 'Feature Image']);
-                                } else { ?>
-                                    <img src="<php echo get_first_image_url ($post->ID); ?>" class="img-fluid" title="Featured Image" alt="?php the_title(); ?>"/>
-                                <php } ?>
-                                </a>
-                            </div>
-                            -->
-                            <div class="col-sm-12">
-                                <div class="float-xs-right">
-                                <?php edit_post_link('<button id="editBtn" class="btn btn-primary" style="font-size: 12px;"><i class="fa fa-1x fa-fw fa-pencil-square-o" aria-hidden="true"></i> Edit This Post</button>'); ?> 
-                                </div>
-                                
+                            <div class="mx-auto">
                                 <div id="post-<?php the_ID(); ?>" <?php post_class( 'card-block news-item-content' ); ?>>
-                                    <h6 class="cat-text"><?php the_category( ', ' ); ?></h6>
-                                    <h4 class="card-title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h4>
-                                    <p>
-                                        <?php the_excerpt(); ?>
-                                    </p>
-                                    <a id="readBtn" href="<?php the_permalink(); ?>" class="btn btn-primary"><?php echo get_theme_mod( 'read-btn_textbox', 'Read' ); ?></a>
+                                    
+                                    <div class="col-md-4">
+                                        <div class="post-thumb-wrapper">
+                                            <?php if (has_post_thumbnail()) { ?>
+                                                <?php the_post_thumbnail( 
+                                                    'full', array( 
+                                                        'class' => 'post-thumb-img' 
+                                                    )); 
+                                                ?>
+                                            <?php } else { ?>
+                                                <img src="<?php echo get_template_directory_uri(); ?>/images/nothumbs.png" />
+                                            <?php } ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        
+                                        <div class="post-thumb-content">
+                                            <h4 class="card-title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h4>
+                                            <h6 class="cat-text"><?php the_category( ' ' ); ?></h6>
+                                            <?php the_excerpt(); ?>
+                                        </div>
+
+                                        <a id="readBtn" href="<?php the_permalink(); ?>" class="btn btn-primary"><?php echo get_theme_mod( 'read-btn_textbox', 'Read' ); ?></a>
+                                    </div>
                                 </div>
                             </div>
+                            
                         </div>
                     </div>
                     
                     <?php endwhile; else : ?>
-                        <div class="news-item-wrapper">
-                            <p><?php _e( 'Sorry, no posts matched your criteria.', 'penrowp2-0' ); ?></p>
-                        </div>
                     <?php endif; ?>
                     
                     <!-- Pagination -->
