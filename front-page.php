@@ -51,7 +51,7 @@ get_header('main'); ?>
                                                     )); 
                                                 ?>
                                             <?php } else { ?>
-                                                <img class="roundcorners" src="<?php echo get_template_directory_uri(); ?>/images/nothumbs.png" />
+                                                <img src="<?php echo get_template_directory_uri(); ?>/images/nothumbs.png" />
                                             <?php } ?>
                                         </div>
                                     </div>
