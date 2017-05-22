@@ -36,11 +36,27 @@ get_header('main'); ?>
                         </div>
                         
                         <div id="post-<?php the_ID(); ?>" <?php post_class( 'card-block' ); ?>>
-                            <h1 class="card-title news-title"><?php the_title(); ?></h1>
+                            <br>
+                            <?php if (has_post_thumbnail()) { ?>      
+                                <div class="post-img-wrapper">
+                                    <?php the_post_thumbnail(
+                                        'post-thumbnail', [
+                                            'class' => 'post-img aligncenter', 
+                                            'title' => 'Feature image'
+                                        ]);
+                                    ?>
+                                </div>
+                            <?php } else { ?>
+                                <!-- do nothing --> 
+                            <?php } ?>   
                             
+                            <h1 class="card-title news-title"><?php the_title(); ?></h1>
+
                             <ul class="sharelist" style="font-size: 18px;">
                                 
                                 <li><a href="http://www.facebook.com/sharer.php?u=<?php the_permalink();?>&t=<?php the_title(); ?>" title="Share this post on Facebook" target="blank" rel="nofollow" class="icon-fb"><i class="fa fa-facebook-square fa-fw"></i></a></li>
+                                
+                                <li><a href="https://plus.google.com/share?url=<?php the_permalink(); ?>" title="Share this post on Google Plus" target="blank" rel="nofollow" class="icon-gplus"><i class="fa fa-google-plus fa-fw"></i></a></li>
                                 
                                 <li><a href="https://twitter.com/intent/tweet?text=<?php the_title(); ?>&source=<?php bloginfo('name'); ?>&url=<?php the_permalink();?>" title="Share this post on Twitter" class="icon-tw"><i class="fa fa-twitter fa-fw"></i></a></li>
                                 
@@ -67,12 +83,9 @@ get_header('main'); ?>
                         <hr>
                         <?php the_tags( '<ul class="taglist"><i class="fa fa-fw fa-tags"></i>  Tags: &nbsp;<li>', '</li><li>', '</li></ul>' ); ?>
                         <br>
-<!--                        <php wp_list_comments( ); ?>-->
-<!--                        <php comments_template( ); ?>-->
-<!--                        <php comment_form(); ?>-->
-<!--                        <php wp_link_pages(  ); ?>-->
-                        
-                        <?php if(function_exists('dynamic_sidebar') && dynamic_sidebar("disqus_commentbox")):else: ?><?php endif; ?>
+                        <div id="fbcommentbox">
+                            <div class="fb-comments" data-href="<?php the_permalink();?>" data-width="100%" data-numposts="5"></div>
+                        </div>
                     </div>
                     
                     
