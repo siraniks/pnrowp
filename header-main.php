@@ -17,31 +17,36 @@
     
     <head>
         
-<!--
-        <meta property="og:url" content="<php echo home_url(); ?>" />
-        <meta property="og:title" content="<php bloginfo('name'); ?>" />
-        <meta property="og:description" content="<php bloginfo('description'); ?>" />
-        <meta property="og:image" content="<php echo get_template_directory_uri(); ?>/images/logo150.png" />
--->
-        
         <!-- THIS IS TEMPORARY -->
-        <meta http-equiv="Cache-control" content="no-cache">
+        <!--<meta http-equiv="Cache-control" content="no-cache">-->
+        
         <meta property="fb:app_id" content="{<?php echo get_theme_mod('fb-appid'); ?>}" />
         <meta property="fb:admins" content="{<?php echo get_theme_mod('fb-adminid'); ?>}"/>
         
+        <!-- Schema.org markup for Google+ -->
+        <meta itemprop="name" content="<?php the_title(); ?>">
+        <meta itemprop="description" content="<?php bloginfo('name'); ?>-<?php bloginfo('description'); ?>">
+        <meta itemprop="image" content="<?php echo the_post_thumbnail_url(); ?>">
+        
+        <!-- Twitter Card data -->
+        <meta name="twitter:card" content="<?php echo the_post_thumbnail_url(); ?>">
+        <meta name="twitter:title" content="<?php the_title(); ?>">
+        <meta name="twitter:description" content="<?php echo excerpt(200); ?>">
+        <meta name="twitter:image:src" content="<?php echo the_post_thumbnail_url(); ?>">
+        
+        <!-- Open Graph data -->
         <meta property="og:url"                content="<?php the_permalink(); ?>" />
         <meta property="og:type"               content="article" />
         <meta property="og:site_name"          content="<?php bloginfo('name'); ?>-<?php bloginfo('description'); ?>"/>
         <meta property="og:title"              content="<?php the_title(); ?>" />
         <meta property="og:description"        content="<?php the_excerpt(); ?>" />
-        <meta property="og:image"              content="<?php echo the_post_thumbnail_url(); ?>" /> <!-- needs if / else if there's no the_post_thumbnails -->
+        <meta property="og:image"              content="<?php echo the_post_thumbnail_url(); ?>" />
         <meta property="og:locale"             content="<?php echo get_locale(); ?>" />
         <meta property="og:locale:alternate"   content="en_PH" />
         
         <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        
-<!--        <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7; IE=EmulateIE9">-->
+
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         
         <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/images/favicon.ico">
@@ -76,7 +81,8 @@
         </script>
         
         <header>
-        <div id="sidenav-overlay"></div><!-- overlay for sidenav -->
+        <!-- overlay for sidenav -->
+        <div id="sidenav-overlay"></div>
         <!-- make this as a navmenu instead - default values - navbar-full -->
         <nav class="top-nav navbar-full navbar-dark bg-inverse hidden-md-down">
             <div class="container">
