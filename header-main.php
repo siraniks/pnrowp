@@ -106,35 +106,39 @@
             </div>
         </nav><!-- top navbar -->
         
-        <div class="logo hidden-md-down">
-<!--
-            <div class="center">
-                <img src="<php echo get_template_directory_uri(); ?>/images/logo150.png" /><br>
-                <p>
-                
-                    <h6 class="rp">Republic of the Philippines</h6>
-                    <h6 class="dnr">Department of Environment and Natural Resources</h6>
-                    <h4 class="pnr"><a href="<php echo home_url(); ?>" data-toggle="tooltip" data-placement="bottom" title="Return Home"><php bloginfo('name'); ?></a></h4>
-                    <h5 class="rnr"><php bloginfo('description'); ?></h5>
-                </p>
-            </div>
--->     
+        <div class="logo hidden-md-down">     
             <div class="container">
                 <div class="row">
                     <div class="col-xs-2">
                         <img src="<?php echo get_template_directory_uri(); ?>/images/logo150.png" />    
                     </div>
                     <div class="col-xs-8 logotext">
-                        <h6 class="rp2 invisible">Republic of the Philippines</h6>
                         <h6 class="dnr2">Department of Environment and Natural Resources</h6>
                         <h4><a class="pnr2" href="<?php echo home_url(); ?>" title="Return Home"><?php bloginfo('name'); ?></a></h4><hr class="logohr">
                         <h5 class="rnr2"><?php bloginfo('description'); ?></h5>
+                        
+<!--
+                         SEARCH BOX 
+                        <div id="searchbox" class="container hidden-md-down">
+                            <form role="search" method="get" action="<?php echo home_url(); ?>">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" value name="s" placeholder="Search for...">
+                                    <span class="input-group-btn">
+                                         <button type="submit" class="btn btn-secondary searchbtn" type="button"><i class="fa fa-search" aria-hidden="true"></i></button> 
+                                    </span>
+                                </div>
+                            </form>
+                        </div>
+-->
                     </div>
                     <div class="col-xs-2">
                         <img src="<?php echo get_template_directory_uri(); ?>/images/phlogo150.png" class="alignright"/>    
                     </div>
                 </div>
+                
             </div>
+            
+            
         </div>
         
         <nav id="mainnavbar" class="navbar navbar-fixed-top navbg navbar-dark hidden-sm-up">
@@ -194,7 +198,19 @@
                 <button id="mainnavbtn" type="button" class="btn btn-success btn-sm float-xs-right float-top hidden-md-up"><i class="fa fa-navicon fa-fw" aria-hidden="true"></i>MENU</button>
                 
                 <p class="float-xs-left hidden-lg-down"><a href="#" class="subhead-time" data-toggle="tooltip" data-placement="bottom" title="Today is"><i class="fa fa-fw fa-calendar"></i>&nbsp;<?php echo date_i18n( get_option( 'date_format' ), strtotime( '11/15-1976' ) ); ?></a></p>
-                <p class="float-xs-right hidden-lg-down"><a href="<?php echo esc_url( get_permalink( get_page_by_title( 'Contact Us' ) ) ); ?>" class="subhead-contact bg-success"><i class="fa fa-fw fa-phone"></i>&nbsp;Contact Us</a></p>                
+                <p class="float-xs-right hidden-lg-down"><a href="<?php echo esc_url( get_permalink( get_page_by_title( 'Contact Us' ) ) ); ?>" class="subhead-contact bg-success"><i class="fa fa-fw fa-phone"></i>&nbsp;Contact Us</a></p>
+                
+                <!-- SEARCH BOX -->
+                <div id="searchbox" class="container hidden-md-down aligncenter" style="width: 65%;">
+                    <form role="search" method="get" action="<?php echo home_url(); ?>">
+                        <div class="input-group">
+                            <input type="text" class="form-control" value name="s" placeholder="Search for...">
+                            <span class="input-group-btn">
+                                 <button type="submit" class="btn btn-secondary searchbtn" type="button"><i class="fa fa-search" aria-hidden="true"></i></button> 
+                            </span>
+                        </div>
+                    </form>
+                </div>
                 
             
             </div>
@@ -226,7 +242,7 @@
         <!-- SEARCH BOX -->
         <div id="searchbox" class="container">
             <div class="hidden-sm-up card card-block invisible">.</div>
-            <div class="card card-block">
+            <div class="card card-block hidden-sm-up">
                 <form role="search" method="get" action="<?php echo home_url(); ?>">
                     <div class="input-group">
                         <input type="text" class="form-control" value name="s" placeholder="Search for...">
