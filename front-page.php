@@ -63,7 +63,7 @@ get_header('main'); ?>
                                             <?php the_excerpt(); ?>
                                         </div>
 
-                                        <a id="readBtn" href="<?php the_permalink(); ?>" class="btn btn-primary"><?php echo get_theme_mod( 'read-btn_textbox', 'Read' ); ?></a>
+                                        <a id="btn" href="<?php the_permalink(); ?>" class="btn btn-primary"><?php echo get_theme_mod( 'read-btn_textbox', 'Read' ); ?></a>
                                     </div>
                                 </div>
                             </div>
