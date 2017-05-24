@@ -228,8 +228,8 @@
     
     wp.customize( 'btn_color', function( value ) {
 		value.bind( function( to ) {
-            $('#readBtn').css( 'background-color', to );
-            $('#readBtn').css( 'border-color', to );
+            $('#btn').css( 'background-color', to );
+            $('#btn').css( 'border-color', to );
             $('ul.pagenation li a.actve').css( 'background-color', to );
             $('ul.pagenation li a.actve').css( 'border-color', to );
             $('#mainnavbtn').css( 'background-color', to );
@@ -243,7 +243,7 @@
     
     wp.customize( 'read-btn_textbox', function( value ) {
 		value.bind( function( to ) {
-			$( '#readBtn' ).text( to );
+			$( '#btn' ).text( to );
 		} );
 	} );
     
