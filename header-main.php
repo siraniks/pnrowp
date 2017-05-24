@@ -21,28 +21,7 @@
         <!--<meta http-equiv="Cache-control" content="no-cache">-->
         
         <meta property="fb:app_id" content="{<?php echo get_theme_mod('fb-appid'); ?>}" />
-        <meta property="fb:admins" content="{<?php echo get_theme_mod('fb-adminid'); ?>}"/>
-        
-        <!-- Schema.org markup for Google+ -->
-        <meta itemprop="name" content="<?php the_title(); ?>">
-        <meta itemprop="description" content="<?php bloginfo('name'); ?>-<?php bloginfo('description'); ?>">
-        <meta itemprop="image" content="<?php echo the_post_thumbnail_url(); ?>">
-        
-        <!-- Twitter Card data -->
-        <meta name="twitter:card" content="<?php echo the_post_thumbnail_url(); ?>">
-        <meta name="twitter:title" content="<?php the_title(); ?>">
-        <meta name="twitter:description" content="<?php echo excerpt(200); ?>">
-        <meta name="twitter:image:src" content="<?php echo the_post_thumbnail_url(); ?>">
-        
-        <!-- Open Graph data -->
-        <meta property="og:url"                content="<?php the_permalink(); ?>" />
-        <meta property="og:type"               content="article" />
-        <meta property="og:site_name"          content="<?php bloginfo('name'); ?>-<?php bloginfo('description'); ?>"/>
-        <meta property="og:title"              content="<?php the_title(); ?>" />
-        <meta property="og:description"        content="<?php the_excerpt(); ?>" />
-        <meta property="og:image"              content="<?php echo the_post_thumbnail_url(); ?>" />
-        <meta property="og:locale"             content="<?php echo get_locale(); ?>" />
-        <meta property="og:locale:alternate"   content="en_PH" />
+        <meta property="fb:admins" content="{<?php echo get_theme_mod('fb-adminid'); ?>}"/>    
         
         <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -61,23 +40,14 @@
     <body <?php body_class(); ?>>
         
         <!--  FB JS SDK -->
-        <script>
-          window.fbAsyncInit = function() {
-            FB.init({
-              appId      : '<?php echo get_theme_mod('fb-appid'); ?>',
-              xfbml      : true,
-              version    : 'v2.9'
-            });
-            FB.AppEvents.logPageView();
-          };
-
-          (function(d, s, id){
-             var js, fjs = d.getElementsByTagName(s)[0];
-             if (d.getElementById(id)) {return;}
-             js = d.createElement(s); js.id = id;
-             js.src = "//connect.facebook.net/en_US/sdk.js";
-             fjs.parentNode.insertBefore(js, fjs);
-           }(document, 'script', 'facebook-jssdk'));
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
         </script>
         
         <header>
@@ -87,7 +57,13 @@
         <nav class="top-nav navbar-full navbar-dark bg-inverse hidden-md-down">
             <div class="container">
                 <a id="feedbackbtn" href="#" class="float-xs-right hidden-lg-down ownBtn-login-sm btn-transparent" data-toggle="modal" data-target="#feedbackModal" title="Send Feedback"><i class="fa fa-paper-plane-o fa-fw" aria-hidden="true"></i></a>
-                <a id="loginbtn" href="<?php echo home_url(); ?>/wp-login.php" class="float-xs-right hidden-lg-down ownBtn-login-sm btn-transparent" data-toggle="tooltip" data-placement="bottom" title="Sign-in"><i class="fa fa-1x fa-fw fa-user-o" aria-hidden="true"></i></a>
+                
+                <?php if (is_user_logged_in()) { ?>
+                    <a id="loginbtn" href="<?php echo home_url(); ?>/wp-admin/" class="float-xs-right hidden-lg-down ownBtn-login-sm btn-transparent" data-toggle="tooltip" data-placement="bottom" title="Dashboard"><i class="fa fa-1x fa-fw fa-dashboard" aria-hidden="true"></i></a>
+                    <a id="loginbtn" href="<?php echo wp_logout_url( get_permalink() ); ?>" class="float-xs-right hidden-lg-down ownBtn-login-sm btn-transparent" data-toggle="tooltip" data-placement="bottom" title="Sign-out"><i class="fa fa-1x fa-fw fa-sign-out" aria-hidden="true"></i></a>
+                <?php } else { ?>
+                    <a id="loginbtn" href="<?php echo home_url(); ?>/wp-login.php" class="float-xs-right hidden-lg-down ownBtn-login-sm btn-transparent" data-toggle="tooltip" data-placement="bottom" title="Sign-in"><i class="fa fa-1x fa-fw fa-user-o" aria-hidden="true"></i></a>
+                <?php } ?>
                 
                 <span class="navbar-text float-xs-left">
                     <?php
@@ -151,8 +127,17 @@
         
             <div class="top-mobnav">
                 <a href="#" class="closeBtn float-xs-right"><i class="fa fa-fw fa-times"></i></a>
-                <a href="<?php echo home_url(); ?>/wp-login.php" class="userBtn float-xs-right"><i class="fa fa-fw fa-user-o"></i></a>
-                <a href="<?php echo esc_url( get_permalink( get_page_by_title( 'Contact Us' ) ) ); ?>" class="callBtn float-xs-right"><i class="fa fa-fw fa-phone"></i></a>            
+                
+                <?php if (is_user_logged_in()) { ?>
+                    <?php echo 'hahaha'; ?>
+                    <a href="<?php echo home_url(); ?>/wp-admin.php" class="userBtn float-xs-right"><i class="fa fa-fw fa-dashboard"></i></a>
+                <?php } else { ?>
+                    <?php echo 'hehehe'; ?>
+                    <a href="<?php echo home_url(); ?>/wp-login.php" class="userBtn float-xs-right"><i class="fa fa-fw fa-user-o"></i></a>
+                <?php } ?>
+                
+                <a href="<?php echo esc_url( get_permalink( get_page_by_title( 'Contact Us' ) ) ); ?>" class="callBtn float-xs-right"><i class="fa fa-fw fa-phone"></i></a>   
+        
             </div>
             
             <div class="sidenav-content">
