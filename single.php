@@ -13,7 +13,6 @@ get_header('main'); ?>
         
     
         <div class="container">
-            <h1 id="temp">SINGLE</h1>  
             
             <div class="row">
                 <!-- news section -->
@@ -34,11 +33,11 @@ get_header('main'); ?>
                         <div id="post-<?php the_ID(); ?>" <?php post_class( 'card-block' ); ?>>
                             
                             <?php if (has_post_thumbnail()) { ?>      
-                                <div class="post-img-wrapper">
+                                <div class="post-img-wrapper aligncenter">
                                     <?php 
                                         the_post_thumbnail(
                                         'large', [
-                                            'class' => 'post-img aligncenter', 
+                                            'class' => 'post-img', 
                                             'title' => 'Feature image'
                                         ]);
                                     ?>
