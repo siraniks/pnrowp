@@ -6,6 +6,8 @@
  * @subpackage PENROWP
  * @since PENRO WP
  */
+// Readme:
+// Find $metadesc to change website's description
 
 // This theme styles the visual editor with editor-style.css to match the theme style.
 add_editor_style();
@@ -71,6 +73,66 @@ function give_linked_images_class($content) {
 }
 
 add_filter('the_content','give_linked_images_class');
+
+// META TAGS 
+//
+
+// important 
+function doctype_opengraph($output) {
+    return $output . '
+    xmlns:og="http://opengraphprotocol.org/schema/"
+    xmlns:fb="http://www.facebook.com/2008/fbml"';
+}
+add_filter('language_attributes', 'doctype_opengraph');
+
+// function starts here
+function fb_opengraph() {
+    global $post;
+ 
+    if(is_single()) {
+        if(has_post_thumbnail($post->ID)) {
+            $img_src = wp_get_attachment_image_src(get_post_thumbnail_id( $post->ID ), 'medium');
+        } else {
+            $img_src = get_template_directory_uri() . '/images/logo150.png';
+        }
+        if($excerpt = $post->post_excerpt) {
+            $excerpt = strip_tags($post->post_excerpt);
+            $excerpt = str_replace("", "'", $excerpt);
+        } else {
+            $metadesc = 'Official news portal for Provincial Environment and Natural Resources Office (PENRO) activities and updates.';
+            $excerpt = $metadesc;
+        }
+        ?>
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="<?php echo the_title(); ?>"/>
+    <meta property="og:description" content="<?php echo $excerpt; ?>"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="<?php echo the_permalink(); ?>"/>
+    <meta property="og:site_name" content="<?php echo get_bloginfo(); ?> - <?php bloginfo('description'); ?>"/>
+    <meta property="og:image" content="<?php echo $img_src; ?>"/>
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="<?php echo $img_src; ?>">
+    <meta name="twitter:title" content="<?php the_title(); ?>">
+    <meta name="twitter:description" content="<?php echo $excerpt; ?>">
+    <meta name="twitter:image:src" content="<?php echo $img_src; ?>">
+
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="<?php the_title(); ?>">
+    <meta itemprop="description" content="<?php echo $excerpt; ?> | <?php echo get_bloginfo(); ?> - <?php bloginfo('description'); ?>">
+    <meta itemprop="image" content="<?php echo $img_src; ?>">
+ 
+<?php
+    } else {
+        return;
+    }
+}
+add_action('wp_head', 'fb_opengraph', 5);
+
+
+//
+// END META TAGS
 
 
 // Enable post thumbnails
