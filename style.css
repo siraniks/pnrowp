@@ -1942,33 +1942,28 @@ span.img-placeholder:before {
 }
 
 .post-img-wrapper {
-    width: 100%;
-    height: 300px;
+    max-width: 100%;
+    height: 250px;
     background: #e3e3e3;
     overflow: hidden;
 }
 
 .post-img {
     position: relative;
-    width: 100%;
-    height: auto;
-    top: -20%;
+    max-width: initial;
     z-index: 10;
+    top: -30%;
 }
 
 .post-img-caption {
+    font-size: 14px;
     position: relative;
     z-index: 20;
     height: 40px;
-    bottom: 40px;
+    bottom: 60px;
     color: rgba(255,255,255,0.8);
     text-shadow: 2px 2px 8px black;
-    text-align: right;
-    padding: 5px 20px;
-}
-
-.post-img-caption:before {
-    content: "image courtesy from ";
+    padding: 10px 20px;
 }
 
 .post-thumb-wrapper {
