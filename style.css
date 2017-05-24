@@ -50,7 +50,7 @@ This theme is mainly for PENRO / DENR but the knowledge on making this theme is 
     
     #mainnavbtn, #searchbox, #temp, .announcement, .footer, ul.sharelist, ul.taglist, .breadcrumb, a.back-to-top, .alert, #fbcommentbox { display: none; visibility: hidden; }
     
-    button#editBtn { display: none; visibility: hidden; }
+    button#editBtn, span#btn, #btn { display: none; visibility: hidden; }
     a.post-edit-link:after { display:none; }
     
     body { 
@@ -463,7 +463,8 @@ img.transparency-seal25 {
     border: 1px solid rgba(0,0,0, 0.125);
     padding: 20px 20px 5px 20px;
     margin-bottom: 10px;
-    background-color: #fff; 
+    background-color: #fff;
+    word-wrap: break-word;
 }
 
 .news-item-img {
