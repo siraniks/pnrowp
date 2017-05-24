@@ -92,6 +92,7 @@ function fb_opengraph() {
     if(is_single()) {
         if(has_post_thumbnail($post->ID)) {
             $img_src = wp_get_attachment_image_src(get_post_thumbnail_id( $post->ID ), 'medium');
+            $img_src = $img_src[0];
         } else {
             $img_src = get_template_directory_uri() . '/images/logo150.png';
         }
@@ -113,7 +114,7 @@ function fb_opengraph() {
     <meta property="og:image" content="<?php echo $img_src; ?>"/>
 
     <!-- Twitter Card data -->
-    <meta name="twitter:card" content="<?php echo $img_src; ?>">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="<?php the_title(); ?>">
     <meta name="twitter:description" content="<?php echo $excerpt; ?>">
     <meta name="twitter:image:src" content="<?php echo $img_src; ?>">
@@ -914,7 +915,7 @@ function penrowp_options ( $wp_customize ) {
         )
     );
     
-    // FACEBOOK
+    // FACEBOOK 
     
     $wp_customize->add_setting (
         'fb-appid',
@@ -1905,7 +1906,7 @@ function penrowp_options ( $wp_customize ) {
         )
     ));
     
-    $wp_customize->add_control ( new WP_Customize_Control (
+    $wp_customize->add_control ( new WP_Customize_Color_Control (
         $wp_customize,
         'btn_color_control',
         array (
@@ -1914,17 +1915,6 @@ function penrowp_options ( $wp_customize ) {
             'section'       => 'pwp_sect_content',
             'settings'      => 'btn_color',
             'priority'      => '24',
-            'type'          => 'select',
-            'choices'       => array (
-                '#0275d8'     =>  'Default (Blue)',
-                '#d9534f'     =>  'Red',
-                '#5cb85c'     =>  'Green',
-                '#81d94f'     =>  'Lime-Green',
-                '#d9d54f'     =>  'Yellow',
-                '#4fd980'     =>  'Blue-Green',
-                '#f0ad4e'     =>  'Orange',
-                '#a74fd9'     =>  'Purple',
-            )
         )
     ));
     
