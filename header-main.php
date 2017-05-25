@@ -182,13 +182,13 @@
             <div class="newsp-header">
                 <button id="mainnavbtn" type="button" class="btn btn-success btn-sm float-xs-right float-top hidden-md-up"><i class="fa fa-navicon fa-fw" aria-hidden="true"></i>MENU</button>
                 
+<!--
                 <p class="float-xs-left hidden-lg-down"><a href="#" class="subhead-time" data-toggle="tooltip" data-placement="bottom" title="Today is"><i class="fa fa-fw fa-calendar"></i>&nbsp;<?php echo date_i18n( get_option( 'date_format' ), strtotime( '11/15-1976' ) ); ?></a></p>
                 <p class="float-xs-right hidden-lg-down"><a href="<?php echo esc_url( get_permalink( get_page_by_title( 'Contact Us' ) ) ); ?>" class="subhead-contact bg-success"><i class="fa fa-fw fa-phone"></i>&nbsp;Contact Us</a></p>
+-->
                 
                 <!-- SEARCH BOX -->
-                <div id="searchbox" class="container hidden-md-down aligncenter" style="width: 65%;">
                     <?php get_search_form(); ?>
-                </div>
                 
             
             </div>
@@ -218,19 +218,7 @@
     <a href="#" class="back-to-top"><i class="fa fa-arrow-up fa-fw"></i></a>
         
         <!-- SEARCH BOX -->
-        <div id="searchbox" class="container">
-            <div class="hidden-sm-up card card-block invisible">.</div>
-            <div class="card card-block hidden-sm-up">
-                <form role="search" method="get" action="<?php echo home_url(); ?>">
-                    <div class="input-group">
-                        <input type="text" class="form-control" value name="s" placeholder="Search for...">
-                        <span class="input-group-btn">
-                             <button type="submit" class="btn btn-secondary searchbtn" type="button"><i class="fa fa-search" aria-hidden="true"></i></button> 
-                        </span>
-                    </div>
-                </form>
-            </div> 
-        </div>
+        
             
         
         
