@@ -33,7 +33,8 @@
                             <h5 class="footrnr"><?php bloginfo('description'); ?></h5><br class="footbr">
                             <i class="footcnr fa fa-map-marker fa-fw" aria-hidden="true" ></i>&nbsp;<span class="footcontact"><?php echo get_theme_mod('contact_adr', 'Block 1, Martinez Subd., Zone IV, 9506 City of Koronadal'); ?></span><br>
                             <i class="footcnr fa fa-envelope fa-fw" aria-hidden="true" ></i>&nbsp;<span class="footcontact"><?php echo get_theme_mod('contact_email', 'penro.southcotabato@yahoo.com'); ?></span><br>
-                            <i class="footcnr fa fa-phone fa-fw" aria-hidden="true"></i>&nbsp;<span class="footcontact"><?php echo get_theme_mod('contact_telnum', '(083) 228-3502'); ?></span>
+                            <i class="footcnr fa fa-phone fa-fw" aria-hidden="true"></i>&nbsp;<span class="footcontact"><?php echo get_theme_mod('contact_telnum', '(083) 228-3502'); ?></span><br><br>
+                            <a href="<?php echo esc_url( get_permalink( get_page_by_title( 'Contact Us' ) ) ); ?>" class="subhead-contact bg-success"><i class="fa fa-fw fa-phone"></i>&nbsp;Contact Us</a>
                         </div>
                         
                         <div class="col-lg-3 center float-xs-right">
@@ -85,7 +86,8 @@
                                 <i class="footcnr fa fa-phone fa-fw" aria-hidden="true"></i>&nbsp;<span id="telnum" class="footcontact"><?php echo get_theme_mod('contact_telnum', '(083) 228-3502'); ?></span>
                             </p>
                             <p class="center">Copyright <?php echo date('Y'); ?> PENRO <?php bloginfo('description'); ?>. <br>All rights reserved</p>
-                            <a id="feedbackbtn" href="#" class="aligncenter ownBtn-login-sm btn-success" data-toggle="modal" data-target="#feedbackModal" title="Send Feedback"><i class="fa fa-paper-plane-o fa-fw" aria-hidden="true"></i>&nbsp;Send Feedback</a><br>
+                            <a id="feedbackbtn" href="<?php echo esc_url( get_permalink( get_page_by_title( 'Contact Us' ) ) ); ?>" class="aligncenter ownBtn-login-sm btn-success" title="Send Feedback"><i class="fa fa-phone fa-fw" aria-hidden="true"></i>&nbsp;Contact Us</a><br>
+                            <a id="feedbackbtn" href="#" class="aligncenter ownBtn-login-sm btn-info" data-toggle="modal" data-target="#feedbackModal" title="Send Feedback"><i class="fa fa-paper-plane-o fa-fw" aria-hidden="true"></i>&nbsp;Send Feedback</a><br>
                         </div>
                         
                     </div><!-- footer content -->
@@ -106,9 +108,6 @@
                         <h6 class="modal-title" id="exampleModalLabel">PWP Theme Feedback</h6>
                     </div>
                     <div class="modal-body">
-                        <p>Leave a message there.
-                        </p>
-                        
                         <div class="center"><iframe src="https://discordapp.com/widget?id=300837797344968704&theme=dark" width="300" height="500" allowtransparency="true" frameborder="0"></iframe></div>
                     </div>
                     
