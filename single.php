@@ -32,25 +32,7 @@ get_header('main'); ?>
                         <hr>
                         <div id="post-<?php the_ID(); ?>" <?php post_class( 'card-block' ); ?>>
                             
-                            <?php if (has_post_thumbnail()) { ?>      
-                                <div class="post-img-wrapper aligncenter">
-                                    <?php 
-                                        the_post_thumbnail(
-                                        'large', [
-                                            'class' => 'post-img', 
-                                            'title' => 'Feature image'
-                                        ]);
-                                    ?>
-                                </div>
-                                <?php
-                                    $get_description = get_post(get_post_thumbnail_id())->post_excerpt;
-                                    if(!empty($get_description)){//If description is not empty show the div
-                                      echo '<p class="post-img-caption">' . $get_description . '</p>';
-                                    }
-                                ?>
-                            <?php } else { ?>
-                                <!-- do nothing --> 
-                            <?php } ?>   
+                             
                             
                             <h1 class="card-title news-title"><?php the_title(); ?> <?php edit_post_link('<span id="btn" class="btn" style="font-size: 12px;"><i class="fa fa-1x fa-fw fa-pencil" aria-hidden="true"></i> Edit</span>'); ?></h1>
 
@@ -71,6 +53,26 @@ get_header('main'); ?>
                                 <li><a href="mailto:?subject=<?php the_title(); ?>&body=Read it from here - <?php the_permalink(); ?>" title="Email This" class="icon-mail"><i class="fa fa-fw fa-envelope"></i></a></li>
                                 
                             </ul><br>
+                            
+                             <?php if (has_post_thumbnail()) { ?>      
+                                <div class="post-img-wrapper aligncenter">
+                                    <?php 
+                                        the_post_thumbnail(
+                                        'large', [
+                                            'class' => 'post-img', 
+                                            'title' => 'Feature image'
+                                        ]);
+                                    ?>
+                                </div>
+                                <?php
+                                    $get_description = get_post(get_post_thumbnail_id())->post_excerpt;
+                                    if(!empty($get_description)){//If description is not empty show the div
+                                      echo '<p class="post-img-caption">' . $get_description . '</p>';
+                                    }
+                                ?>
+                            <?php } else { ?>
+                                <!-- do nothing --> 
+                            <?php } ?><br>
                             
                             <?php the_content(); ?>
                             
