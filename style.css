@@ -1943,7 +1943,7 @@ span.img-placeholder:before {
 
 .post-img-wrapper {
     max-width: 100%;
-    height: 250px;
+    height: 380px;
     background: #e3e3e3;
     overflow: hidden;
 }
@@ -1951,8 +1951,9 @@ span.img-placeholder:before {
 .post-img {
     position: relative;
     max-width: initial;
+    height: 100%;
     z-index: 10;
-    top: -30%;
+/*    top: -30%;*/
 }
 
 .post-img-caption {
