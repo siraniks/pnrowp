@@ -29,10 +29,8 @@ get_header('main'); ?>
                                 bcn_display();
                             }?>
                         </div>
-                        <hr>
+                        
                         <div id="post-<?php the_ID(); ?>" <?php post_class( 'card-block' ); ?>>
-                            
-                             
                             
                             <h1 class="card-title news-title"><?php the_title(); ?> <?php edit_post_link('<span id="btn" class="btn" style="font-size: 12px;"><i class="fa fa-1x fa-fw fa-pencil" aria-hidden="true"></i> Edit</span>'); ?></h1>
 
@@ -52,7 +50,7 @@ get_header('main'); ?>
                                 
                                 <li><a href="mailto:?subject=<?php the_title(); ?>&body=Read it from here - <?php the_permalink(); ?>" title="Email This" class="icon-mail"><i class="fa fa-fw fa-envelope"></i></a></li>
                                 
-                            </ul><br>
+                            </ul><hr><br>
                             
                              <?php if (has_post_thumbnail()) { ?>      
                                 <div class="post-img-wrapper aligncenter">
@@ -70,8 +68,6 @@ get_header('main'); ?>
                                       echo '<p class="post-img-caption">' . $get_description . '</p>';
                                     }
                                 ?>
-                            <?php } else { ?>
-                                <!-- do nothing --> 
                             <?php } ?><br>
                             
                             <?php the_content(); ?>
