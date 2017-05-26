@@ -1,5 +1,5 @@
 <div id="searchbox" class="container">
-    <div class="hidden-sm-up card card-block">.</div>
+    <div class="hidden-sm-up card card-block invisible">.</div>
     <br>
         <form role="search" method="get" action="<?php echo home_url(); ?>">
             <div class="input-group">
@@ -8,6 +8,5 @@
                      <button type="submit" class="btn btn-secondary searchbtn" type="button"><i class="fa fa-search" aria-hidden="true"></i></button> 
                 </span>
             </div>
-        </form>
-    <br>       
+    </form>     
 </div>
