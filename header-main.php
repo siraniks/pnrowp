@@ -81,6 +81,25 @@
                 </span>
             </div>
         </nav><!-- top navbar -->
+            
+            <!-- desktop -->
+        <nav id="primary_nav_wrap" class="navbar navbar-full navbar-dark hidden-md-down">
+            <div class="container">
+                <ul>
+                    <?php
+                        $newmenuparams = array(
+                            'menu'           =>  'New Primary Menu',
+                            'container'      => '',
+                            'theme_location' => 'newnav',
+                            'items_wrap'     => newnav_wrap(),
+                            'walker'         => new newnav_walker()
+                        );
+
+                        echo strip_tags(wp_nav_menu( $newmenuparams ), '<a>' ); 
+                    ?>
+                </ul>
+            </div>
+        </nav>
         
         <div class="logo hidden-md-down">     
             <div class="container">
@@ -93,28 +112,25 @@
                         <h4><a class="pnr2" href="<?php echo home_url(); ?>" title="Return Home"><?php bloginfo('name'); ?></a></h4><hr class="logohr">
                         <h5 class="rnr2"><?php bloginfo('description'); ?></h5>
                         
-<!--
-                         SEARCH BOX 
-                        <div id="searchbox" class="container hidden-md-down">
-                            <form role="search" method="get" action="<?php echo home_url(); ?>">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" value name="s" placeholder="Search for...">
-                                    <span class="input-group-btn">
-                                         <button type="submit" class="btn btn-secondary searchbtn" type="button"><i class="fa fa-search" aria-hidden="true"></i></button> 
-                                    </span>
-                                </div>
-                            </form>
-                        </div>
--->
                     </div>
                     <div class="col-xs-2">
                         <img src="<?php echo get_template_directory_uri(); ?>/images/phlogo150.png" class="alignright"/>    
                     </div>
                 </div>
-                
             </div>
             
             
+        </div>
+            
+            <!-- sub-header -->
+        <div class="container">
+            <div class="newsp-header">
+                <button id="mainnavbtn" type="button" class="btn btn-success btn-sm float-xs-right float-top hidden-md-up"><i class="fa fa-navicon fa-fw" aria-hidden="true"></i>MENU</button>
+                
+                <!-- SEARCH BOX -->
+                <?php get_search_form(); ?>
+                
+            </div>
         </div>
         
         <nav id="mainnavbar" class="navbar navbar-fixed-top navbg navbar-dark hidden-sm-up">
@@ -177,49 +193,12 @@
             </div><!-- sidenav content --> 
         </div><!-- sidenav -->
         
-        <!-- sub-header -->
-        <div class="container">
-            <div class="newsp-header">
-                <button id="mainnavbtn" type="button" class="btn btn-success btn-sm float-xs-right float-top hidden-md-up"><i class="fa fa-navicon fa-fw" aria-hidden="true"></i>MENU</button>
-                
-<!--
-                <p class="float-xs-left hidden-lg-down"><a href="#" class="subhead-time" data-toggle="tooltip" data-placement="bottom" title="Today is"><i class="fa fa-fw fa-calendar"></i>&nbsp;<?php echo date_i18n( get_option( 'date_format' ), strtotime( '11/15-1976' ) ); ?></a></p>
-                <p class="float-xs-right hidden-lg-down"><a href="<?php echo esc_url( get_permalink( get_page_by_title( 'Contact Us' ) ) ); ?>" class="subhead-contact bg-success"><i class="fa fa-fw fa-phone"></i>&nbsp;Contact Us</a></p>
--->
-                
-                <!-- SEARCH BOX -->
-                    <?php get_search_form(); ?>
-                
-            
-            </div>
-        </div>
+        
         <!-- eo sub-header -->
 
-        <!-- desktop -->
-        <nav id="primary_nav_wrap" class="navbar navbar-full navbar-dark hidden-md-down">
-            <div class="container">
-                <ul>
-                    <?php
-                        $newmenuparams = array(
-                            'menu'           =>  'New Primary Menu',
-                            'container'      => '',
-                            'theme_location' => 'newnav',
-                            'items_wrap'     => newnav_wrap(),
-                            'walker'         => new newnav_walker()
-                        );
-
-                        echo strip_tags(wp_nav_menu( $newmenuparams ), '<a>' ); 
-                    ?>
-                </ul>
-            </div>
-        </nav>
+        
         
     <br>
     <a href="#" class="back-to-top"><i class="fa fa-arrow-up fa-fw"></i></a>
-        
-        <!-- SEARCH BOX -->
-        
             
-        
-        
     </header>
