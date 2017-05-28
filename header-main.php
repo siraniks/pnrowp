@@ -125,12 +125,10 @@
             <!-- sub-header -->
         <div class="container">
             <div class="newsp-header">
-                <button id="mainnavbtn" type="button" class="btn btn-success btn-sm float-xs-right float-top hidden-md-up"><i class="fa fa-navicon fa-fw" aria-hidden="true"></i>MENU</button>
-                
-                <!-- SEARCH BOX -->
-                <?php get_search_form(); ?>
-                
+                <button id="mainnavbtn" type="button" class="btn btn-success btn-sm float-xs-right float-top hidden-md-up"><i class="fa fa-navicon fa-fw" aria-hidden="true"></i>MENU</button>                
             </div>
+             <!-- SEARCH BOX -->
+            <?php get_search_form(); ?>
         </div>
         
         <nav id="mainnavbar" class="navbar navbar-fixed-top navbg navbar-dark hidden-sm-up">
@@ -145,12 +143,11 @@
                 <a href="#" class="closeBtn float-xs-right"><i class="fa fa-fw fa-times"></i></a>
                 
                 <?php if (is_user_logged_in()) { ?>
-                    <?php echo 'hahaha'; ?>
-                    <a href="<?php echo home_url(); ?>/wp-admin.php" class="userBtn float-xs-right"><i class="fa fa-fw fa-dashboard"></i></a>
+                    <a id="loginbtn" href="<?php echo home_url(); ?>/wp-admin/" class="userBtn float-xs-right" title="Dashboard"><i class="fa fa-1x fa-fw fa-dashboard" aria-hidden="true"></i></a>
+                    <a id="loginbtn" href="<?php echo wp_logout_url( get_permalink() ); ?>" class="userBtn float-xs-right" title="Sign-out"><i class="fa fa-1x fa-fw fa-sign-out" aria-hidden="true"></i></a>
                 <?php } else { ?>
-                    <?php echo 'hehehe'; ?>
-                    <a href="<?php echo home_url(); ?>/wp-login.php" class="userBtn float-xs-right"><i class="fa fa-fw fa-user-o"></i></a>
-                <?php } ?>
+                    <a id="loginbtn" href="<?php echo home_url(); ?>/wp-login.php" class="userBtn float-xs-right" title="Sign-in"><i class="fa fa-1x fa-fw fa-user-o" aria-hidden="true"></i></a>
+                <?php } ?>  
                 
                 <a href="<?php echo esc_url( get_permalink( get_page_by_title( 'Contact Us' ) ) ); ?>" class="callBtn float-xs-right"><i class="fa fa-fw fa-phone"></i></a>   
         
@@ -186,8 +183,10 @@
 
                             echo strip_tags(wp_nav_menu( $menuparameters ), '<a>' ); 
                         ?>
+<!--
                     <div class="container">
-                    </div><!-- container -->
+                    </div> container 
+-->
                 </div>
                 <br>
             </div><!-- sidenav content --> 
