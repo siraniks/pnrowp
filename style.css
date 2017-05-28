@@ -48,7 +48,7 @@ This theme is mainly for PENRO / DENR but the knowledge on making this theme is 
 @media print {
     .container { margin: 0 !important; padding: 0 !important; }
     
-    #mainnavbtn, #searchbox, #temp, .announcement, .footer, ul.sharelist, ul.taglist, .breadcrumb, a.back-to-top, .alert, #fbcommentbox { display: none; visibility: hidden; }
+    #mainnavbtn, #searchbox, #temp, .announcement, .footer, ul.sharelist, ul.taglist, .breadcrumb, a.back-to-top, .alert, #fbcommentbox, #noprnt { display: none; visibility: hidden; }
     
     button#editBtn, span#btn, #btn { display: none; visibility: hidden; }
     a.post-edit-link:after { display:none; }
@@ -84,6 +84,18 @@ This theme is mainly for PENRO / DENR but the knowledge on making this theme is 
     blockquote p:after {
         content: '"';
     }
+    
+    .post-img-wrapper {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    
+    .post-img-wrapper img {
+        max-width: 100%;
+        height: auto;
+    }
+    
     .card-title { margin-top: -20px; }
     .news-item-wrapper p { margin-top: -15px; }
     
@@ -240,6 +252,8 @@ a.subhead-contact:hover {
 }
 
 /* floating menu button for mobile */
+
+
 .float-top {
     position: fixed;
     z-index: 18;
@@ -821,6 +835,10 @@ h5.rnr2 { text-transform: uppercase; font-size: 28px; }
 }
 
 /* new mobile navigation structure - mobnav */
+
+#mainnavbar {
+    z-index: 1 !important;
+}
 
 .top-mobnav {
 /*    display: block;*/
@@ -1943,7 +1961,7 @@ span.img-placeholder:before {
 
 /** NEEDS TO FIX THIS **/
 
-@media screen and (min-width: 640px) {
+@media screen only and (min-width: 640px) {
     
     .post-img-wrapper {
     display: block;
