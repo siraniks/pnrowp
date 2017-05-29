@@ -14,6 +14,7 @@ Text Domain: penrowp2-0
 This theme is mainly for PENRO / DENR but the knowledge on making this theme is from free and self learning resources, you can edit this theme as long as you credit the author.
 */
 
+@import url(css/font-awesome.min.css);
 @import url(css/bootstrap-reboot.min.css);
 @import url(css/bootstrap.min.css);
 
@@ -22,14 +23,6 @@ This theme is mainly for PENRO / DENR but the knowledge on making this theme is 
 /*Fallback*/
 
 /* fallback - change this to official links once it's uploaded online */
-/*  
-@font-face {
-  font-family: 'Material Icons';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Material Icons'), local('MaterialIcons-Regular'), url(fonts/material-icons.woff2) format('woff2');
-}
-*/
 
 /*
 @font-face {
@@ -544,7 +537,7 @@ img.transparency-seal25 {
     text-decoration: none;
 }
 
-.news-title { margin-top: -40px;}
+/*.news-title { margin-top: -40px;}*/
 
 /*MAPS*/
 .maps iframe {
@@ -735,7 +728,7 @@ h5.rnr2 { text-transform: uppercase; font-size: 28px; }
     height: 100%;
     width: 280px; /* unhide - 280, hide - 0 */
     position: fixed;
-    z-index: 30;
+    z-index: 150;
     top: 0;
     background-color: white;
     overflow-x: hidden;
@@ -772,7 +765,7 @@ h5.rnr2 { text-transform: uppercase; font-size: 28px; }
     width: 100%;
     height: 120%;
     position: fixed;
-    z-index: 29;
+    z-index: 130;
     pointer-events: none;
     top: -50px;
 }
@@ -1859,7 +1852,7 @@ i.cross-out {
 }
 
 .icon-fb:hover {
-    color: #809bd1 !important;
+    color: #3577fe !important;
 }
 
 .icon-gplus {
@@ -1867,7 +1860,7 @@ i.cross-out {
 }
 
 .icon-gplus:hover {
-    color: #e06055 !important;
+    color: #ff5760 !important;
 }
 
 .icon-tw {
@@ -1875,7 +1868,7 @@ i.cross-out {
 }
 
 .icon-tw:hover {
-    color: #64c3fe !important;
+    color: #49b9ff !important;
 }
 
 .icon-lin {
@@ -1883,7 +1876,7 @@ i.cross-out {
 }
 
 .icon-lin:hover {
-    color: #53a7d5 !important;
+    color: #02a1ff !important;
 }
 
 .icon-pckt {
@@ -1891,15 +1884,31 @@ i.cross-out {
 }
 
 .icon-pckt:hover {
-    color: #fa7d8d !important;
+    color: #ff6174 !important;
+}
+
+.icon-pinterest {
+    color: #bc0519 !important;
+}
+
+.icon-pinterest :hover{
+    color: #ff0b39 !important;
 }
 
 .icon-prntr {
     color: #76777c !important;
 }
 
+.icon-rss {
+    color: #f0ad4e !important;
+}
+
+.icon-rss :hover{
+    color: #ffbf70 !important;
+}
+
 .icon-prntr:hover {
-    color: #a6a6aa !important;
+    color: #8e8e9a !important;
     cursor: pointer;
 }
 
@@ -1908,8 +1917,14 @@ i.cross-out {
 }
 
 .icon-mail :hover{
-    color: #fee450 !important;
+    color: #ffe132 !important;
 }
+
+
+
+
+
+
 
 /** DOST TIME **/
 
@@ -1957,26 +1972,27 @@ span.img-placeholder:before {
     display: none;
 }
 
+/** MASTER SLIDES OVERRIDES **/
+.ms-nav-prev, .ms-nav-next {
+    
+}
 
 
 /** NEEDS TO FIX THIS **/
 
-@media screen only and (min-width: 640px) {
-    
-    .post-img-wrapper {
+.post-img-wrapper {
     display: block;
-    width: 100%;
-    height: 380px;
-    background: #e3e3e3;
+    max-width: 100%;
     overflow: hidden;
-    }
+}
     
-    .post-img-wrapper img {
-        position: relative;
-        width: 100%;
-        height: auto;
-    }
+.post-img-wrapper img {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
     
+/*
     .post-img-caption {
     font-size: 14px;
     position: relative;
@@ -1987,35 +2003,7 @@ span.img-placeholder:before {
     text-shadow: 2px 2px 8px black;
     padding: 10px 20px;
     }
-}
-
-@media handheld, screen and (min-width: 360px) {
-    
-    .post-img-wrapper {
-        width: 100%;
-        height: 200px;
-        background: #e3e3e3;
-        overflow: hidden;
-        margin-bottom: -80px;
-    }
-    
-    .post-img-wrapper img {
-        position: relative;
-        width: auto;
-        height: 100%;
-        left: -20%;
-    }
-    
-    .post-img-caption {
-        font-size: 18px;
-        position: relative;
-        z-index: 20;
-        text-align: right;
-        color: rgba(255,255,255,0.8);
-        text-shadow: 2px 2px 8px black;
-        padding: 5px;
-    }
-}
+*/
 
 .post-thumb-wrapper {
     width: auto;
