@@ -46,6 +46,10 @@ get_header('main'); ?>
                                 
                                 <li><a href="https://getpocket.com/save?url=<?php the_permalink();?>&title=<?php the_title(); ?>" title="Read it later on Pocket" class="icon-pckt"><i class="fa fa-get-pocket fa-fw"></i></a></li>
                                 
+                                <li><a href="https://www.pinterest.com/pin/create/button/?url=<?php the_permalink();?>&title=<?php the_title(); ?>" title="Pin it on Pinterest" class="icon-pinterest"><i class="fa fa-pinterest fa-fw"></i></a></li>
+                                
+                                <li><a href="<?php the_permalink();?>feed/" title="RSS" class="icon-rss"><i class="fa fa-rss fa-fw"></i></a></li>
+                                
                                 <li><a href="javascript:window.print()" class="icon-prntr"><i class="fa fa-fw fa-print"></i></a></li>
                                 
                                 <li><a href="mailto:?subject=<?php the_title(); ?>&body=Read it from here - <?php the_permalink(); ?>" title="Email This" class="icon-mail"><i class="fa fa-fw fa-envelope"></i></a></li>
@@ -57,7 +61,7 @@ get_header('main'); ?>
                                     <?php 
                                         the_post_thumbnail(
                                         'large', [
-                                            'class' => 'post-img', 
+                                            'class' => 'post-thumb', 
                                             'title' => 'Feature image'
                                         ]);
                                     ?>
