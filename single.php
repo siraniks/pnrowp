@@ -60,8 +60,7 @@ get_header('main'); ?>
                                 <div class="post-img-wrapper aligncenter">
                                     <?php 
                                         the_post_thumbnail(
-                                        'large', [
-                                            'class' => 'post-thumb', 
+                                        'post-thumbnail', [
                                             'title' => 'Feature image'
                                         ]);
                                     ?>
