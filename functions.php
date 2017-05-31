@@ -2402,6 +2402,10 @@ function headerOutput() {
                 display: <?php echo get_theme_mod('fbcomment_disp', 'none') ?> !important;
             }
             
+            #commentbox-btn {
+                display: <?php echo get_theme_mod('fbcomment_disp', 'none') ?> !important;
+            }
+            
             
             /** MENU **/
             
