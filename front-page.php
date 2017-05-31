@@ -46,12 +46,13 @@ get_header('main'); ?>
                                         <div class="post-thumb-wrapper">
                                             <?php if (has_post_thumbnail()) { ?>
                                                 <?php the_post_thumbnail( 
-                                                    'full', array( 
-                                                        'class' => 'post-thumb-img' 
+                                                    'homepage-thumb', array( 
+                                                        'class' => 'post-thumb-img2',
+                                                        'title' => 'Article Thumbnail'
                                                     )); 
                                                 ?>
                                             <?php } else { ?>
-                                                <img src="<?php echo get_template_directory_uri(); ?>/images/nothumbs.png" />
+                                                <img src="<?php echo get_template_directory_uri(); ?>/images/nothumbs.png" class="post-thumb-img"/>
                                             <?php } ?>
                                         </div>
                                     </div>
