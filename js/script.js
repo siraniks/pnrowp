@@ -18,6 +18,13 @@ $(document).ready(function () {
         $(this).replaceWith('<span class="img-placeholder"></span>');
     });   
     
+    $('#commentbox-btn').click(function(){
+        $('div#fbcommentbox').css('visibility','visible');
+        $('div#fbcommentbox').css('height','auto');
+        $('div#fbcommentbox').css('overflow','auto');
+        $(this).remove();
+    });
+    
     // Override PAGASA Time Stamp 
     // $('iframe #serverdate').addClass("invisible");
     
