@@ -86,6 +86,7 @@ get_header('main'); ?>
                         <hr>
                         <?php the_tags( '<ul class="taglist"><i class="fa fa-fw fa-tags"></i>  Tags: &nbsp;<li>', '</li><li>', '</li></ul>' ); ?>
                         <br>
+                        <button id="commentbox-btn" type="button" class="btn btn-primary aligncenter"><i class="fa fa-fw fa-comments"></i>&nbsp;Show Comments</button>
                         <div id="fbcommentbox">
                             <div class="fb-comments" data-href="<?php the_permalink();?>" data-width="100%" data-numposts="5"></div>
                         </div>
