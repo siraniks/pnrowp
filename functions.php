@@ -137,17 +137,20 @@ add_action('wp_head', 'fb_opengraph', 5);
 
 
 // Enable post thumbnails
-if ( function_exists('add_theme_support')) {
+/*if ( function_exists('add_theme_support')) {
     add_theme_support('post-thumbnails');
-        set_post_thumbnail_size( 1000, 300, array ('center','center') ); // 150px2 and crop in the center
-}
+        //set_post_thumbnail_size( 1000, 300, array ('top','center') ); // 150px2 and crop in the center
+}*/
 
 add_action( 'after_setup_theme', 'wpdocs_theme_setup' );
 function wpdocs_theme_setup() {
     add_image_size( 'category-thumb', 300 ); // 300 pixels wide (and unlimited height)
-    add_image_size( 'homepage-thumb', 220, 180, true ); // (cropped)
-    add_image_size( 'post-thumb', 1000,380 );
+    add_image_size( 'homepage-thumb', 230, 220, array ('center', 'center') );
+    add_image_size( 'post-thumbnail', 1000,380, array ('center', 'top') );
 }
+
+// Change image compression quality
+add_filter('jpeg_quality', function($arg){return 75;});
 
 // NAVIGATION
 
