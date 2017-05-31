@@ -2015,9 +2015,13 @@ span.img-placeholder:before {
 .post-thumb-img {
     position: relative;
     width: 200%;
-    height: 200%;
-    left: -30%;
-    bottom: 50%;
+    height: auto;
+}
+
+.post-thumb-img2 {
+    position: relative;
+    width: 100%;
+    height: auto;
 }
 
 .post-thumb-content {
