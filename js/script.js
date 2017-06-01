@@ -18,12 +18,34 @@ $(document).ready(function () {
         $(this).replaceWith('<span class="img-placeholder"></span>');
     });   
     
-    $('#commentbox-btn').click(function(){
-        $('div#fbcommentbox').css('visibility','visible');
-        $('div#fbcommentbox').css('height','auto');
-        $('div#fbcommentbox').css('overflow','auto');
-        $(this).remove();
+    // Toggle Comment Box
+    $('#commentbox-btn-hide').hide();
+    
+    $('#commentbox-btn-show').click(function() {
+        var x = $('div#fbcommentbox');
+        var hidebtn = $('#commentbox-btn-hide');
+        x.css('display','block');
+        x.css('visibility','visible');
+        x.css('height','auto');
+        x.css('overflow','auto');
+        $(this).hide();
+        hidebtn.show();
     });
+    
+    $('#commentbox-btn-hide').click(function() {
+        var x = $('div#fbcommentbox');
+        var showbtn = $('#commentbox-btn-show');
+        x.css('display','none');
+        x.css('visibility','hidden');
+        x.css('height','10px');
+        x.css('overflow','hidden');
+        $(this).hide();
+        showbtn.show();
+    });
+    
+    if ($('#commentbox-btn-show').hasClass('disabled')) {
+        $('#commentbox-btn-show').text('Comments Disabled');
+    } 
     
     // Override PAGASA Time Stamp 
     // $('iframe #serverdate').addClass("invisible");
