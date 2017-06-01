@@ -735,7 +735,7 @@ function get_first_image_url ($post_ID) {
 
 // FORECE 404
 
-//add_action( 'wp', 'force_404' );
+add_action( 'wp', 'force_404' );
 function force_404() {
     global $wp_query; //$posts (if required)
     if(is_page()){ // your condition
@@ -944,9 +944,9 @@ function penrowp_options ( $wp_customize ) {
     );
     
     $wp_customize->add_setting (
-        'fbcomment_disp',
+        'fbcomment_disabler',
         array (
-            'default'       =>  'none',
+            'default'       =>  'disabled',
             'transport'     =>  'refresh',
         )
     );
@@ -1550,17 +1550,16 @@ function penrowp_options ( $wp_customize ) {
     
     $wp_customize->add_control ( new WP_Customize_Control (
         $wp_customize,
-        'fbcomment_disp_control',
+        'fbcomment_disabler_control',
         array (
-            'label'         => __( 'Show Facebook Comments', 'penrowp2-0' ),
-            'description'   => __( 'Show or Hide Alert', 'penrowp2-0' ),
+            'label'         => __( 'Enable Facebook Comments', 'penrowp2-0' ),
             'section'       => 'pwp_sect_fb',
-            'settings'      => 'fbcomment_disp',
+            'settings'      => 'fbcomment_disabler',
             'type'          => 'select',
             'priority'      => '3',
             'choices'       => array (
-                'block'          =>  'Show',
-                'none'           =>  'Hide',
+                ''           =>  'Enable',
+                'disabled'   =>  'Disable',
             )
         )
     ));
@@ -2397,14 +2396,7 @@ function headerOutput() {
             .alert {
                 display: <?php echo get_theme_mod('alert_disp', 'none') ?>;
             }
-            
-            #fbcommentbox {
-                display: <?php echo get_theme_mod('fbcomment_disp', 'none') ?> !important;
-            }
-            
-            #commentbox-btn {
-                display: <?php echo get_theme_mod('fbcomment_disp', 'none') ?> !important;
-            }
+                        
             
             
             /** MENU **/
