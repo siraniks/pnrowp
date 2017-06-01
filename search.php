@@ -24,7 +24,7 @@ get_header('main'); ?>
                     
                     <div class="card card-block">
                         <?php if ( have_posts() ) : ?>
-                            <h3 class="page-title"><?php printf( __( 'Search Results for: %s', 'penrowp2-0' ), '<span>' . get_search_query() . '</span>' ); ?></h3>
+                            <h3 class="page-title"><?php printf( __( '<i class="fa fa-fw fa-search" style="color:rgba(0,0,0,0.3);"></i> %s', 'penrowp2-0' ), '<span>' . get_search_query() . '</span>' ); ?></h3>
                         <?php else : ?>
                             <h3 class="page-title"><?php _e( 'No results found.', 'penrowp2-0' ); ?></h3>
                         <?php endif; ?>
