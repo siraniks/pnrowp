@@ -29,7 +29,7 @@ get_header('main'); ?>
                 <div class="col-md-9">                    
                 <!-- news section -->   
                     <div class="card card-block">
-                        <h3 class="aligncenter">Category: <?php the_category(); ?></h3>
+                        <h3 class="aligncenter"><i class="fa fa-fw fa-list-ul"></i>&nbsp;<?php the_category(); ?></h3>
                     </div>
                     
                     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
