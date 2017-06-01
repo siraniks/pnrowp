@@ -1996,9 +1996,14 @@ span.img-placeholder:before {
 }
 
 div#fbcommentbox {
+    display: none;
     visibility: hidden;
     height: 10px;
     overflow: hidden;
+}
+
+button#comment-btn-hide {
+    display: none;
 }
 
 /** MASTER SLIDES OVERRIDES **/
