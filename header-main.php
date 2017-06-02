@@ -1,6 +1,6 @@
 <?php
 /** 
- * The template for displaying the header
+ * Main Header Template
  *
  * Displays all of the head element and everything up until the "site-content" div.
  *
