@@ -41,7 +41,7 @@ This theme is mainly for PENRO / DENR but the knowledge on making this theme is 
 @media print {
     .container { margin: 0 !important; padding: 0 !important; }
     
-    #mainnavbtn, #searchbox, #temp, .announcement, .footer, ul.sharelist, ul.taglist, .breadcrumb, a.back-to-top, .alert, #noprnt, #commentbox-btn { display: none; visibility: hidden; }
+    #mainnavbtn, #searchbox, #temp, .announcement, .footer, ul.sharelist, ul.taglist, .breadcrumb, a.back-to-top, .alert, #noprnt, #commentbox-btn-show, #commentbox-btn-hide { display: none; visibility: hidden; }
     
     div#fbcommentbox {
         height: 10px;
@@ -2064,3 +2064,17 @@ button#comment-btn-hide {
     margin-bottom: 10px;
 }
 
+/** 404 **/
+
+.div404 {
+    padding: 3em;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+
+.div404 p {
+    color: #373a3c;
+    font-weight: bold;
+    font-size: 22px;
+    cursor: default;
+}
