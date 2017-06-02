@@ -65,17 +65,17 @@
 		} );
 	} );
     
-    wp.customize( 'header_link_color', function( value ) {
-		value.bind( function( to ) {
-            $('a.pnr2:hover').css( 'color', to );
-		} );
-	} );
+//    wp.customize( 'header_link_color', function( value ) {
+//		value.bind( function( to ) {
+//            $('a.pnr2:hover').css( 'color', to );
+//		} );
+//	} );
     
-    wp.customize( 'subhead_link_color', function( value ) {
-		value.bind( function( to ) {
-            $('a.subhead-link').css( 'color', to );
-		} );
-	} );
+//    wp.customize( 'subhead_link_color', function( value ) {
+//		value.bind( function( to ) {
+//            $('a.subhead-link').css( 'color', to );
+//		} );
+//	} );
     
     wp.customize( 'contact_adr', function( value ) {
 		value.bind( function( to ) {
@@ -209,10 +209,11 @@
             $('h3.headertext').css('color', to );
             $('i.cnr').css('color', to );
             $('.announcement img:hover').css('border-color', to );
-            //$('.top-nav').css('background-color', to );
+            $('a.pnr2:hover').css( 'color', to );
             $('.admintext').css('color', to );
             $('.news-item-img').css('border-color', to );
             $('.announcement ul li:before').css('border-color', to );
+            $('ul.mob-menu li a:hover').css('background-color', to );
 		} );
 	} );
     
@@ -321,6 +322,7 @@
     wp.customize( 'menu_btn_color', function( value ) {
 		value.bind( function( to ) {
             var imp = ' !important';
+            $('#mySidenav').css( 'background-color', to );
             $('#mainnavbtn').css( 'background-color', to );
             $('#mainnavbar').css( 'background-color', to );
             $('nav#primary_nav_wrap').css( 'background-color', to );
@@ -332,21 +334,11 @@
     
     wp.customize( 'menu_panel_color', function( value ) {
 		value.bind( function( to ) {
-            $('#mySidenav').css( 'background-color', to );
             $('nav#primary_nav_wrapper').css( 'background-color', to );
             $('#primary_nav_wrapper ul ul li a').css( 'background-color', to );
 		} );
 	} );
-    
-    wp.customize( 'menu_link_color', function( value ) {
-		value.bind( function( to ) {
-            $('li.mob-item-header a').css( 'color', to );
-            $('.sidenav-header-text').css( 'color', to );
-            $('.sidenav-sub-text').css( 'color', to );
-            $('ul.mob-menu li a').css( 'color', to );
-            $('ul.menu li a').css( 'color',  to );
-		} );
-	} );
+
     
     // FOOTER
     
