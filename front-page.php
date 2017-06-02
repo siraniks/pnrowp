@@ -32,7 +32,9 @@ get_header('main'); ?>
                 <div class="col-md-9">
                     
                 <!-- news section -->   
-                    <h3 class="hidden-md-up center admintext">News</h3>
+                    <div class="card card-block hidden-md-up ">
+                        <h3 class="center admintext">News</h3>
+                    </div>
                     
                     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
                     
