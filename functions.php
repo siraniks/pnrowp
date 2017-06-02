@@ -1023,17 +1023,17 @@ function penrowp_options ( $wp_customize ) {
         'header_text_color',
         array (
             'default'       =>  '#ffffff',
-            'transport'     =>  'postMessage',
-        )
-    );
-    
-    $wp_customize->add_setting (
-        'header_link_color',
-        array (
-            'default'       =>  '#0275d8',
             'transport'     =>  'refresh',
         )
     );
+    
+//    $wp_customize->add_setting (
+//        'header_link_color',
+//        array (
+//            'default'       =>  '#0275d8',
+//            'transport'     =>  'refresh',
+//        )
+//    );
     
     $wp_customize->add_setting (
         'subhead_link_color',
@@ -1381,7 +1381,7 @@ function penrowp_options ( $wp_customize ) {
         'menu_btn_color',
         array (
             'default'       =>  '#0275d8',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -1389,17 +1389,10 @@ function penrowp_options ( $wp_customize ) {
         'menu_panel_color',
         array (
             'default'       =>  '#ffffff',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
-    $wp_customize->add_setting (
-        'menu_link_color',
-        array (
-            'default'       =>  '#0275d8',
-            'transport'     =>  'postMessage',
-        )
-    );
     
     // Footer
     
@@ -1704,16 +1697,16 @@ function penrowp_options ( $wp_customize ) {
         )
     ));
     
-    $wp_customize->add_control ( new WP_Customize_Color_Control (
-        $wp_customize,
-        'header_link_color_control',
-        array (
-            'label'         => __( 'Header Link Color', 'penrowp2-0' ),
-            'section'       => 'pwp_sect_header',
-            'settings'      => 'header_link_color',
-            'priority'      => '2',
-        )
-    ));
+//    $wp_customize->add_control ( new WP_Customize_Color_Control (
+//        $wp_customize,
+//        'header_link_color_control',
+//        array (
+//            'label'         => __( 'Header Link Color', 'penrowp2-0' ),
+//            'section'       => 'pwp_sect_header',
+//            'settings'      => 'header_link_color',
+//            'priority'      => '2',
+//        )
+//    ));
     
     // MENU
     
@@ -1721,7 +1714,7 @@ function penrowp_options ( $wp_customize ) {
         $wp_customize,
         'menu_btn_color_control',
         array (
-            'label'         => __( 'Mobile Menu Button and Navbar Color', 'penrowp2-0' ),
+            'label'         => __( 'Mobile Menu Color', 'penrowp2-0' ),
             'section'       => 'pwp_sect_header',
             'settings'      => 'menu_btn_color',
             'priority'      => '4',
@@ -1736,49 +1729,11 @@ function penrowp_options ( $wp_customize ) {
                 '#f0ad4e'     =>  'Orange',
                 '#a74fd9'     =>  'Purple',
                 '#292b2c'     =>  'Dark',
-                "rgba(0,0,0,0.3)"   =>  'Dark Transparent',
+                "rgba(0,0,0,0.5)"   =>  'Dark Transparent',
             )
         )
     ));
     
-    $wp_customize->add_control ( new WP_Customize_Control (
-        $wp_customize,
-        'menu_panel_color_control',
-        array (
-            'label'         => __( 'Mobile Menu Background Color', 'penrowp2-0' ),
-            'description'   => __( 'Change background color of the menu', 'penrowp2-0' ),
-            'section'       => 'pwp_sect_header',
-            'settings'      => 'menu_panel_color',
-            'priority'      => '5',
-            'type'          => 'radio',
-            'choices'       => array (
-                '#ffffff'     =>  'Light',
-                '#292b2c'     =>  'Dark'
-            )
-        )
-    ));
-    
-    $wp_customize->add_control ( new WP_Customize_Control (
-        $wp_customize,
-        'menu_link_color_control',
-        array (
-            'label'         => __( 'Mobile Menu Link Color', 'penrowp2-0' ),
-            'section'       => 'pwp_sect_header',
-            'settings'      => 'menu_link_color',
-            'priority'      => '6',
-            'type'          => 'select',
-            'choices'       => array (
-                '#0275d8'     =>  'Default (Blue)',
-                '#d9534f'     =>  'Red',
-                '#5cb85c'     =>  'Green',
-                '#81d94f'     =>  'Lime-Green',
-                '#d9d54f'     =>  'Yellow',
-                '#4fd980'     =>  'Blue-Green',
-                '#f0ad4e'     =>  'Orange',
-                '#a74fd9'     =>  'Purple',
-            )
-        )
-    ));
     
     // CONTACTS (1-10)
     
@@ -2394,7 +2349,7 @@ function headerOutput() {
             }
             
             a.pnr2:hover {
-                color: <?php echo get_theme_mod('header_link_color', '#0275d8') ?>;
+                color: <?php echo get_theme_mod('panel_links_color', '#0275d8') ?>;
             }
             
             .logohr {
@@ -2416,16 +2371,16 @@ function headerOutput() {
                 border-color: <?php echo get_theme_mod('menu_btn_color', '#5cb85c') ?>;
             }
             
-            #mainnavbar, nav#primary_nav_wrap,  nav#primary_nav_wrap ul ul a:hover, a.subhead-time {
+            #mainnavbar, nav#primary_nav_wrap,  nav#primary_nav_wrap ul ul a:hover, a.subhead-time, #mySidenav {
                 background-color: <?php echo get_theme_mod('menu_btn_color', '#5cb85c') ?>;
             }
             
-            #mySidenav, #primary_nav_wrapper ul ul li a {
+            #primary_nav_wrapper ul ul li a {
                 background-color: <?php echo get_theme_mod('menu_panel_color', '#FFFFFF') ?>;
             }
             
-            ul.mob-menu li a, ul.menu li a, .sidenav-header-text, .sidenav-sub-text {
-                color: <?php echo get_theme_mod('menu_link_color', '#0275d8') ?>;
+            ul.mob-menu li a, ul.menu li a {
+                color: White;
             }
             
             .news-item-wrapper, ul.pagenation li a.inactve, #sidebar p, #sidebar span,
@@ -2510,6 +2465,15 @@ function headerOutput() {
             
             .modal-dialog a h3 {
                 color: <?php echo get_theme_mod('panel_links_color', '#FFFFFF') ?>; 
+            }
+            
+            ul.mob-menu li a:hover {
+                color: white;
+                background-color: <?php echo get_theme_mod('panel_links_color', '#0275d8') ?>;
+            }
+            
+            ul.menu li a:hover {
+                border-left: 5px solid <?php echo get_theme_mod('panel_links_color', '#0275d8') ?>;
             }
             
             .news-item-img {
