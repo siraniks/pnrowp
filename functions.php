@@ -1073,7 +1073,7 @@ function penrowp_options ( $wp_customize ) {
         'admin-pres',
         array (
             'default'       =>  get_template_directory_uri() . '/images/adminpic.png',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -1081,7 +1081,7 @@ function penrowp_options ( $wp_customize ) {
         'admin-sec',
         array (
             'default'       =>  get_template_directory_uri() . '/images/adminpic.png',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -1089,7 +1089,7 @@ function penrowp_options ( $wp_customize ) {
         'admin-rd',
         array (
             'default'       =>  get_template_directory_uri() . '/images/adminpic.png',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -1097,7 +1097,7 @@ function penrowp_options ( $wp_customize ) {
         'admin-penro',
         array (
             'default'       =>  get_template_directory_uri() . '/images/adminpic.png',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -2370,6 +2370,16 @@ function headerOutput() {
                 background-attachment: <?php echo get_theme_mod('bg_attachment', 'scroll') ?>;
                 background-size: <?php echo get_theme_mod('bg_size', 'contain') ?>;
                 background-blend-mode: <?php echo get_theme_mod('bg_blend', 'normal') ?>;
+                background-color: <?php echo get_theme_mod('bg_color', '#ffffff') ?>;
+            }
+            
+            body.pg-404 {
+                background-image: url(<?php echo get_theme_mod('bg_image') ?>);
+                background-repeat: no-repeat;
+                background-position: top center;
+                background-attachment: fixed;
+                background-size: cover;
+                background-blend-mode: normal;
                 background-color: <?php echo get_theme_mod('bg_color', '#ffffff') ?>;
             }
             
