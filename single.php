@@ -68,7 +68,7 @@ get_header('main'); ?>
                                 <?php
                                     $get_description = get_post(get_post_thumbnail_id())->post_excerpt;
                                     if(!empty($get_description)){//If description is not empty show the div
-                                      echo '<p class="post-img-caption">' . $get_description . '</p>';
+                                      echo '<p class="post-img-caption"><i class="fa fa-fw fa-caret-right" style="color: gray;"></i>&nbsp;&nbsp;&nbsp;' . $get_description . '</p>';
                                     }
                                 ?>
                             <?php } ?><br>
