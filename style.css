@@ -934,7 +934,10 @@ a.mob-link:hover {
 ul.mob-sub-menu {
     list-style: none;
     transition: 0.5s;
-/*    display: none;*/
+    display: inline-block;
+    padding: 5px;
+    margin-left: 30px;
+    word-wrap: break-word;
 }
 
 li.mob-sub-item {
@@ -990,6 +993,16 @@ ul.menu {
 ul.menu li {
     text-transform: capitalize;
     font-weight: normal;
+}
+
+ul.menu li a {
+    padding: 5px;
+    display: inline-block;
+}
+
+ul.menu li a:hover {
+    padding-left: 15px;
+    color: white;
 }
 
 .mobhr {
@@ -2024,20 +2037,22 @@ button#comment-btn-hide {
     position: relative;
     width: 100%;
     height: auto;
+    border: thin solid;
+    border-color: rgba(0,0,0,0.2);
 }
     
-/*
-    .post-img-caption {
+.post-img-caption {
     font-size: 14px;
-    position: relative;
-    z-index: 20;
-    height: 40px;
+    height: auto;
     bottom: 60px;
-    color: rgba(255,255,255,0.8);
-    text-shadow: 2px 2px 8px black;
+    color: #373a3c;
+/*    color: rgba(255,255,255,0.8);*/
+    border: thin solid;
+    border-color: rgba(0,0,0,0.2);
     padding: 10px 20px;
-    }
-*/
+    word-wrap: break-word;
+    font-style: italic;
+}
 
 .post-thumb-wrapper {
     width: auto;
