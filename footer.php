@@ -2,27 +2,7 @@
         <footer>
         <div class="footer">
             <div class="container">
-                <div class="row">
-                    <!-- Site map / expanded footer Links -->
-<!--
-                     <div class="mx-auto hidden-md-down">
 
-                        <php
-                        $footerparams = array(
-                        'menu'  =>  'Footer Menu',
-                        'container' => '',
-                        'theme_location' => 'footnav',
-                        'items_wrap' => footnav_wrap(),
-                        'depth' => '0',
-                        'walker' => new footnav_walker()
-                        );
-
-                          echo strip_tags(wp_nav_menu( $footerparams ), '<a>' ); 
-                        ?>
-
-                    </div> wrapper 
--->
-                </div>
                 <div class="row-fluid">
                     <div class="mx-auto">
                         
@@ -46,7 +26,7 @@
                             <a href="<?php echo esc_url( get_permalink( get_page_by_title( 'Transparency Seal' ) ) ); ?>" data-toggle="tooltip" data-placement="bottom" title="What is Transparency Seal?"><img class="transparency-seal75 hidden-sm-up" src="<?php echo get_template_directory_uri(); ?>/images/transparency-seal.png" /></a>
                         </div>
                         
-                    </div><!-- span12 -->
+                    </div>
                 </div><!-- row-fluid -->
             </div><!-- container -->
             
@@ -94,10 +74,7 @@
                 </div><!-- row-fluid -->
             </div><!-- container footer sub -->
         </div><!-- footer -->
-            
-        <!-- Feedback Form -->
-<!--        <php if(function_exists('dynamic_sidebar') && dynamic_sidebar("Feedback")):else: ?><php endif; ?>-->
-        
+             
         <div class="modal fade bd-example-modal-sm" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">

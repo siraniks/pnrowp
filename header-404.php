@@ -35,9 +35,3 @@
         <?php wp_head(); ?>
     </head>
     <body class="pg-404">
-        
-    <!--HEADER 404-->    
-    <header>
-        
-            
-    </header>

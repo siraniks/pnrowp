@@ -10,17 +10,6 @@
 
 get_header('404'); ?>
 <main>
-<!--
-    <br>
-    <div class="container">
-        <div class="row">
-            <div class="card card-block">
-                Error 404 : Page Not Found
-            </div>
-        </div>
-    </div>
--->
-    
     <div class="container">
         <div class="row">
             <div class="mx-auto">
@@ -36,6 +25,5 @@ get_header('404'); ?>
             </div>
         </div>
     </div>
-    
 </main>
 <?php get_footer('404'); ?>

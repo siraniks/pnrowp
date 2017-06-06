@@ -735,7 +735,7 @@ function get_first_image_url ($post_ID) {
 
 // FORECE 404
 
-add_action( 'wp', 'force_404' );
+//add_action( 'wp', 'force_404' );
 function force_404() {
     global $wp_query; //$posts (if required)
     if(is_page()){ // your condition
