@@ -1,0 +1,36 @@
+needs to clean 
+
+- 404
+- comments
+- footer
+- footer-404
+- front-page
+- functions
+- header-404
+- header-main
+- index
+- menu-test (let this one go) 
+- page
+- page-downloads
+- search
+- searchform
+- sidebar-downloads
+- sidebar-frontpage
+- sidebar-index
+- sidebar-post
+- sidebar-search
+- single
+- style
+- js / script
+- js / theme-customizer
+
+clean:
+- images that the theme is not using / move them in a theme-packs 
+- fonts (probably hosts outside?)
+- data folder, drop them outside 
+
+do manual: 
+- installation of wordpress (short video tutorial, will not do this but supply them) 
+- features of the theme 
+- manual of the theme
+- 
