@@ -111,10 +111,9 @@
     
     // ADMIN
     
-    wp.customize( 'admin-pres', function( value ) {
+    wp.customize( 'admin_panel-bg', function( value ) {
 		value.bind( function( to ) {
-			$( '#admin-pres' ).html(function() {
-                return '<img src="' + to + '" alt="Philippine President" class="aligncenter">'
+			$( '.admin_panel-bg' ).css('background-color', to );
             });
 		} );
 	} );
