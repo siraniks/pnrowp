@@ -1,6 +1,8 @@
 <?php
 /** 
- * The single template file_
+ * Single
+ *
+ * A post / article page
  *
  * @package Wordpress
  * @subpackage PENROWP

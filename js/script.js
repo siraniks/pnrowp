@@ -5,15 +5,9 @@ $(document).ready(function () {
     $('.menu-item-has-children').click(function() {
        $('.menu-item-has-children').css('display','block'); 
     });
-    
-    // Replace source
-//    $('img').error(function() {
-//         $(this).attr('src', + '../images/image-not-found.jpg');
-//    });
 
     // Or, hide them
     $(".news-item-wrapper img").error(function() {
-//            $(this).hide();
         $('a.img-link').removeAttr("href");
         $(this).replaceWith('<span class="img-placeholder"></span>');
     });   
@@ -47,31 +41,17 @@ $(document).ready(function () {
         $('#commentbox-btn-show').text('Comments Disabled');
     } 
     
-    // Override PAGASA Time Stamp 
-    // $('iframe #serverdate').addClass("invisible");
-    
-//    $('iframe').load( function() {
-//        $('iframe').contents().find("head")
-//        .append($("<style type='text/css'>  #serverdate{display:none !important;}  </style>"));
-//    });
-    
     // Tooltip
     "use strict";
     $('[data-toggle="tooltip"]').tooltip();
-    // $('a').tooltip('show'); // this is to test if tooltips work
-    
-    // Add a class to image thumbnail inside the_content
-    //$('#contentThumbs').addClass('img-fluid img-thumbnail');
     
     // Back to Top
     var amountScrolled = 500;
 
     $(window).scroll(function () {
         if ($(window).scrollTop() > amountScrolled) {
-            //$('a.back-to-top').css("display", "block");
             $('a.back-to-top').fadeIn('slow');
         } else {
-            //$('a.back-to-top').css("display", "none");
             $('a.back-to-top').fadeOut('slow');
         }
     });
@@ -93,7 +73,6 @@ $(document).ready(function () {
     });
     
     $('#mainnavbtn').click(function () {
-//        $('#mySidenav').css("width", "280px");
         $('#mySidenav').css("visibility", "visible");
         $('#mySidenav').css("opacity", "1");
         $('#mySidenav').css("left", "280");
@@ -121,7 +100,6 @@ $(document).ready(function () {
     });
     
     $('.closeBtn').click(function () {
-//        $('#mySidenav').css("width", "0px");
         $('#mySidenav').css("visibility", "hidden");
         $('#mySidenav').css("opacity", "0");
         $('#sidenav-overlay').css("background-color", "rgba(0,0,0,0)");
@@ -145,7 +123,6 @@ $(document).ready(function () {
     });
     
     $('#sidenav-overlay').click(function () {
-//        $('#mySidenav').css("width", "0px");
         $('#mySidenav').css("visibility", "hidden");
         $('#mySidenav').css("opacity", "0");
         $('#sidenav-overlay').css("background-color", "rgba(0,0,0,0)");

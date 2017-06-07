@@ -1,6 +1,6 @@
 <?php
 /** 
- * The single template file_
+ * Front-Page
  *
  * @package Wordpress
  * @subpackage PENROWP
@@ -32,8 +32,8 @@ get_header('main'); ?>
                 <div class="col-md-9">
                     
                 <!-- news section -->   
-                    <div class="card card-block hidden-md-up ">
-                        <h3 class="center admintext">News</h3>
+                    <div class="card card-block">
+                        <h3 class="center admintext"><i class="fa fa-fw fa-newspaper-o"></i>&nbsp;News</h3>
                     </div>
                     
                     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>

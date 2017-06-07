@@ -6,36 +6,18 @@
  * @subpackage PENROWP
  * @since PENRO WP
  */
+
 // Readme:
 // Find $metadesc to change website's description
 
 // This theme styles the visual editor with editor-style.css to match the theme style.
 add_editor_style();
 
-// add_theme_support( 'custom-header' );
-
 add_theme_support( 'automatic-feed-links' );
-
-// Custom Background
-$defaults = array(
-    'default-image' => get_template_directory_uri() . '/images/bg-horizon-trans.png',
-    'default-preset' => 'default',
-    'default-position-x' => 'center',
-    'default-position-y' => 'top',
-    'default-size' => 'contain',
-    'default-repeat' => 'no-repeat',
-    'default-attachment' => 'scroll',
-    'default-color' => 'fff',
-    'wp-head-callback' => '_custom_background_cb',
-    'admin-head-callback' => '',
-    'admin-preview-callback' => '',
-);
-//add_theme_support( 'custom-background', $defaults );
 
 // Styles and Scripts
 function penrowp2_scripts() {
     
-//    wp_enqueue_script( 'fontawesome', 'https://use.fontawesome.com/5ecdc716c8.js', array(), '4.7.0', false);
     wp_enqueue_style(  'style', get_stylesheet_uri() );   
     wp_enqueue_script( 'jquery' );
     wp_enqueue_script( 'tether', get_template_directory_uri() . '/js/tether.js', array(), '1.0.0', true );
@@ -137,11 +119,6 @@ add_action('wp_head', 'fb_opengraph', 5);
 
 
 // Enable post thumbnails
-/*if ( function_exists('add_theme_support')) {
-    add_theme_support('post-thumbnails');
-        //set_post_thumbnail_size( 1000, 300, array ('top','center') ); // 150px2 and crop in the center
-}*/
-
 add_action( 'after_setup_theme', 'wpdocs_theme_setup' );
 function wpdocs_theme_setup() {
     add_image_size( 'category-thumb', 300 ); // 300 pixels wide (and unlimited height)
@@ -156,10 +133,9 @@ add_filter('jpeg_quality', function($arg){return 75;});
 
 function register_my_menus() {
     register_nav_menus( array(
-        'newnav'  => __('Primary Menu','penrowp2-0'),
+        'newnav'     => __('Primary Menu','penrowp2-0'),
         'mobprimary' => __('Mobile Primary Menu','penrowp2-0'),
-//        'footnav' => __('Footer Menu','penrowp2-0'),
-        'topnav' => __('Top Menu','penrowp2-0')
+        'topnav'     => __('Top Menu','penrowp2-0')
         )
     );
 }
@@ -196,16 +172,6 @@ function mobnav_wrap() {
     $mobnavwrap .= '</ul>';
     // return the result
     return $mobnavwrap;
-}
-
-// Footer
-function footnav_wrap() {
-    $footnavwrap = '<ul class="unstyled">';
-    $footnavwrap .= '%3$s';
-    // close the <ul>
-    $footnavwrap .= '</ul>';
-    // return the result
-    return $footnavwrap;
 }
 
 // New Nav
@@ -256,9 +222,10 @@ function content($limit) {
   return $content;
 }
 
+// W I D G E T S //
+
 // Widgets - Front Page
 function frontpage_widget() {
-    
     
     // Front-page Sidebar
     register_sidebar( array(
@@ -358,33 +325,6 @@ function frontpage_widget() {
 }
 add_action('widgets_init', 'frontpage_widget');
 
-// change the class of the image and also can wrap custom HTML
-//function filter_images($content){
-//    return preg_replace('/<img (.*) \/>\s*/iU', '<img class="img-thumbnail" \1 />', $content);
-//}
-//add_filter('the_content', 'filter_images');
-
-// adds additional class to <img> inside content (DONT DELETE THIS YET)
-//function add_responsive_class($content){
-//
-//        $content = mb_convert_encoding($content, 'HTML-ENTITIES', "UTF-8");
-//        $document = new DOMDocument();
-//        libxml_use_internal_errors(true);
-//        $document->loadHTML(utf8_decode($content));
-//
-//        $imgs = $document->getElementsByTagName('img');
-//        foreach ($imgs as $img) {           
-//            $existing_class = $img->getAttribute('class');
-//            $img->setAttribute('class', 'img-fluid img-thumbnail ' . $existing_class);
-//           //$img->setAttribute('class','img-fluid img-thumbnail');
-//        }
-//
-//        $html = $document->saveHTML();
-//        return $html;   
-//}
-//
-//add_filter('the_content', 'add_responsive_class');s
-
 // Bootstrap Pagination style
 function crazy_pagination ($pages = '', $range = 4) {
     //$showitems = ($range * 2)+1; 
@@ -400,8 +340,6 @@ function crazy_pagination ($pages = '', $range = 4) {
             $pages = 1;
         }
     }
-    
-    
     
     if(1 != $pages) {
         
@@ -430,26 +368,12 @@ function crazy_pagination ($pages = '', $range = 4) {
     }
 }
 
-
-//add_filter( 'wp_nav_menu_objects', 'add_has_children_to_nav_items' );
-//
-//function add_has_children_to_nav_items( $items )
-//{
-//    $parents = wp_list_pluck( $items, 'menu_item_parent');
-//
-//    foreach ( $items as $item )
-//        in_array( $item->ID, $parents ) && $item->classes[] = 'has-children';
-//
-//    return $items;
-//}
-
 // Walker Class for desktop
 
 class mobnav_walker extends Walker_Nav_Menu {
     
     function start_lvl(&$output, $depth = 0, $args = Array()) {
         $indent = str_repeat("\t", $depth);
-        //$output .= "\n$indent<div class=\"nav-dropdown-content\"><ul>\n";
         $output .= "\n$indent<ul class='mob-sub-menu'>\n";
     }
     
@@ -465,8 +389,6 @@ class mobnav_walker extends Walker_Nav_Menu {
         
         $id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args, $depth );
         $id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
- 
-        //$output .= $indent . '<li' . $id . $class_names .'>'; default - "<li class='mob-item-header'>";
         
         global $item_output;
         
@@ -493,90 +415,8 @@ class mobnav_walker extends Walker_Nav_Menu {
         $item_output .= $args->after;
 
         $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
-        
            
     }
-    
-    
-}
-
-class mobnav2_walker extends Walker_Nav_Menu {
-    private $curItem;
-    
-    function start_lvl(&$output, $depth = 0, $args = Array()) {
-        global $item_title;
-//        global $output;
-        global $checkoutput;
-        //var_dump($this);
-        $indent = str_repeat("\t", $depth);
-        //$output .= "\n$indent<div class=\"nav-dropdown-content\"><ul>\n";
-        $output .="\n$indent<ul class='mob-sub-menu'>";
-        $output .= "<div class='collapse' id='collapse" . $item_title . "'>\n";
-        
-        $checkoutput = htmlentities2($output);
-        //echo esc_attr($checkoutput);
-    }
-    
-    function start_el(&$output, $item, $depth = 0, $args = Array(), $id = 0) {
-//        $this->curItem = $item;
-        global $item_output;
-        global $item_title;
-//        global $output;
-        global $checkoutput;
-        
-        $attributes = '';
-        $attributes2 = '';
-        
-        $item_title = $item->title;
-        $item_title = substr($item_title, 0, 4);
-        //$item_title = $item_title . " ";
-        //echo esc_attr($output);
-        
-        ! empty( $item->attr_title ) and $attributes .= ' title="' . esc_attr( $item->attr_title ) .'"';
-        ! empty( $item->target )and $attributes .= ' target="' . esc_attr( $item->target ) .'"';
-        ! empty( $item->xfn )and $attributes .= ' rel="' . esc_attr( $item->xfn ) .'"';
-        ! empty( $item->url )and $attributes .= ' href="' . esc_attr( $item->url ) .'"';
-        
-        ! empty( $item->attr_title ) and $attributes2 .= ' title="' . esc_attr( $item->attr_title ) .'"';
-        ! empty( $item->target )and $attributes2 .= ' target="' . esc_attr( $item->target ) .'"';
-        ! empty( $item->xfn )and $attributes2 .= ' rel="' . esc_attr( $item->xfn ) .'"';
-        ! empty( $item->url )and $attributes2 .= ' href="#collapse' . esc_attr( $item_title ) .'"';
-        
-        $title = apply_filters ('the_title', $item->title, $item->ID);
-        
-        $item_output = $args->before;
-        $item_output .= '<a class="mob-link" '. $attributes2 .' data-toggle="collapse" aria-expanded="false" aria-controls="collapse">'; 
-        $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
-        $item_output .= '</a>';
-        $item_output .= $args->after;
-        
-        $item_output2 = $args->before;
-        $item_output2 .= '<a class="mob-link" '. $attributes .'>'; 
-        $item_output2 .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
-        $item_output2 .= '</a>';
-        $item_output2 .= $args->after;
-        
-        if ($depth == 0) { // if top level
-            $output .= "<li>";
-            $matchoutput = "<ul class='mob-sub-menu'>";
-            
-            //echo esc_attr($item->ID) . "-";
-//            if (strpos($checkoutput, $matchoutput) !== true) {
-                $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
-//                echo "bokya";
-//            } else {
-//                $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
-//                echo "boklat";
-//            }
-            
-        }
-        if ($depth == 1) { // if second level
-            $output .= "<li>";
-            $output .= apply_filters( 'walker_nav_menu_start_el', $item_output2, $item, $depth, $args );
-        }
-        
-    }
-    
     
 }
 
@@ -594,46 +434,6 @@ class topnav_walker extends Walker_Nav_Menu {
         
         if ($depth == 0) {
             $output .= "<li class='topnav-links'>";
-        }
-        if ($depth == 1) {
-            $output .= "<li>";
-        }
-        
-        $attributes = '';
-        
-        ! empty( $item->attr_title ) and $attributes .= ' title="' . esc_attr( $item->attr_title ) .'"';
-        ! empty( $item->target )and $attributes .= ' target="' . esc_attr( $item->target ) .'"';
-        ! empty( $item->xfn )and $attributes .= ' rel="' . esc_attr( $item->xfn ) .'"';
-        ! empty( $item->url )and $attributes .= ' href="' . esc_attr( $item->url ) .'"';
-        
-        $title = apply_filters ('the_title', $item->title, $item->ID);
-        
-        $item_output = $args->before;
-        $item_output .= '<a '. $attributes .'>'; 
-        $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
-        $item_output .= '</a>';
-        $item_output .= $args->after;
-
-        $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
-    }
-    
-}
-
-class footnav_walker extends Walker_Nav_Menu {
-    
-    function start_lvl(&$output, $depth = 0, $args = Array()) {
-        $indent = str_repeat("\t", $depth);
-        //$output .= "\n$indent<div class=\"nav-dropdown-content\"><ul>\n";
-        $output .= "\n$indent<ul class='footnav-second-level'>\n";
-    }
-    
-    function start_el(&$output, $item, $depth = 0, $args = Array(), $id = 0) {
-        
-        global $item_output;
-        
-        if ($depth == 0) {
-            $output .= "<li class='footnav-first-level'>";
-            $output .= "<div class='col-md-10' style='width: 20%;'>";
         }
         if ($depth == 1) {
             $output .= "<li>";
@@ -698,24 +498,6 @@ class newnav_walker extends Walker_Nav_Menu {
     
 }
 
-// wrap images with a trigger to modal
-//function modalImages ( $content ) {
-//
-//   // A regular expression of what to look for.
-//   $pattern = '/(<img([^>]*)>)/i';
-//   // What to replace it with. $1 refers to the content in the first 'capture group', in parentheses above
-//   $replacement = '<a class="img-Modal" href="#" data-toggle="modal" data-target="#imageModal">$1<a>';
-//
-//   // run preg_replace() on the $content
-//   $content = preg_replace( $pattern, $replacement, $content );
-//
-//   // return the processed content
-//   return $content;
-//}
-
-//add_filter( 'the_content', 'modalImages' );
-
-
 function get_first_image_url ($post_ID) {
  global $wpdb;
  $default_image = get_template_directory_uri() . "/images/no-thumbs.jpg";   //Defines a default image
@@ -745,8 +527,6 @@ function force_404() {
         die();
     }
 }
-
-
 
 // Custom Theme Options
 function penrowp_options ( $wp_customize ) {
@@ -846,7 +626,6 @@ function penrowp_options ( $wp_customize ) {
     );
     
     
-    
     $wp_customize->add_section (
         'pwp_sect_footer',
         array (
@@ -861,10 +640,9 @@ function penrowp_options ( $wp_customize ) {
     $wp_customize->add_section (
         'pwp_sect_msg',
         array (
-            'title'         => __( 'Alerts', 'penrowp2-0' ),
+            'title'         => __( 'Alert / Message', 'penrowp2-0' ),
             'priority'      => 9,
             'capability'    => 'edit_theme_options',
-            'description'   => __( "Message or Alerts.", 'penrowp2-0' ),
             'panel'         => 'pwp_panel',
         )
     );
@@ -1026,15 +804,7 @@ function penrowp_options ( $wp_customize ) {
             'transport'     =>  'refresh',
         )
     );
-    
-//    $wp_customize->add_setting (
-//        'header_link_color',
-//        array (
-//            'default'       =>  '#0275d8',
-//            'transport'     =>  'refresh',
-//        )
-//    );
-    
+        
     $wp_customize->add_setting (
         'subhead_link_color',
         array (
@@ -1404,14 +1174,6 @@ function penrowp_options ( $wp_customize ) {
         )
     );
     
-//    $wp_customize->add_setting (
-//        'footer_header-link_color',
-//        array (
-//            'default'       =>  '#ffffff',
-//            'transport'     =>  'postMessage',
-//        )
-//    );
-    
     $wp_customize->add_setting (
         'footer_bg_color',
         array (
@@ -1696,17 +1458,6 @@ function penrowp_options ( $wp_customize ) {
             )
         )
     ));
-    
-//    $wp_customize->add_control ( new WP_Customize_Color_Control (
-//        $wp_customize,
-//        'header_link_color_control',
-//        array (
-//            'label'         => __( 'Header Link Color', 'penrowp2-0' ),
-//            'section'       => 'pwp_sect_header',
-//            'settings'      => 'header_link_color',
-//            'priority'      => '2',
-//        )
-//    ));
     
     // MENU
     
@@ -2231,10 +1982,7 @@ function penrowp_options ( $wp_customize ) {
             )
         )
     ));
-    
-    
-    
-    
+
     // Footer (41-50)
     
     $wp_customize->add_control ( new WP_Customize_Control (
@@ -2255,18 +2003,6 @@ function penrowp_options ( $wp_customize ) {
             )
         )
     ));
-    
-//    $wp_customize->add_control ( new WP_Customize_Color_Control (
-//        $wp_customize,
-//        'footer_header-link_color_control',
-//        array (
-//            'label'         => __( 'Footer: Menu Links Color', 'penrowp2-0' ),
-//            'description'   => __( 'The menu links found in the footer section.', 'penrowp2-0' ),
-//            'section'       => 'pwp_sect_footer',
-//            'settings'      => 'footer_header-link_color',
-//            'priority'      => '42',
-//        )
-//    ));
     
     $wp_customize->add_control ( new WP_Customize_Color_Control (
         $wp_customize,
@@ -2524,12 +2260,6 @@ function headerOutput() {
             .footer-sub, .footer-sub p, .footer-sub a, .footcontact, .footdnr, .footpnr, .footrnr, .footcnr {
                 color: <?php echo get_theme_mod('footer_text_color', 'rgba(255,255,255,1)') ?>;
             }
-            
-/*
-            ul.unstyled li.footnav-first-level a, ul.unstyled ul.footnav-second-level li a { 
-                color: <php echo get_theme_mod('footer_header-link_color', '#ffffff') ?>;
-            }    
-*/
             
         </style>
     <?php  

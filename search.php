@@ -1,6 +1,6 @@
 <?php
 /** 
- * The search template file_
+ * Search Template
  *
  * @package Wordpress
  * @subpackage PENROWP
@@ -24,9 +24,9 @@ get_header('main'); ?>
                     
                     <div class="card card-block">
                         <?php if ( have_posts() ) : ?>
-                            <h3 class="page-title"><?php printf( __( '<i class="fa fa-fw fa-search" style="color:rgba(0,0,0,0.3);"></i> %s', 'penrowp2-0' ), '<span>' . get_search_query() . '</span>' ); ?></h3>
+                            <h3 class="page-title aligncenter"><?php printf( __( '<i class="fa fa-fw fa-search" style="color:rgba(0,0,0,0.3);"></i><br> %s', 'penrowp2-0' ), '<span style="color:#0275d8;">' . get_search_query() . '</span>' ); ?></h3>
                         <?php else : ?>
-                            <h3 class="page-title"><?php _e( 'No results found.', 'penrowp2-0' ); ?></h3>
+                            <h3 class="page-title"><?php _e( '<i class="fa fa-fw fa-times-circle" style="color:#db4437;"></i>No results found.', 'penrowp2-0' ); ?></h3>
                         <?php endif; ?>
                     </div>
                     

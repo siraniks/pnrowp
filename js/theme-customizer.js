@@ -65,18 +65,6 @@
 		} );
 	} );
     
-//    wp.customize( 'header_link_color', function( value ) {
-//		value.bind( function( to ) {
-//            $('a.pnr2:hover').css( 'color', to );
-//		} );
-//	} );
-    
-//    wp.customize( 'subhead_link_color', function( value ) {
-//		value.bind( function( to ) {
-//            $('a.subhead-link').css( 'color', to );
-//		} );
-//	} );
-    
     wp.customize( 'contact_adr', function( value ) {
 		value.bind( function( to ) {
 			$( '#adr' ).text( to );
@@ -187,7 +175,6 @@
             $('#sidebar b').css('color', to );
             $('#sidebar i').css('color', to );
             $('#sidebar span').css('color', to );
-            //$('.sidenav-content hr').css('border-color', to );
             $('h3.headertext').css('color', to );
             $('#servertime').css('color', to );
             $('#serverdate').css('color', to );
@@ -342,7 +329,6 @@
     
     // FOOTER
     
-    
     wp.customize( 'footer_text_color', function( value ) {
 		value.bind( function( to ) {
             $('.footer-sub').css( 'color', to );
@@ -357,13 +343,6 @@
             
 		} );
 	} );
-    
-//    wp.customize( 'footer_header-link_color', function( value ) {
-//		value.bind( function( to ) {
-//			$('ul.unstyled li.footnav-first-level a').css( 'color', to );
-//            $('ul.unstyled ul.footnav-second-level li a').css( 'color', to );
-//		} );
-//	} );
     
     wp.customize( 'footer_bg_color', function( value ) {
 		value.bind( function( to ) {

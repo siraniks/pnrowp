@@ -1,6 +1,8 @@
 <?php
 /** 
- * The single template file_
+ * Index
+ *
+ * Category Results
  *
  * @package Wordpress
  * @subpackage PENROWP
@@ -10,17 +12,6 @@
 
 get_header('main'); ?>
 <main>
-        <div class="container">
-            
-            <!-- alert bar
-            <div class="alert alert-warning alert-dismissible fade in" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <i class="fa fa-exclamation-triangle fa-fw"></i>&nbsp;<strong>Still in Development. </strong> If you found some bugs, just let us know.
-            </div> -->
-        </div>  
-        
         <div class="container">
             
             

@@ -17,9 +17,6 @@
     
     <head>
         
-        <!-- THIS IS TEMPORARY -->
-        <!--<meta http-equiv="Cache-control" content="no-cache">-->
-        
         <meta property="fb:app_id" content="{<?php echo get_theme_mod('fb-appid'); ?>}" />
         <meta property="fb:admins" content="{<?php echo get_theme_mod('fb-adminid'); ?>}"/>    
         
@@ -51,9 +48,7 @@
         </script>
         
         <header>
-        <!-- overlay for sidenav -->
         <div id="sidenav-overlay"></div>
-        <!-- make this as a navmenu instead - default values - navbar-full -->
         <nav class="top-nav navbar-full navbar-dark bg-inverse hidden-md-down">
             <div class="container">
                 <a id="feedbackbtn" href="#" class="float-xs-right hidden-lg-down ownBtn-login-sm btn-transparent" data-toggle="modal" data-target="#feedbackModal" title="Send Feedback"><i class="fa fa-paper-plane-o fa-fw" aria-hidden="true"></i></a>
@@ -82,7 +77,7 @@
             </div>
         </nav><!-- top navbar -->
             
-            <!-- desktop -->
+        <!-- DESKTOP NAV -->
         <nav id="primary_nav_wrap" class="navbar navbar-full navbar-dark hidden-md-down">
             <div class="container">
                 <ul>
@@ -101,6 +96,7 @@
             </div>
         </nav>
         
+        <!--HEADER LOGO-->
         <div class="logo hidden-md-down">     
             <div class="container">
                 <div class="row">
@@ -109,7 +105,8 @@
                     </div>
                     <div class="col-xs-8 logotext">
                         <h6 class="dnr2">Department of Environment and Natural Resources</h6>
-                        <h4><a class="pnr2" href="<?php echo home_url(); ?>" title="Return Home"><?php bloginfo('name'); ?></a></h4><hr class="logohr">
+                        <h4><a class="pnr2" href="<?php echo home_url(); ?>" title="Return Home"><?php bloginfo('name'); ?></a></h4>
+                        <hr class="logohr">
                         <h5 class="rnr2"><?php bloginfo('description'); ?></h5>
                         
                     </div>
@@ -117,12 +114,10 @@
                         <img src="<?php echo get_template_directory_uri(); ?>/images/phlogo150.png" class="alignright"/>    
                     </div>
                 </div>
-            </div>
-            
-            
+            </div>  
         </div>
             
-            <!-- sub-header -->
+        <!-- MOBILE MENU -->
         <div class="container">
             <div class="newsp-header">
                 <button id="mainnavbtn" type="button" class="btn btn-success btn-sm float-xs-right float-top hidden-md-up"><i class="fa fa-navicon fa-fw" aria-hidden="true"></i>MENU</button>                
@@ -164,7 +159,6 @@
                             'container'      => '',
                             'theme_location' => 'mobprimary',
                             'items_wrap'     => mobnav_wrap(),
-                            //'depth' => '0',
                             'walker'         => new mobnav_walker()
                             );
 
@@ -183,10 +177,6 @@
 
                             echo strip_tags(wp_nav_menu( $menuparameters ), '<a>' ); 
                         ?>
-<!--
-                    <div class="container">
-                    </div> container 
--->
                 </div>
                 <br>
             </div><!-- sidenav content --> 

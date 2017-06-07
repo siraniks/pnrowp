@@ -28,7 +28,7 @@ get_header('main'); ?>
                         
                         <div class="row">
                             
-                            <div class="col-sm-12">
+                            <div class="mx-auto">
                                 
                                 
                                 <div id="post-<?php the_ID(); ?>" <?php post_class( 'card-block news-item-content' ); ?>>
