@@ -119,8 +119,14 @@ add_action('wp_head', 'fb_opengraph', 5);
 
 
 // Enable post thumbnails
+
 add_action( 'after_setup_theme', 'wpdocs_theme_setup' );
 function wpdocs_theme_setup() {
+    add_theme_support( 'post-thumbnails' );
+    set_post_thumbnail_size( 1000, 380, array ('center', 'top') ); // default Post Thumbnail dimensions (cropped)
+    
+    // additional image sizes
+    // delete the next line if you do not need additional image sizes
     add_image_size( 'category-thumb', 300 ); // 300 pixels wide (and unlimited height)
     add_image_size( 'homepage-thumb', 230, 220, array ('center', 'center') );
     add_image_size( 'post-thumbnail', 1000,380, array ('center', 'top') );
