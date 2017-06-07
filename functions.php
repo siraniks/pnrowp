@@ -86,11 +86,15 @@ function fb_opengraph() {
             $excerpt = $metadesc;
         }
         ?>
+    
+    <!-- Facebook meta-->
+    <meta property="fb:app_id" content="{<?php echo get_theme_mod('fb-appid'); ?>}" />
+    <meta property="fb:admins" content="{<?php echo get_theme_mod('fb-adminid'); ?>}"/> 
 
     <!-- Open Graph data -->
     <meta property="og:title" content="<?php echo the_title(); ?>"/>
     <meta property="og:description" content="<?php echo $excerpt; ?>"/>
-    <meta property="og:type" content="article"/>
+    <meta property="og:type" content="blog"/>
     <meta property="og:url" content="<?php echo the_permalink(); ?>"/>
     <meta property="og:site_name" content="<?php echo get_bloginfo(); ?> - <?php bloginfo('description'); ?>"/>
     <meta property="og:image" content="<?php echo $img_src; ?>"/>

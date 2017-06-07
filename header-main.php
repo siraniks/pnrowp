@@ -15,10 +15,7 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
     
-    <head>
-        
-        <meta property="fb:app_id" content="{<?php echo get_theme_mod('fb-appid'); ?>}" />
-        <meta property="fb:admins" content="{<?php echo get_theme_mod('fb-adminid'); ?>}"/>    
+    <head> 
         
         <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
