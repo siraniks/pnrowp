@@ -742,7 +742,7 @@ function penrowp_options ( $wp_customize ) {
         array (
             'default'       =>  '#ffffff',
             'type'          =>  'theme_mod',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -751,7 +751,7 @@ function penrowp_options ( $wp_customize ) {
         array (
             'default'       =>  get_template_directory_uri() . '/images/bg-horizon-trans.png',
             'type'          =>  'theme_mod',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -760,7 +760,7 @@ function penrowp_options ( $wp_customize ) {
         array (
             'default'       =>  'no-repeat',
             'type'          =>  'theme_mod',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -769,7 +769,7 @@ function penrowp_options ( $wp_customize ) {
         array (
             'default'       =>  'top left',
             'type'          =>  'theme_mod',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -778,7 +778,7 @@ function penrowp_options ( $wp_customize ) {
         array (
             'default'       =>  'scroll',
             'type'          =>  'theme_mod',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -787,7 +787,7 @@ function penrowp_options ( $wp_customize ) {
         array (
             'default'       =>  'contain',
             'type'          =>  'theme_mod',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -796,7 +796,7 @@ function penrowp_options ( $wp_customize ) {
         array (
             'default'       =>  'normal',
             'type'          =>  'theme_mod',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
 
@@ -815,7 +815,7 @@ function penrowp_options ( $wp_customize ) {
         'subhead_link_color',
         array (
             'default'       =>  '#373a3c',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -910,7 +910,7 @@ function penrowp_options ( $wp_customize ) {
         array (
             'default'       =>  '#373a3c',
             'type'          =>  'theme_mod',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -919,7 +919,7 @@ function penrowp_options ( $wp_customize ) {
         array (
             'default'       =>  '#0275d8',
             'type'          =>  'theme_mod',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -927,7 +927,7 @@ function penrowp_options ( $wp_customize ) {
         'panel_bg_color',
         array (
             'default'       =>  '#ffffff',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -944,7 +944,7 @@ function penrowp_options ( $wp_customize ) {
         'read-btn_textbox',
         array (
             'default'       =>  'Read',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -963,7 +963,7 @@ function penrowp_options ( $wp_customize ) {
         'w_1_image',
         array (
             'default'       =>  get_template_directory_uri() . '/images/widget/transpaSeal.jpg',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -979,7 +979,7 @@ function penrowp_options ( $wp_customize ) {
         'w_1_disp',
         array (
             'default'       =>  'block',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -987,7 +987,7 @@ function penrowp_options ( $wp_customize ) {
         'w_2_image',
         array (
             'default'       =>  get_template_directory_uri() . '/images/widget/philGEPS.jpg',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -1003,7 +1003,7 @@ function penrowp_options ( $wp_customize ) {
         'w_2_disp',
         array (
             'default'       =>  'block',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -1011,7 +1011,7 @@ function penrowp_options ( $wp_customize ) {
         'w_3_image',
         array (
             'default'       =>  get_template_directory_uri() . '/images/widget/perform.jpg',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -1027,7 +1027,7 @@ function penrowp_options ( $wp_customize ) {
         'w_3_disp',
         array (
             'default'       =>  'block',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -1035,7 +1035,7 @@ function penrowp_options ( $wp_customize ) {
         'w_4_image',
         array (
             'default'       =>  get_template_directory_uri() . '/images/widget/ngp.jpg',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -1051,7 +1051,7 @@ function penrowp_options ( $wp_customize ) {
         'w_4_disp',
         array (
             'default'       =>  'block',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -1059,7 +1059,7 @@ function penrowp_options ( $wp_customize ) {
         'w_5_image',
         array (
             'default'       =>  get_template_directory_uri() . '/images/widget/dcc.jpg',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -1075,7 +1075,7 @@ function penrowp_options ( $wp_customize ) {
         'w_5_disp',
         array (
             'default'       =>  'block',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -1083,7 +1083,7 @@ function penrowp_options ( $wp_customize ) {
         'w_6_image',
         array (
             'default'       =>  get_template_directory_uri() . '/images/widget/fb.jpg',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -1099,7 +1099,7 @@ function penrowp_options ( $wp_customize ) {
         'w_6_disp',
         array (
             'default'       =>  'block',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -1107,7 +1107,7 @@ function penrowp_options ( $wp_customize ) {
         'w_7_image',
         array (
             'default'       =>  get_template_directory_uri() . '/images/widget/elib.jpg',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -1123,7 +1123,7 @@ function penrowp_options ( $wp_customize ) {
         'w_7_disp',
         array (
             'default'       =>  'block',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -1131,7 +1131,7 @@ function penrowp_options ( $wp_customize ) {
         'w_8_image',
         array (
             'default'       =>  get_template_directory_uri() . '/images/widget/job.jpg',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -1147,7 +1147,7 @@ function penrowp_options ( $wp_customize ) {
         'w_8_disp',
         array (
             'default'       =>  'block',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -1176,7 +1176,7 @@ function penrowp_options ( $wp_customize ) {
         'footer_text_color',
         array (
             'default'       =>  'rgba(255,255,255,1);',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
@@ -1184,7 +1184,7 @@ function penrowp_options ( $wp_customize ) {
         'footer_bg_color',
         array (
             'default'       =>  '#767676',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
   
@@ -1192,7 +1192,7 @@ function penrowp_options ( $wp_customize ) {
         'footer_bg_image',
         array (
             'default'       =>  get_template_directory_uri() . '/images/footer-bg.png',
-            'transport'     =>  'postMessage',
+            'transport'     =>  'refresh',
         )
     );
     
