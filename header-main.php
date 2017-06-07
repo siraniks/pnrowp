@@ -138,8 +138,8 @@
                 <a href="#" class="closeBtn float-xs-right"><i class="fa fa-fw fa-times"></i></a>
                 
                 <?php if (is_user_logged_in()) { ?>
-                    <a id="loginbtn" href="<?php echo home_url(); ?>/wp-admin/" class="userBtn float-xs-right" title="Dashboard"><i class="fa fa-1x fa-fw fa-dashboard" aria-hidden="true"></i></a>
-                    <a id="loginbtn" href="<?php echo wp_logout_url( get_permalink() ); ?>" class="userBtn float-xs-right" title="Sign-out"><i class="fa fa-1x fa-fw fa-sign-out" aria-hidden="true"></i></a>
+                    <a id="loginbtn" href="<?php echo home_url(); ?>/wp-admin/" class="dashBtn float-xs-right" title="Dashboard"><i class="fa fa-1x fa-fw fa-dashboard" aria-hidden="true"></i></a>
+                    <a id="loginbtn" href="<?php echo wp_logout_url( get_permalink() ); ?>" class="logoutBtn float-xs-right" title="Sign-out"><i class="fa fa-1x fa-fw fa-sign-out" aria-hidden="true"></i></a>
                 <?php } else { ?>
                     <a id="loginbtn" href="<?php echo home_url(); ?>/wp-login.php" class="userBtn float-xs-right" title="Sign-in"><i class="fa fa-1x fa-fw fa-user-o" aria-hidden="true"></i></a>
                 <?php } ?>  
