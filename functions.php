@@ -840,9 +840,9 @@ function penrowp_options ( $wp_customize ) {
     // ADMIN
     
     $wp_customize->add_setting (
-        'admin-pres',
+        'admin_panel-bg',
         array (
-            'default'       =>  get_template_directory_uri() . '/images/adminpic.png',
+            'default'       =>  '#eceeef',
             'transport'     =>  'refresh',
         )
     );
@@ -1530,6 +1530,18 @@ function penrowp_options ( $wp_customize ) {
     
     // ADMIN (11-20)
     
+    $wp_customize->add_control ( new WP_Customize_Color_Control (
+        $wp_customize,
+        'admin_panel-bg_control',
+        array (
+            'label'         => __( 'Background Color', 'penrowp2-0' ),
+            'description'   => __( 'Background color for admin section', 'penrowp2-0' ),
+            'section'       => 'pwp_sect_admin',
+            'settings'      => 'admin_panel-bg',
+            'priority'      => '11',
+        )
+    ));
+    
     $wp_customize->add_control ( new WP_Customize_Image_Control (
         $wp_customize,
         'admin_sec_control',
@@ -1538,7 +1550,7 @@ function penrowp_options ( $wp_customize ) {
             'description'   => __( 'Upload or Change the image of your respected adminsitrators. (Image must be 200x200)', 'penrowp2-0' ),
             'section'       => 'pwp_sect_admin',
             'settings'      => 'admin-sec',
-            'priority'      => '11',
+            'priority'      => '21',
         )
     ));
     
@@ -1550,7 +1562,7 @@ function penrowp_options ( $wp_customize ) {
             'description'   => __( 'Upload or Change the image of your respected adminsitrators. (Image must be 200x200)', 'penrowp2-0' ),
             'section'       => 'pwp_sect_admin',
             'settings'      => 'admin-rd',
-            'priority'      => '21',
+            'priority'      => '31',
         )
     ));
     
@@ -1562,7 +1574,7 @@ function penrowp_options ( $wp_customize ) {
             'description'   => __( 'Upload or Change the image of your respected adminsitrators. (Image must be 200x200)', 'penrowp2-0' ),
             'section'       => 'pwp_sect_admin',
             'settings'      => 'admin-penro',
-            'priority'      => '31',
+            'priority'      => '41',
         )
     ));
     
@@ -1575,7 +1587,7 @@ function penrowp_options ( $wp_customize ) {
             'section'       => 'pwp_sect_admin',
             'settings'      => 'admin_sec-name',
             'type'          => 'text',
-            'priority'      => '12',
+            'priority'      => '22',
         )
     ));
     
@@ -1588,7 +1600,7 @@ function penrowp_options ( $wp_customize ) {
             'section'       => 'pwp_sect_admin',
             'settings'      => 'admin_rd-name',
             'type'          => 'text',
-            'priority'      => '22',
+            'priority'      => '32',
         )
     ));
     
@@ -1601,7 +1613,7 @@ function penrowp_options ( $wp_customize ) {
             'section'       => 'pwp_sect_admin',
             'settings'      => 'admin_penro-name',
             'type'          => 'text',
-            'priority'      => '32',
+            'priority'      => '42',
         )
     ));
     
@@ -2038,9 +2050,7 @@ function headerOutput() {
             
             /** BACK TO TOP **/
             
-            a.back-to-top:hover {
-                color: <?php echo get_theme_mod('btn_color', '#0275d8') ?>;
-            }
+            a.back-to-top:hover { color: <?php echo get_theme_mod('btn_color', '#0275d8') ?>; }
             
             /** RESTRICTION **/
             
@@ -2063,7 +2073,6 @@ function headerOutput() {
                 background-blend-mode: <?php echo get_theme_mod('bg_blend', 'normal') ?>;
                 background-color: <?php echo get_theme_mod('bg_color', '#ffffff') ?>;
             }
-            
             body.pg-404 {
                 background-image: url(<?php echo get_theme_mod('bg_image') ?>);
                 background-repeat: no-repeat;
@@ -2076,64 +2085,32 @@ function headerOutput() {
             
             /** HEADER **/
             
-            .logotext {
-                color: <?php echo get_theme_mod('header_text_color', '#ffffff') ?>;
-            }
-            
-            a.pnr2 {
-                color: <?php echo get_theme_mod('header_text_color', '#ffffff') ?>;
-            }
-            
-            a.pnr2:hover {
-                color: <?php echo get_theme_mod('panel_links_color', '#0275d8') ?>;
-            }
-            
-            .logohr {
-                border-color: <?php echo get_theme_mod('header_text_color', '#ffffff') ?>;
-            }
+            .logotext { color: <?php echo get_theme_mod('header_text_color', '#ffffff') ?>; }
+            a.pnr2 { color: <?php echo get_theme_mod('header_text_color', '#ffffff') ?>; }
+            a.pnr2:hover { color: <?php echo get_theme_mod('panel_links_color', '#0275d8') ?>; }
+            .logohr { border-color: <?php echo get_theme_mod('header_text_color', '#ffffff') ?>; }
             
             /** ALERT **/
             
-            .alert {
-                display: <?php echo get_theme_mod('alert_disp', 'none') ?>;
-            }
+            .alert { display: <?php echo get_theme_mod('alert_disp', 'none') ?>; }
                         
-            
-            
             /** MENU **/
             
-            #mainnavbtn {
-                background-color: <?php echo get_theme_mod('menu_btn_color', '#5cb85c') ?>;
-                border-color: <?php echo get_theme_mod('menu_btn_color', '#5cb85c') ?>;
-            }
-            
-            #mainnavbar, nav#primary_nav_wrap,  nav#primary_nav_wrap ul ul a:hover, a.subhead-time, #mySidenav {
-                background-color: <?php echo get_theme_mod('menu_btn_color', '#5cb85c') ?>;
-            }
-            
-            #primary_nav_wrapper ul ul li a {
-                background-color: <?php echo get_theme_mod('menu_panel_color', '#FFFFFF') ?>;
-            }
-            
-            ul.mob-menu li a, ul.menu li a {
-                color: White;
-            }
-            
+            #mainnavbtn { background-color: <?php echo get_theme_mod('menu_btn_color', '#5cb85c') ?>; border-color: <?php echo get_theme_mod('menu_btn_color', '#5cb85c') ?>; }
+            #mainnavbar, nav#primary_nav_wrap,  nav#primary_nav_wrap ul ul a:hover, a.subhead-time, #mySidenav { background-color: <?php echo get_theme_mod('menu_btn_color', '#5cb85c') ?>; }
+            #primary_nav_wrapper ul ul li a { background-color: <?php echo get_theme_mod('menu_panel_color', '#FFFFFF') ?>; }
+            ul.mob-menu li a, ul.menu li a { color: White; }
             .news-item-wrapper, ul.pagenation li a.inactve, #sidebar p, #sidebar span,
-            #sidebar b, #sidebar i, #servertime, #serverdate {
-                color: <?php echo get_theme_mod('panel_text_color', '#373a3c') ?>;
-            }
+            #sidebar b, #sidebar i, #servertime, #serverdate { color: <?php echo get_theme_mod('panel_text_color', '#373a3c') ?>; }
+            
+            /** ADMIN **/
+            
+            .admin_panel-bg { background-color: <?php echo get_theme_mod('admin_panel-bg', '#eceeef') ?>;}
             
             /** SIDEBAR **/
                     
-            .card-title a, .card-title, #sidebar a, h3.headertext, i.cnr, .admintext, a.subhead-link:hover {
-                color: <?php echo get_theme_mod('panel_links_color', '#0275d8') ?>;
-            }
-            
-            .announcement img:hover  {
-                box-shadow: 0 0 2px 1px <?php echo get_theme_mod('panel_links_color', '#0275d8') ?> !important;
-            }
-            
+            .card-title a, .card-title, #sidebar a, h3.headertext, i.cnr, .admintext, a.subhead-link:hover { color: <?php echo get_theme_mod('panel_links_color', '#0275d8') ?>; }
+            .announcement img:hover  { box-shadow: 0 0 2px 1px <?php echo get_theme_mod('panel_links_color', '#0275d8') ?> !important; }
             .taglist li a:hover {
                 background: <?php echo get_theme_mod('btn_color', '#0275d8') ?>;
                 border: 1px solid <?php echo get_theme_mod('btn_color', '#0275d8') ?>;
@@ -2145,16 +2122,8 @@ function headerOutput() {
                 color: <?php echo get_theme_mod('panel_links_color', '#373a3c') ?>;
                 cursor: default;
             }
-            
-            .announcement img:hover, .announcement ul li:before {
-                border-color: <?php echo get_theme_mod('panel_links_color', '#0275d8') ?>;
-            }
-            
-            
-            
-            .card, .news-item-wrapper  { 
-                background-color: <?php echo get_theme_mod('panel_bg_color', '#FFFFFF') ?>;
-            }
+            .announcement img:hover, .announcement ul li:before { border-color: <?php echo get_theme_mod('panel_links_color', '#0275d8') ?>; }
+            .card, .news-item-wrapper  { background-color: <?php echo get_theme_mod('panel_bg_color', '#FFFFFF') ?>; }
             
             /** CATEGORIES **/
             
@@ -2163,15 +2132,11 @@ function headerOutput() {
                 opacity: 0.5;
                 filter: alpha(opacity=50); /* IE8 or earlier */
             }
-            
             .cat-text a {
                 color: <?php echo get_theme_mod('btn_color', '#0275d8') ?>;
                 border-color: <?php echo get_theme_mod('btn_color', '#0275d8') ?>;
             }
-            
-            .cat-text a:hover {
-                background-color: <?php echo get_theme_mod('btn_color', '#0275d8') ?>;
-            }
+            .cat-text a:hover { background-color: <?php echo get_theme_mod('btn_color', '#0275d8') ?>; }
             
             /** BUTTONS **/
             
@@ -2180,13 +2145,11 @@ function headerOutput() {
                 background-color: <?php echo get_theme_mod('btn_color', '#0275d8') ?>;
                 border-color: <?php echo get_theme_mod('btn_color', '#0275d8') ?>;
             }
-            
             #btn, #editBtn {
                 color: white !important;
                 background-color: <?php echo get_theme_mod('btn_color', '#0275d8') ?>;
                 border-color: <?php echo get_theme_mod('btn_color', '#0275d8') ?>;
             }
-            
             ul.pagenation li a.actve {
                 color: #FFFFFF;
                 background-color: <?php echo get_theme_mod('btn_color', '#0275d8') ?>;
@@ -2195,60 +2158,25 @@ function headerOutput() {
             
             /** BOOTSTRAP OVERRIDES **/
             
-            .modal-dialog a p b i, .nf-form-wrap {
-                color: <?php echo get_theme_mod('panel_text_color', '#FFFFFF') ?> !important; 
-            }
-            
-            .modal-dialog a h3 {
-                color: <?php echo get_theme_mod('panel_links_color', '#FFFFFF') ?>; 
-            }
-            
+            .modal-dialog a p b i, .nf-form-wrap { color: <?php echo get_theme_mod('panel_text_color', '#FFFFFF') ?> !important; }
+            .modal-dialog a h3 { color: <?php echo get_theme_mod('panel_links_color', '#FFFFFF') ?>; }
             ul.mob-menu li a:hover {
                 color: white;
                 background-color: <?php echo get_theme_mod('panel_links_color', '#0275d8') ?>;
             }
-            
-            ul.menu li a:hover {
-                border-left: 5px solid <?php echo get_theme_mod('panel_links_color', '#0275d8') ?>;
-            }
-            
-            .news-item-img {
-                border-color: <?php echo get_theme_mod('panel_links_color', '#FFFFFF') ?>;
-            }
+            ul.menu li a:hover { border-left: 5px solid <?php echo get_theme_mod('panel_links_color', '#0275d8') ?>; }
+            .news-item-img { border-color: <?php echo get_theme_mod('panel_links_color', '#FFFFFF') ?>; }
             
             /** WIDGET **/
             
-            .w1 {
-                display: <?php echo get_theme_mod('w_1_disp', 'block'); ?>;
-            }
-            
-            .w2 {
-                display: <?php echo get_theme_mod('w_2_disp', 'block'); ?>;
-            }
-            
-            .w3 {
-                display: <?php echo get_theme_mod('w_3_disp', 'block'); ?>;
-            }
-            
-            .w4 {
-                display: <?php echo get_theme_mod('w_4_disp', 'block'); ?>;
-            }
-            
-            .w5 {
-                display: <?php echo get_theme_mod('w_5_disp', 'block'); ?>;
-            }
-            
-            .w6 {
-                display: <?php echo get_theme_mod('w_6_disp', 'block'); ?>;
-            }
-            
-            .w7 {
-                display: <?php echo get_theme_mod('w_7_disp', 'block'); ?>;
-            }
-            
-            .w8 {
-                display: <?php echo get_theme_mod('w_8_disp', 'block'); ?>;
-            }
+            .w1 { display: <?php echo get_theme_mod('w_1_disp', 'block'); ?>; }
+            .w2 { display: <?php echo get_theme_mod('w_2_disp', 'block'); ?>; }
+            .w3 { display: <?php echo get_theme_mod('w_3_disp', 'block'); ?>; }
+            .w4 { display: <?php echo get_theme_mod('w_4_disp', 'block'); ?>; }
+            .w5 { display: <?php echo get_theme_mod('w_5_disp', 'block'); ?>; }
+            .w6 { display: <?php echo get_theme_mod('w_6_disp', 'block'); ?>; }
+            .w7 { display: <?php echo get_theme_mod('w_7_disp', 'block'); ?>; }
+            .w8 { display: <?php echo get_theme_mod('w_8_disp', 'block'); ?>; }
             
             /** FOOTER ***/
             
@@ -2257,9 +2185,7 @@ function headerOutput() {
                 background-image: url(<?php echo get_theme_mod('footer_bg_image', get_template_directory_uri() . '/images/footer-bg.png') ?>);
             }
             
-            .footer-sub, .footer-sub p, .footer-sub a, .footcontact, .footdnr, .footpnr, .footrnr, .footcnr {
-                color: <?php echo get_theme_mod('footer_text_color', 'rgba(255,255,255,1)') ?>;
-            }
+            .footer-sub, .footer-sub p, .footer-sub a, .footcontact, .footdnr, .footpnr, .footrnr, .footcnr { color: <?php echo get_theme_mod('footer_text_color', 'rgba(255,255,255,1)') ?>; }
             
         </style>
     <?php  
