@@ -121,6 +121,33 @@ add_action('wp_head', 'fb_opengraph', 5);
 //
 // END META TAGS
 
+// Remove WP version number
+function wpbeginner_remove_version() {
+return '';
+}
+add_filter('the_generator', 'wpbeginner_remove_version');
+
+// Remove Script and Style version numbers
+add_filter( 'style_loader_src',  'sdt_remove_ver_css_js', 9999, 2 );
+add_filter( 'script_loader_src', 'sdt_remove_ver_css_js', 9999, 2 );
+
+function sdt_remove_ver_css_js( $src, $handle ) 
+{
+    $handles_with_version = [ 'style' ]; // <-- Adjust to your needs!
+
+    if ( strpos( $src, 'ver=' ) && ! in_array( $handle, $handles_with_version, true ) )
+        $src = remove_query_arg( 'ver', $src );
+
+    return $src;
+}
+
+function vc_remove_wp_ver_css_js( $src ) {
+    if ( strpos( $src, 'ver=' . get_bloginfo( 'version' ) ) )
+        $src = remove_query_arg( 'ver', $src );
+    return $src;
+}
+add_filter( 'style_loader_src', 'vc_remove_wp_ver_css_js', 9999 );
+add_filter( 'script_loader_src', 'vc_remove_wp_ver_css_js', 9999 );
 
 // Enable post thumbnails
 
