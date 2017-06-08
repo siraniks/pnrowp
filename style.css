@@ -4,7 +4,7 @@ Theme URI: https://github.com/siraniks/pnrowp
 Author: the PENRO South Cotabato WebDev Team
 Author URI: http://www.penrosocot.com/
 Description: PENRO prototype wordpress template
-Version: 2.0a.2
+Version: 2.0a.4
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: two-columns, featured-images
@@ -30,8 +30,9 @@ This theme is mainly for PENRO / DENR but the knowledge on making this theme is 
 
 /* PRINT */
 @media print {
+    p { page-break-after: avoid; page-break-before: avoid; }
     .container { margin: 0 !important; padding: 0 !important; }
-    #mainnavbtn, #searchbox, #temp, .announcement, .footer, ul.sharelist, ul.taglist, .breadcrumb, a.back-to-top, .alert, #noprnt, #commentbox-btn-show, #commentbox-btn-hide { display: none; visibility: hidden; }
+    #mainnavbtn, #searchbox, #temp, .announcement, .footer, ul.sharelist, ul.taglist, .breadcrumb, a.back-to-top, .alert, #noprnt, #commentbox-btn-show, #commentbox-btn-hide, hr, br { display: none; visibility: hidden; }
     div#fbcommentbox { height: 10px; overflow: hidden;}
     button#editBtn, span#btn, #btn { display: none; visibility: hidden; }
     a.post-edit-link:after { display:none; }
@@ -79,7 +80,6 @@ This theme is mainly for PENRO / DENR but the knowledge on making this theme is 
         font-style: italic;
     }
     .card-title { margin-top: -20px; }
-    .news-item-wrapper p { margin-top: -15px; }
     img { max-width: 500px; border-color: transparent !important; }
     .news-item-wrapper a:link:after { content: " (" attr(href) ") "; color: blue; }
     p.wp-caption-text { margin-top: 3px; }
@@ -1438,7 +1438,7 @@ ul.mobi-menu li a { color: blue;}
 p.editThePost { padding-bottom: 15px;}
 
 /** SEARCH BAR **/
-
+#searchbox { position: relative; z-index: 1; }
 .searchbtn:hover {
     background-color: white;
     color: #373a3c;
