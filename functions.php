@@ -78,9 +78,11 @@ function fb_opengraph() {
         } else {
             $img_src = get_template_directory_uri() . '/images/opengraph_image.jpg';
         }
-        if($excerpt = $post->post_excerpt) {
-            $excerpt = strip_tags($post->post_excerpt);
+        if($excerpt = $post->post_content) {
+            $excerpt = strip_tags($post->post_content);
             $excerpt = str_replace("", "'", $excerpt);
+            $excerpt = str_replace("&nbsp;", '', $excerpt);
+            $trimexcerpt = trim($excerpt);
         } else {
             $metadesc = 'Official news portal for Provincial Environment and Natural Resources Office (PENRO) activities and updates.';
             $excerpt = $metadesc;
@@ -88,26 +90,36 @@ function fb_opengraph() {
         ?>
     
     <!-- Facebook meta-->
-    <meta property="fb:app_id" content="{<?php echo get_theme_mod('fb-appid'); ?>}" />
-    <meta property="fb:admins" content="{<?php echo get_theme_mod('fb-adminid'); ?>}"/> 
+    <?php
+        $appid = get_theme_mod('fb-appid');
+        if ($appid === "") { ?>
+    <?php } else { ?>
+    <meta property="fb:app_id" content="<?php echo get_theme_mod('fb-appid'); ?>" />
+    <?php } ?>
+    <?php
+        $adminid = get_theme_mod('fb-adminid');
+        if ($adminid === "") { ?>
+    <?php } else { ?>
+    <meta property="fb:admins" content="<?php echo get_theme_mod('fb-adminid'); ?>"/> 
+    <?php } ?>
 
     <!-- Open Graph data -->
-    <meta property="og:title" content="<?php echo wp_trim_words(get_the_title(), 55, null); ?>"/>
-    <meta property="og:description" content="<?php echo wp_trim_words($excerpt, 55, null); ?>"/>
-    <meta property="og:type" content="blog"/>
+    <meta property="og:title" content="<?php echo wp_trim_words(get_the_title(), 55, ''); ?>"/>
+    <meta property="og:description" content="<?php echo wp_trim_words($trimexcerpt, 40, '...'); ?>"/>
+    <meta property="og:type" content="article"/>
     <meta property="og:url" content="<?php echo the_permalink(); ?>"/>
     <meta property="og:site_name" content="PENRO - <?php echo wp_trim_words(get_bloginfo('description'), 55, null); ?>"/>
     <meta property="og:image" content="<?php echo $img_src; ?>"/>
 
     <!-- Twitter Card data -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="<?php the_title(); ?>">
-    <meta name="twitter:description" content="<?php echo $excerpt; ?>">
+    <meta name="twitter:card" content="<?php echo $img_src; ?>">
+    <meta name="twitter:title" content="<?php echo wp_trim_words(get_the_title(), 55, ''); ?>">
+    <meta name="twitter:description" content="<?php echo wp_trim_words($trimexcerpt, 40, '...'); ?>">
     <meta name="twitter:image:src" content="<?php echo $img_src; ?>">
 
     <!-- Schema.org markup for Google+ -->
-    <meta itemprop="name" content="<?php the_title(); ?>">
-    <meta itemprop="description" content="<?php echo $excerpt; ?> | <?php echo get_bloginfo(); ?> - <?php bloginfo('description'); ?>">
+    <meta itemprop="name" content="<?php echo wp_trim_words(get_the_title(), 55, ''); ?>">
+    <meta itemprop="description" content="<?php echo wp_trim_words($trimexcerpt, 40, '...'); ?>">
     <meta itemprop="image" content="<?php echo $img_src; ?>">
  
 <?php
@@ -746,7 +758,7 @@ function penrowp_options ( $wp_customize ) {
     $wp_customize->add_setting (
         'fb-appid',
         array (
-            'default'       =>  'YOUR_FACEBOOK_APPID',
+            'default'       =>  '',
             'transport'     =>  'refresh',
         )
     );
@@ -754,7 +766,7 @@ function penrowp_options ( $wp_customize ) {
     $wp_customize->add_setting (
         'fb-adminid',
         array (
-            'default'       =>  'YOUR_FACEBOOK_ID',
+            'default'       =>  '',
             'transport'     =>  'refresh',
         )
     );
