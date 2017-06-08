@@ -73,7 +73,7 @@ function fb_opengraph() {
  
     if(is_single()) {
         if(has_post_thumbnail($post->ID)) {
-            $img_src = wp_get_attachment_image_src(get_post_thumbnail_id( $post->ID ), 'medium');
+            $img_src = wp_get_attachment_image_src(get_post_thumbnail_id( $post->ID ), 'og-image');
             $img_src = $img_src[0];
         } else {
             $img_src = get_template_directory_uri() . '/images/opengraph_image.jpg';
@@ -92,11 +92,11 @@ function fb_opengraph() {
     <meta property="fb:admins" content="{<?php echo get_theme_mod('fb-adminid'); ?>}"/> 
 
     <!-- Open Graph data -->
-    <meta property="og:title" content="<?php echo the_title(); ?>"/>
-    <meta property="og:description" content="<?php echo $excerpt; ?>"/>
+    <meta property="og:title" content="<?php echo wp_trim_words(get_the_title(), 55, null); ?>"/>
+    <meta property="og:description" content="<?php echo wp_trim_words($excerpt, 55, null); ?>"/>
     <meta property="og:type" content="blog"/>
     <meta property="og:url" content="<?php echo the_permalink(); ?>"/>
-    <meta property="og:site_name" content="<?php echo get_bloginfo(); ?> - <?php bloginfo('description'); ?>"/>
+    <meta property="og:site_name" content="PENRO - <?php echo wp_trim_words(get_bloginfo('description'), 55, null); ?>"/>
     <meta property="og:image" content="<?php echo $img_src; ?>"/>
 
     <!-- Twitter Card data -->
@@ -161,6 +161,7 @@ function wpdocs_theme_setup() {
     add_image_size( 'category-thumb', 300 ); // 300 pixels wide (and unlimited height)
     add_image_size( 'homepage-thumb', 230, 220, array ('center', 'center') );
     add_image_size( 'post-thumbnail', 1000,380, array ('center', 'top') );
+    add_image_size( 'og-image', 200,200, array ('center', 'top') );
 }
 
 // Change image compression quality
